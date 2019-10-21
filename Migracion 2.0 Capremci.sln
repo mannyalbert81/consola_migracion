@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{D8F0A815-F6E2-4265-866C-BE93491793E2}"
 EndProject
@@ -10,14 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aDocumentRobot", "aDocumentRobot\aDocumentRobot.csproj", "{2368464D-C4E6-47CD-AD88-C982D271E0F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duplicados", "Duplicados\Duplicados.csproj", "{DA01F421-AC38-45F8-A2D9-F6A5D235FF32}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{0D2A63EF-CAE1-41A0-A1FF-A661B381E3EA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeerPDF", "LeerPDF\LeerPDF.csproj", "{8C927640-70F8-4C8B-85C4-99DE69989BE4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRegularizacion", "WebRegularizacion\WebRegularizacion.csproj", "{B39DC35B-075A-46D7-A76E-B0CC899F8A46}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MergePDF", "MergePDF\MergePDF.csproj", "{9D9DF467-8202-41FC-BB34-DEBB4150F635}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportaImporta", "ExportaImporta\ExportaImporta.csproj", "{748067D4-4C72-4071-AB9F-D7455C3F72F3}"
 EndProject
@@ -45,20 +37,6 @@ Global
 		{DA01F421-AC38-45F8-A2D9-F6A5D235FF32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA01F421-AC38-45F8-A2D9-F6A5D235FF32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA01F421-AC38-45F8-A2D9-F6A5D235FF32}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0D2A63EF-CAE1-41A0-A1FF-A661B381E3EA}.Debug|Any CPU.ActiveCfg = Debug
-		{0D2A63EF-CAE1-41A0-A1FF-A661B381E3EA}.Release|Any CPU.ActiveCfg = Release
-		{8C927640-70F8-4C8B-85C4-99DE69989BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C927640-70F8-4C8B-85C4-99DE69989BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C927640-70F8-4C8B-85C4-99DE69989BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C927640-70F8-4C8B-85C4-99DE69989BE4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B39DC35B-075A-46D7-A76E-B0CC899F8A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B39DC35B-075A-46D7-A76E-B0CC899F8A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B39DC35B-075A-46D7-A76E-B0CC899F8A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B39DC35B-075A-46D7-A76E-B0CC899F8A46}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9D9DF467-8202-41FC-BB34-DEBB4150F635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9D9DF467-8202-41FC-BB34-DEBB4150F635}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9D9DF467-8202-41FC-BB34-DEBB4150F635}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9D9DF467-8202-41FC-BB34-DEBB4150F635}.Release|Any CPU.Build.0 = Release|Any CPU
 		{748067D4-4C72-4071-AB9F-D7455C3F72F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{748067D4-4C72-4071-AB9F-D7455C3F72F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{748067D4-4C72-4071-AB9F-D7455C3F72F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -70,5 +48,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FCF43E50-3463-4632-A269-1A88F5254BA1}
 	EndGlobalSection
 EndGlobal
