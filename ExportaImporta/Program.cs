@@ -7,6 +7,7 @@ using Negocio;
 using System.Globalization;
 using System.Xml.Linq;
 using System.Xml;
+using System.Threading;
 /// <summary>
 /// manuel cambios
 /// </summary>
@@ -49,7 +50,7 @@ namespace ExportaImporta
             cargar_informacion_adicional_participes();
             cargar_creditos();
             cargar_tablas_amortizacion();
-            */calcular_moras();/*
+            //calcular_moras();
             cargar_parametrizacion_tabla_amortizacion();
             cargar_pagos_tablas_amortizacion();*/
 
@@ -60,7 +61,7 @@ namespace ExportaImporta
              cargar_contribucion_cuenta_individual();
              cargar_contribucion_cuenta_desembolsar();
            */
-
+            cargar_prestaciones();
 
             Console.Read();
            
@@ -115,6 +116,9 @@ namespace ExportaImporta
             Console.WriteLine("---------------------------------");
 
 
+            Console.WriteLine("-----------VACIANDO PRESTACIONES----------------------");
+            AccesoLogica.TruncateCascade("core_prestaciones");
+            Console.WriteLine("---------------------------------");
 
 
 
@@ -124,7 +128,7 @@ namespace ExportaImporta
 
 
 
-            
+
 
             Console.WriteLine("---------------------------------");
             Console.ForegroundColor = ConsoleColor.Magenta;
@@ -171,6 +175,9 @@ namespace ExportaImporta
             AccesoLogica.Select("ALTER SEQUENCE core_participes_id_participes_seq RESTART WITH 1");
             Console.WriteLine("---------------------------------");
 
+
+            AccesoLogica.Select("ALTER SEQUENCE core_prestaciones_id_prestaciones_seq RESTART WITH 10000");
+            Console.WriteLine("---------------------------------");
 
 
 
@@ -283,7 +290,7 @@ namespace ExportaImporta
                             {
                                 _fecha_anterior_tabla_amortizacion = Convert.ToDateTime(renglon_ante["fecha_anterior_tabla_amortizacion"].ToString());
                             }
-                            catch (Exception Ex)
+                            catch (Exception )
                             {
 
                                 _fecha_anterior_tabla_amortizacion = _fecha_tabla_amortizacion;
@@ -331,7 +338,7 @@ namespace ExportaImporta
 
 
                         }
-                        catch (Exception Ex)
+                        catch (Exception )
                         {
                             Console.ForegroundColor = ConsoleColor.Blue;
                             Console.WriteLine("CREDITO NO SE ENCUENTRA EN MORA.");
@@ -1600,12 +1607,197 @@ namespace ExportaImporta
 
 
 
+        ///////MANUEL
+        ///
+        public static void cargar_prestaciones()
+        {
+           // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+           // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now; 
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+             Console.WriteLine("LEENDO ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
 
 
+            DataTable dtLiquidation = AccesoLogicaSQL.Select("LIQUIDATION_ID, REFERENCE_ID, HISTORICAL_BASIC_QUANTITY_ID, HISTORICAL_PAY_PERCENTAGE_ID, PARTNER_ID, CORRECTION_FACTOR_VALUE_ID, DATE_CONCLUSION, SUBTOTAL, NET_VALUE_TO_PAY, IMPOSITION_NUMBERS, STATUS , OBSERVATION , TYPE  , STATE  , VOUCHER  , CHECK_NUMBER , PARTNER_IS_ALIVE, FOLDER_NUMBER, FILE_NUMBER, DATE_FOLDER_ENTRANCE, DOCUMENT_NUMBER, USER_ID, USER_NAME, JOURNAL_ID, YEAR_FOR_SEVERANCE, YEAR_FOR_SEVERANCE_PAY, PRORATE_FACTOR_VALUE, FOLDER_STATE_ID,ISNULL( DATE_FOLDER_PAY,'') AS DATE_FOLDER_PAY, NUMBER_FOLDER, DATE_ENTRANCE_PN , DATE_EXIT_PN , OUTCOME_VALUE , LIQUIDATION_HISTORICAL_ID, LIQUIDATION_HISTORICAL_ID_ADITIONAL", " one.LIQUIDATION", " LIQUIDATION_ID > 0");
 
+            
 
+            int _id_prestaciones;
+            int _id_participe;
+            double _mitad_aporte_personal_prestaciones;
+            double _total_aporte_personal_prestaciones;
+            double _total_descuentos_prestaciones;
+            double _total_recibir_prestaciones;
+            int _numero_aportaciones_prestaciones;
+            int _id_estatus;
+            string _observacion_prestaciones;
+            int _id_tipo_prestaciones;
+            int _id_estado_prestaciones;
+            string _cuenta_participe_pago_prestaciones;
+            string _carpeta_prestaciones;
+            string _archivo_prestaciones;
+            string _numero_prestaciones;
+            DateTime _fecha_solicitud_prestaciones;
+            DateTime _fecha_pago_prestaciones;
+            string _usuario_usuarios;
 
+            int reg = dtLiquidation.Rows.Count;
+
+            int _leidos_prestaciones = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtLiquidation.Rows)
+                {
+                    _leidos_prestaciones++;
+
+                    _id_prestaciones = Convert.ToInt32(renglon["LIQUIDATION_ID"].ToString());
+                    _id_participe = Convert.ToInt32(renglon["PARTNER_ID"].ToString());
+                    _total_recibir_prestaciones = Convert.ToDouble(renglon["NET_VALUE_TO_PAY"].ToString());
+                    _numero_aportaciones_prestaciones = Convert.ToInt32(renglon["IMPOSITION_NUMBERS"].ToString());
+                    // Convert.ToInt32(renglon["STATUS"].ToString());
+                    if (Convert.ToBoolean(renglon["STATUS"].ToString()) == true)
+                    {
+                        _id_estatus = 1;
+                    }
+                    else
+                    {
+                        _id_estatus = 2;
+                    }
+                    Console.WriteLine("STATUS -> "+_id_estatus+"  " + renglon["STATUS"].ToString());
+                   // Console.Read();
+
+                    _observacion_prestaciones = Convert.ToString(renglon["OBSERVATION"].ToString());
+                    _id_tipo_prestaciones = Convert.ToInt32(renglon["TYPE"].ToString());
+                    if (Convert.ToInt32(renglon["STATE"].ToString()) == 0)
+                    {
+                        _id_estado_prestaciones = 5;
+                    }
+                    else
+                    {
+                        _id_estado_prestaciones = Convert.ToInt32(renglon["STATE"].ToString());
+                    }
+                    
+
+                    _cuenta_participe_pago_prestaciones = Convert.ToString(renglon["VOUCHER"].ToString());
+                    _carpeta_prestaciones = Convert.ToString(renglon["FOLDER_NUMBER"].ToString());
+                    _archivo_prestaciones = Convert.ToString(renglon["FILE_NUMBER"].ToString());
+                   
+                        _fecha_solicitud_prestaciones = Convert.ToDateTime(renglon["DATE_FOLDER_ENTRANCE"].ToString());
+                 
+                    
+                    _numero_prestaciones = Convert.ToString(renglon["DOCUMENT_NUMBER"].ToString());
+                    _usuario_usuarios = Convert.ToString(renglon["USER_NAME"].ToString());
+                    _fecha_pago_prestaciones = Convert.ToDateTime(renglon["DATE_FOLDER_PAY"].ToString());
+                    Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE PRESTACIONES PROCESADAS -> " + reg + " LEIDOS -> " + _leidos_prestaciones);
+
+                    Ins_prestaciones(_id_prestaciones,  _id_participe,  0,  0,  0,  _total_recibir_prestaciones,  _numero_aportaciones_prestaciones,  _id_estatus,  _observacion_prestaciones,  _id_tipo_prestaciones,  _id_estado_prestaciones,  _cuenta_participe_pago_prestaciones,  _carpeta_prestaciones,  _archivo_prestaciones,  _numero_prestaciones,  _fecha_solicitud_prestaciones,  _fecha_pago_prestaciones,  _usuario_usuarios);
+                }
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
 
         }
+
+
+
+
+        public static void Ins_prestaciones(int _id_prestaciones, int _id_participe, double _mitad_aporte_personal_prestaciones, double _total_aporte_personal_prestaciones, double _total_descuentos_prestaciones, double _total_recibir_prestaciones, int _numero_aportaciones_prestaciones, int _id_estatus, string _observacion_prestaciones, int _id_tipo_prestaciones, int _id_estado_prestaciones, string _cuenta_participe_pago_prestaciones, string _carpeta_prestaciones, string _archivo_prestaciones, string _numero_prestaciones, DateTime _fecha_solicitud_prestaciones, DateTime _fecha_pago_prestaciones, string _usuario_usuarios)
+        {
+      
+            string cadena1 = _id_prestaciones+"?"+
+                _id_participe + "?" + 
+                _mitad_aporte_personal_prestaciones + "?" + 
+                _total_aporte_personal_prestaciones + "?" + 
+                _total_descuentos_prestaciones + "?" + 
+                _total_recibir_prestaciones + "?" + 
+                _numero_aportaciones_prestaciones + "?" + 
+                _id_estatus + "?" + 
+                _observacion_prestaciones + "?" + 
+                _id_tipo_prestaciones + "?" + 
+                _id_estado_prestaciones + "?" + 
+                _cuenta_participe_pago_prestaciones + "?" + 
+                _carpeta_prestaciones + "?" + 
+                _archivo_prestaciones + "?" + 
+                _numero_prestaciones + "?" + 
+                _fecha_solicitud_prestaciones + "?" + 
+                _fecha_pago_prestaciones + "?" + 
+                _usuario_usuarios;
+
+          
+
+        
+            string cadena2 = "_id_prestaciones?" +
+                "_id_participe?" +
+                "_mitad_aporte_personal_prestaciones?" +
+                "_total_aporte_personal_prestaciones?" +
+                "_total_descuentos_prestaciones?" +
+                "_total_recibir_prestaciones?" +
+                "_numero_aportaciones_prestaciones?" +
+                "_id_estatus?" +
+                "_observacion_prestaciones?" +
+                "_id_tipo_prestaciones?" +
+                "_id_estado_prestaciones?" +
+                "_cuenta_participe_pago_prestaciones?" +
+                "_carpeta_prestaciones?" +
+                "_archivo_prestaciones?" +
+                "_numero_prestaciones?" +
+                "_fecha_solicitud_prestaciones?" +
+                "_fecha_pago_prestaciones?" +
+                "_usuario_usuarios";
+            string cadena3 = "NpgsqlDbType.Integer?" +
+                "NpgsqlDbType.Integer?" +
+                "NpgsqlDbType.Double?" +
+                "NpgsqlDbType.Double?" +
+                "NpgsqlDbType.Double?" +
+                "?NpgsqlDbType.Double?" + 
+                "NpgsqlDbType.Integer?" +
+                "NpgsqlDbType.Integer?" +
+                "NpgsqlDbType.Varchar?" +
+                "NpgsqlDbType.Integer?" +
+                "NpgsqlDbType.Integer?" +
+                "NpgsqlDbType.Varchar?" +
+                "NpgsqlDbType.Varchar?" +
+                "NpgsqlDbType.Varchar?" +
+                "NpgsqlDbType.Varchar?" +
+                "NpgsqlDbType.TimestampTz?" +
+                "NpgsqlDbType.TimestampTz?" +
+                "NpgsqlDbType.Varchar" ;
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "public.ins_core_prestaciones_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar Tabla de Prestaciones" + Ex.Message);
+                string cadena5 = "_error_errores_importacion";
+                string cadena6 = "NpgsqlDbType.Varchar";
+               // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.Read();
+
+            }
+
+        }
+
+
+    }
 
 }

@@ -213,7 +213,7 @@ namespace aDocumentRobot
         public static void leerXML(string _path, string _nombre_xml_archivo, int _id_subcategorias, string _nombre_subcategorias)
         {
 
-            bool _soap = false;
+          //  bool _soap = false;
             string _ruc_cliente_proveedor = "S/N";
             string _fecha = "";
             string _nombre_cliente_proveedor = "S/N";
@@ -726,7 +726,7 @@ namespace aDocumentRobot
 
                     if (item._name.ToString() == "CIERRE_DE_VENTAS_SOAT" || item._name.ToString() == "CIERRE_DE_VENTA_SOAT")
                     {
-                        _soap = true;
+                        //_soap = true;
                         _cierre_ventas_soat = item._value.ToString();
                         _nombre_tipo_documento = "SOAP";
                         _ruc_cliente_proveedor = "S/CP";
