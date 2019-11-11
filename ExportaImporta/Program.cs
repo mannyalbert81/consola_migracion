@@ -61,8 +61,17 @@ namespace ExportaImporta
              cargar_contribucion_cuenta_individual();
              cargar_contribucion_cuenta_desembolsar();
            */
-            cargar_prestaciones();
 
+
+            ///MANUEL
+            ///
+            //cargar_prestaciones();
+       //     cargar_modo_pago();
+
+
+           cargar_transacciones();
+           cargar_transacciones_detalle();
+            AccesoLogica.TruncateCascade("TERMINÓ CONSOLA DE TRANSACCIONES");
             Console.Read();
            
         }
@@ -118,6 +127,10 @@ namespace ExportaImporta
 
             Console.WriteLine("-----------VACIANDO PRESTACIONES----------------------");
             AccesoLogica.TruncateCascade("core_prestaciones");
+            Console.WriteLine("---------------------------------");
+
+            Console.WriteLine("-----------VACIANDO MODO PAGO----------------------");
+            AccesoLogica.TruncateCascade("core_modo_pago");
             Console.WriteLine("---------------------------------");
 
 
@@ -177,6 +190,8 @@ namespace ExportaImporta
 
 
             AccesoLogica.Select("ALTER SEQUENCE core_prestaciones_id_prestaciones_seq RESTART WITH 10000");
+            Console.WriteLine("---------------------------------");
+            AccesoLogica.Select("ALTER SEQUENCE core_modo_pago_id_modo_pago_seq RESTART WITH 100");
             Console.WriteLine("---------------------------------");
 
 
@@ -1628,9 +1643,9 @@ namespace ExportaImporta
 
             int _id_prestaciones;
             int _id_participe;
-            double _mitad_aporte_personal_prestaciones;
-            double _total_aporte_personal_prestaciones;
-            double _total_descuentos_prestaciones;
+            //double _mitad_aporte_personal_prestaciones;
+            //double _total_aporte_personal_prestaciones;
+            //double _total_descuentos_prestaciones;
             double _total_recibir_prestaciones;
             int _numero_aportaciones_prestaciones;
             int _id_estatus;
@@ -1797,6 +1812,379 @@ namespace ExportaImporta
 
         }
 
+
+
+
+
+        public static void cargar_modo_pago()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtModoPago = AccesoLogicaSQL.Select("CREDIT_PAYMENT_MODE_ID, NAME, DESCRIPTION ", "one.CREDIT_PAYMENT_MODE", " CREDIT_PAYMENT_MODE_ID > 0");
+
+
+
+            int     _id_modo_pago;
+            string _nombre_modo_pago;
+            string _descripcion_modo_pago;
+
+            int reg = dtModoPago.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtModoPago.Rows)
+                {
+                    _leidos++;
+
+                    _id_modo_pago = Convert.ToInt32(renglon["CREDIT_PAYMENT_MODE_ID"].ToString());
+                    _nombre_modo_pago = Convert.ToString(renglon["NAME"].ToString());
+                    _descripcion_modo_pago = Convert.ToString(renglon["DESCRIPTION"].ToString());
+
+                  //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE MODO DE PAGOS PROCESADOS -> " + reg + " LEIDOS -> " + _leidos);
+
+                    Ins_modo_pago(_id_modo_pago, _nombre_modo_pago, _descripcion_modo_pago);
+                }
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+        public static void Ins_modo_pago(int _id_modo_pago, string _nombre_modo_pago, string _descripcion_modo_pago)
+
+        {
+
+            string cadena1 = _id_modo_pago + "?" +
+                _nombre_modo_pago + "?" +
+                _descripcion_modo_pago;
+
+
+
+
+            string cadena2 = "_id_modo_pago?_nombre_modo_pago?_descripcion_modo_pago";
+            string cadena3 = "NpgsqlDbType.Integer?" +
+               
+                "NpgsqlDbType.Varchar?" +
+                "NpgsqlDbType.Varchar";
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "public.ins_core_modo_pago_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar Tabla de Modo de pagos" + Ex.Message);
+                string cadena5 = "_error_errores_importacion";
+                string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.Read();
+
+            }
+
+        }
+
+
+
+
+        public static void cargar_transacciones()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtTransacciones = AccesoLogicaSQL.Select("CREDIT_TRANSACTION_ID," +
+                "CREDIT_ID," +
+                "PARTNER_ID," +
+                "TYP_TYPE_PAYMENT_ID," +
+                "DATE," +
+                "VALUE," +
+                "COMMENTS," +
+                "USER_LOGIN," +
+                "EVENT_ID," +
+                "JOURNAL_ID," +
+                "NUM_MIGRATED," +
+                "CURRENCY_ID," +
+                "DATE_PROCESS," +
+                "OLD_CODE," +
+                "STATUS," +
+                "STATE," +
+                "CREDIT_PAYMENT_MODE_ID," +
+                "REFERENCE_NUMBER," +
+                "JOURNAL_REVERSE_ID," +
+                "SERVER_DATE", " one.CREDIT_TRANSACTION", " PARTNER_ID > 0");
+
+            Int64 _id_transacciones;
+            Int64 _id_creditos;
+            Int64 _id_participes;
+            DateTime _fecha_transacciones;
+            Double _valor_transacciones;
+            string _observacion_transacciones;
+            string _usuario_usuarios;
+            Int64 _id_ccomprobantes_ant;
+            DateTime _fecha_contable_core_transacciones;
+            int _id_status;
+            int _id_estado_transacciones;
+            int _id_modo_pago;
+
+           
+            int reg = dtTransacciones.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtTransacciones.Rows)
+                {
+                    _leidos++;
+
+                    _id_transacciones = Convert.ToInt32(renglon["CREDIT_TRANSACTION_ID"].ToString());
+                    _id_creditos = Convert.ToInt32(renglon["CREDIT_ID"].ToString());
+                    _id_participes = Convert.ToInt32(renglon["PARTNER_ID"].ToString());
+                    _fecha_transacciones = Convert.ToDateTime(renglon["DATE"].ToString());
+                    _valor_transacciones = Convert.ToDouble(renglon["VALUE"].ToString());
+                    _observacion_transacciones = Convert.ToString(renglon["COMMENTS"].ToString());
+                    _usuario_usuarios = Convert.ToString(renglon["USER_LOGIN"].ToString());
+                    _id_ccomprobantes_ant = Convert.ToInt32(renglon["JOURNAL_ID"].ToString());
+                    _fecha_contable_core_transacciones = Convert.ToDateTime(renglon["DATE_PROCESS"].ToString());
+
+                    if (Convert.ToBoolean(renglon["STATUS"].ToString()) == true)
+                    {
+                        _id_status = 1;
+                    }
+                    else
+                    {
+                        _id_status = 2;
+                    }
+                    
+                   
+                        _id_estado_transacciones = _id_status;
+
+
+                    _id_modo_pago = Convert.ToInt32(renglon["CREDIT_PAYMENT_MODE_ID"].ToString());
+
+
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE MODO DE PAGOS PROCESADOS -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_transacciones(_id_transacciones, _id_creditos, _id_participes, _fecha_transacciones, _valor_transacciones, _observacion_transacciones, _usuario_usuarios, _id_ccomprobantes_ant, _fecha_contable_core_transacciones, _id_status, _id_estado_transacciones, _id_modo_pago);
+                }
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+        public static void ins_core_transacciones(Int64 _id_transacciones, Int64 _id_creditos, Int64 _id_participes, DateTime _fecha_transacciones, double  _valor_transacciones, string  _observacion_transacciones, string  _usuario_usuarios, Int64  _id_ccomprobantes_ant, DateTime _fecha_contable_core_transacciones, int _id_status,  int _id_estado_transacciones, int _id_modo_pago)
+        {
+
+            string cadena1 = _id_transacciones+"?"+
+                _id_creditos + "?" + 
+                _id_participes + "?" + 
+                _fecha_transacciones + "?" + 
+                _valor_transacciones + "?" + 
+                _observacion_transacciones + "?" + 
+                _usuario_usuarios + "?" + 
+                _id_ccomprobantes_ant + "?" + 
+                _fecha_contable_core_transacciones + "?" + 
+                _id_status + "?" + 
+                _id_estado_transacciones + "?" + 
+                _id_modo_pago;
+
+
+
+
+            string cadena2 = "_id_transacciones?" +
+                "_id_creditos?" +
+                "_id_participes?" +
+                "_fecha_transacciones?" +
+                "_valor_transacciones?" +
+                "_observacion_transacciones?" +
+                "_usuario_usuarios?" +
+                "_id_ccomprobantes_ant?" +
+                "_fecha_contable_core_transacciones?" +
+                "_id_status?" +
+                "_id_estado_transacciones?" +
+                "_id_modo_pago";
+            string cadena3 = "NpgsqlDbType.Integer?" +
+                            "NpgsqlDbType.Integer?" +
+                            "NpgsqlDbType.Integer?" +
+                             "NpgsqlDbType.TimestampTz?" +
+                            "NpgsqlDbType.Numeric?"+
+                            "NpgsqlDbType.Varchar?"+
+                            "NpgsqlDbType.Varchar?" +
+                            "NpgsqlDbType.Integer?" +
+                            "NpgsqlDbType.TimestampTz?" +
+                            "NpgsqlDbType.Integer?" +
+                            "NpgsqlDbType.Integer?" +
+                            "NpgsqlDbType.Integer?";
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "public.ins_core_transacciones_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar Tabla de Transacciones" + Ex.Message);
+                string cadena5 = "_error_errores_importacion";
+                string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.Read();
+
+            }
+
+        }
+
+
+
+        public static void cargar_transacciones_detalle()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtTransacciones = AccesoLogicaSQL.Select("CREDIT_TRANSACTION_DETAIL_ID, " +
+                "CREDIT_TRANSACTION_ID, " +
+                "APROVED_AMORTIZATION_TABLE_ADDITIONAL_VALUE_ID," +
+                "VALUE," +
+                "STATE," +
+                "STATUS", " one.CREDIT_TRANSACTION_DETAIL", " CREDIT_TRANSACTION_DETAIL_ID > 0");
+
+            Int64 _id_transacciones_detalle;
+            Int64 _id_transacciones;
+            Int64 _id_tabla_amortizacion_pago;
+            double _valor_transaccion_detalle;
+            int _id_status;
+
+
+            int reg = dtTransacciones.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtTransacciones.Rows)
+                {
+                    _leidos++;
+
+                    _id_transacciones_detalle = Convert.ToInt32(renglon["CREDIT_TRANSACTION_DETAIL_ID"].ToString());
+                    _id_transacciones = Convert.ToInt32(renglon["CREDIT_TRANSACTION_ID"].ToString());
+                    
+                    _id_tabla_amortizacion_pago = Convert.ToInt64(renglon["APROVED_AMORTIZATION_TABLE_ADDITIONAL_VALUE_ID"].ToString());
+                    _valor_transaccion_detalle = Convert.ToDouble(renglon["VALUE"].ToString());
+
+                    if (Convert.ToBoolean(renglon["STATUS"].ToString()) == true)
+                    {
+                        _id_status = 1;
+                    }
+                    else
+                    {
+                        _id_status = 2;
+                    }
+
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE MODO DE PAGOS PROCESADOS -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_transacciones_detalle_carga(_id_transacciones_detalle, _id_transacciones, _id_tabla_amortizacion_pago, _valor_transaccion_detalle,  _id_status);
+                }
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+        public static void ins_core_transacciones_detalle_carga(Int64 _id_transacciones_detalle, Int64 _id_transacciones, Int64 _id_tabla_amortizacion_pago, double _valor_transaccion_detalle, int _id_status)
+        {
+
+            string cadena1 = _id_transacciones_detalle+"?"+_id_transacciones + "?" + _id_tabla_amortizacion_pago + "?" + _valor_transaccion_detalle + "?" + _id_status;
+            string cadena2 = "_id_transacciones_detalle?_id_transacciones?_id_tabla_amortizacion_pago?_valor_transaccion_detalle?_id_status";
+            string cadena3 = "NpgsqlDbType.Integer?" +
+                            "NpgsqlDbType.Integer?" +
+                            "NpgsqlDbType.Integer?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Integer?";
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "public.ins_core_transacciones_detalle_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO DETALLE ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar Tabla de Transacciones detalle" + Ex.Message);
+                string cadena5 = "_error_errores_importacion";
+                string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+               // Console.Read();
+
+            }
+
+        }
 
     }
 
