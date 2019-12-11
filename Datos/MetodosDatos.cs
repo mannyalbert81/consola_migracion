@@ -50,6 +50,10 @@ namespace Datos
         {
             try
             {
+
+               // Console.WriteLine(comando);
+
+
                 comando.Connection.Open();
                 return comando.ExecuteNonQuery();
             }

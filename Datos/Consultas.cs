@@ -70,7 +70,13 @@ namespace Datos
 
         public int Insert(string datos, string columnas, string tipoDatos, string funcion)
         {
+
+            
             datos = datos.Replace("''", "null");
+
+           // Console.WriteLine(datos);
+
+
             NpgsqlCommand comando = MetodosDatos.CrearComandoProc(funcion);
 
             if (datos.Contains("?"))
@@ -83,6 +89,10 @@ namespace Datos
                 {
                     comando.Parameters.Add(new NpgsqlParameter(vector2[i], vector3[i]));
                     comando.Parameters[i].Value = vector1[i];
+
+
+                    //Console.WriteLine(vector1[i]+" -> ");
+
                 }
             }
             else
@@ -90,6 +100,9 @@ namespace Datos
                 comando.Parameters.Add(new NpgsqlParameter(columnas, tipoDatos));
                 comando.Parameters[0].Value = datos;
             }
+
+
+            
 
             return MetodosDatos.EjecutarComando(comando);
         }

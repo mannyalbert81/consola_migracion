@@ -106,5 +106,20 @@ namespace Negocio
             ConsultasSQL fun = new ConsultasSQL();
             return fun.Update(tabla, campo, where);
         }
+
+
+        public static DataTable AccesoG41_BIESS(DateTime fecha)
+        {
+            Procedimiento_G41_BIESS g41 = new Procedimiento_G41_BIESS();
+            return g41.G41_BIESS(fecha);
+        }
+
+
+        public static DataTable AccesoG42_BIESS(DateTime fecha)
+        {
+            Procedimiento_G41_BIESS g42 = new Procedimiento_G41_BIESS();
+            return g42.G42_BIESS(fecha);
+        }
+
     }
 }
