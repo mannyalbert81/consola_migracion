@@ -39,7 +39,7 @@ namespace ExportaImporta
 
 
             // proceso g41 pata biess
-            generar_g41_biess();
+       //     generar_g41_biess();
 
             // PROCESO DE CIERRE DE MES CREDITOS
             //Cierre_Mes_Creditos();
@@ -88,6 +88,7 @@ namespace ExportaImporta
             ///MANUEL
 
             //cargar_prestaciones();
+            cargar_documentos_hipotecarios();
             //
 
 
@@ -3477,6 +3478,91 @@ namespace ExportaImporta
 
         }
 
+
+
+
+        public static void cargar_documentos_hipotecarios()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO DETALLE ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtTransacciones = AccesoLogicaSQL.Select("CREDIT_ID, " +
+                "PROPERTY_APPRAISAL ", "one.MORTGAGE_DATA", "  1 = 1");
+
+            Int64 _id_credito;
+            // Int64 _id_transacciones;
+            
+            double _valor_avaluo_core_documentos_hipotecario = 0; 
+           
+            int reg = dtTransacciones.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtTransacciones.Rows)
+                {
+                    _leidos++;
+
+                    _id_credito = Convert.ToInt64(renglon["CREDIT_ID"].ToString());
+                    _valor_avaluo_core_documentos_hipotecario = Convert.ToDouble(renglon["PROPERTY_APPRAISAL"].ToString());
+
+                 
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE garantias procesadas -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_documentos_hipotecarios(_id_credito, _valor_avaluo_core_documentos_hipotecario);
+                }
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+        public static void ins_core_documentos_hipotecarios(Int64 _id_creditos, double _valor_avaluo_core_documentos_hipotecario)
+        {
+            string cadena1 = _id_creditos + "?" + _valor_avaluo_core_documentos_hipotecario;
+            string cadena2 = "_id_creditos?_valor_avaluo_core_documentos_hipotecario";
+            string cadena3 = "NpgsqlDbType.Bigint?" +
+                             "NpgsqlDbType.Numeric?";
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_documentos_hipotecario_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO DETALLE ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar documentos hipotecarios" + Ex.Message);
+                string cadena5 = "_error_errores_importacion";
+                string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                // Console.Read();
+
+            }
+
+        }
     }
 
 }
