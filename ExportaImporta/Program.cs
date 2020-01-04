@@ -39,10 +39,10 @@ namespace ExportaImporta
 
 
             // proceso g41 pata biess
-       //     generar_g41_biess();
+           //generar_g41_biess();
 
             // PROCESO DE CIERRE DE MES CREDITOS
-            //Cierre_Mes_Creditos();
+            Cierre_Mes_Creditos();
 
 
 
@@ -88,7 +88,7 @@ namespace ExportaImporta
             ///MANUEL
 
             //cargar_prestaciones();
-            cargar_documentos_hipotecarios();
+            //cargar_documentos_hipotecarios();
             //
 
 
@@ -1699,7 +1699,7 @@ namespace ExportaImporta
 
 
             // EMPIEZA CIEERRE DE MES CONSULTANDO LOS CREDITOS
-            DataTable dtCreditos = AccesoLogica.Select("c.id_creditos, c.id_participes, c.monto_otorgado_creditos, c.id_estado_creditos", "core_creditos c", "c.id_estatus=1 and c.id_estado_creditos not in (1,2,3,6) and c.fecha_concesion_creditos <='"+ _ultimo_dia_mes + "'");
+            DataTable dtCreditos = AccesoLogica.Select("c.id_creditos, c.id_participes, c.monto_otorgado_creditos, c.id_estado_creditos", "core_creditos c", "c.id_estatus=1 and c.id_estado_creditos not in (1,2,3,6) and c.id_creditos=21564 and c.fecha_concesion_creditos <='" + _ultimo_dia_mes + "'");
             int reg_creditos = dtCreditos.Rows.Count;
 
             if (reg_creditos > 0)
@@ -1934,22 +1934,52 @@ namespace ExportaImporta
 
             // consigo la fecha de ultimo pago de capital
             DateTime _fecha_tabla_amortizacion = Buscar_Fecha_Ultimo_Pago_Capital(_id_creditos, _ultimo_dia_mes);
-           
-            // saco diferencia de dias
-            TimeSpan interval = _fecha_tabla_amortizacion - _ultimo_dia_mes;
-            int _dias_reales = interval.Days;
 
+
+            int _dias_reales = 0;
             string _estado_credito_sbs = "";
+
+
+
+            
+
+            if (respuesta > 0)
+            {
+                // saco diferencia de dias
+                TimeSpan interval = _fecha_tabla_amortizacion - _ultimo_dia_mes;
+                _dias_reales = 0;
+                _dias_reales = interval.Days;
+
+                if (_dias_reales >= 90)
+                {
+
+                    _estado_credito_sbs = "VENCIDO";
+                }
+                else
+                {
+
+                    _estado_credito_sbs = "POR VENCER";
+                }
+
+              
+            }
+
+            Console.WriteLine("ESTADO SBS->       " + _estado_credito_sbs + "      DIAS->      " + _dias_reales);
+
+            Console.WriteLine(respuesta);
+            Console.Read();
 
 
             // determino si el credito esta vencido o esta por vencer
             for (_meses_buscar = 1; _meses_buscar <= _mes_buscar; _meses_buscar++)
             {
 
-              
+               
+                
+
                 if (_meses_buscar == 1)
                 {
-                    if (_sal_ene > 0.00) {
+                    if (_sal_ene > 0) {
 
                         if (_dias_reales >= 90)
                         {
@@ -1961,6 +1991,10 @@ namespace ExportaImporta
                             _estado_credito_sbs = "POR VENCER";
                         }
 
+                        // saco diferencia de dias
+                        TimeSpan interval = _fecha_tabla_amortizacion - _ultimo_dia_mes;
+                        _dias_reales = 0;
+                        _dias_reales = interval.Days;
                     }
                     
                 }
@@ -1968,7 +2002,7 @@ namespace ExportaImporta
              
                 if (_meses_buscar == 2)
                 {
-                    if (_sal_feb > 0.00)
+                    if (_sal_feb > 0)
                     {
 
                         if (_dias_reales >= 90)
@@ -1982,6 +2016,10 @@ namespace ExportaImporta
                             _estado_credito_sbs = "POR VENCER";
                         }
 
+                        // saco diferencia de dias
+                        TimeSpan interval = _fecha_tabla_amortizacion - _ultimo_dia_mes;
+                        _dias_reales = 0;
+                        _dias_reales = interval.Days;
                     }
 
                 }
@@ -1989,7 +2027,7 @@ namespace ExportaImporta
                
                 if (_meses_buscar == 3)
                 {
-                    if (_sal_mar > 0.00)
+                    if (_sal_mar > 0)
                     {
 
                         if (_dias_reales >= 90)
@@ -2002,6 +2040,11 @@ namespace ExportaImporta
 
                             _estado_credito_sbs = "POR VENCER";
                         }
+
+                        // saco diferencia de dias
+                        TimeSpan interval = _fecha_tabla_amortizacion - _ultimo_dia_mes;
+                        _dias_reales = 0;
+                        _dias_reales = interval.Days;
 
                     }
 
@@ -2010,7 +2053,7 @@ namespace ExportaImporta
               
                 if (_meses_buscar == 4)
                 {
-                    if (_sal_abr > 0.00)
+                    if (_sal_abr > 0)
                     {
 
                         if (_dias_reales >= 90)
@@ -2024,6 +2067,10 @@ namespace ExportaImporta
                             _estado_credito_sbs = "POR VENCER";
                         }
 
+                        // saco diferencia de dias
+                        TimeSpan interval = _fecha_tabla_amortizacion - _ultimo_dia_mes;
+                        _dias_reales = 0;
+                        _dias_reales = interval.Days;
                     }
                 }
 
@@ -2031,7 +2078,7 @@ namespace ExportaImporta
                 if (_meses_buscar == 5)
                 {
 
-                    if (_sal_may > 0.00)
+                    if (_sal_may > 0)
                     {
 
                         if (_dias_reales >= 90)
@@ -2045,6 +2092,10 @@ namespace ExportaImporta
                             _estado_credito_sbs = "POR VENCER";
                         }
 
+                        // saco diferencia de dias
+                        TimeSpan interval = _fecha_tabla_amortizacion - _ultimo_dia_mes;
+                        _dias_reales = 0;
+                        _dias_reales = interval.Days;
                     }
                 }
 
@@ -2052,7 +2103,7 @@ namespace ExportaImporta
               
                 if (_meses_buscar == 6)
                 {
-                    if (_sal_jun > 0.00)
+                    if (_sal_jun > 0)
                     {
 
                         if (_dias_reales >= 90)
@@ -2066,13 +2117,17 @@ namespace ExportaImporta
                             _estado_credito_sbs = "POR VENCER";
                         }
 
+                        // saco diferencia de dias
+                        TimeSpan interval = _fecha_tabla_amortizacion - _ultimo_dia_mes;
+                        _dias_reales = 0;
+                        _dias_reales = interval.Days;
                     }
                 }
 
            
                 if (_meses_buscar == 7)
                 {
-                    if (_sal_jul > 0.00)
+                    if (_sal_jul > 0)
                     {
 
                         if (_dias_reales >= 90)
@@ -2086,13 +2141,17 @@ namespace ExportaImporta
                             _estado_credito_sbs = "POR VENCER";
                         }
 
+                        // saco diferencia de dias
+                        TimeSpan interval = _fecha_tabla_amortizacion - _ultimo_dia_mes;
+                        _dias_reales = 0;
+                        _dias_reales = interval.Days;
                     }
                 }
 
               
                 if (_meses_buscar == 8)
                 {
-                    if (_sal_ago > 0.00)
+                    if (_sal_ago > 0)
                     {
 
                         if (_dias_reales >= 90)
@@ -2105,13 +2164,18 @@ namespace ExportaImporta
 
                             _estado_credito_sbs = "POR VENCER";
                         }
+
+                        // saco diferencia de dias
+                        TimeSpan interval = _fecha_tabla_amortizacion - _ultimo_dia_mes;
+                        _dias_reales = 0;
+                        _dias_reales = interval.Days;
 
                     }
                 }
 
                 if (_meses_buscar == 9)
                 {
-                    if (_sal_sep > 0.00)
+                    if (_sal_sep > 0)
                     {
 
                         if (_dias_reales >= 90)
@@ -2125,6 +2189,10 @@ namespace ExportaImporta
                             _estado_credito_sbs = "POR VENCER";
                         }
 
+                        // saco diferencia de dias
+                        TimeSpan interval = _fecha_tabla_amortizacion - _ultimo_dia_mes;
+                        _dias_reales = 0;
+                        _dias_reales = interval.Days;
                     }
                 }
 
@@ -2132,7 +2200,7 @@ namespace ExportaImporta
                 if (_meses_buscar == 10)
                 {
 
-                    if (_sal_oct > 0.00)
+                    if (_sal_oct > 0)
                     {
 
                         if (_dias_reales >= 90)
@@ -2146,13 +2214,17 @@ namespace ExportaImporta
                             _estado_credito_sbs = "POR VENCER";
                         }
 
+                        // saco diferencia de dias
+                        TimeSpan interval = _fecha_tabla_amortizacion - _ultimo_dia_mes;
+                        _dias_reales = 0;
+                        _dias_reales = interval.Days;
                     }
                 }
 
              
                 if (_meses_buscar == 11)
                 {
-                    if (_sal_nov > 0.00)
+                    if (_sal_nov > 0)
                     {
 
                         if (_dias_reales >= 90)
@@ -2166,6 +2238,10 @@ namespace ExportaImporta
                             _estado_credito_sbs = "POR VENCER";
                         }
 
+                        // saco diferencia de dias
+                        TimeSpan interval = _fecha_tabla_amortizacion - _ultimo_dia_mes;
+                        _dias_reales = 0;
+                        _dias_reales = interval.Days;
                     }
                 }
 
@@ -2173,7 +2249,7 @@ namespace ExportaImporta
                 if (_meses_buscar == 12)
                 {
 
-                    if (_sal_dic > 0.00)
+                    if (_sal_dic > 0)
                     {
 
                         if (_dias_reales >= 90)
@@ -2187,6 +2263,10 @@ namespace ExportaImporta
                             _estado_credito_sbs = "POR VENCER";
                         }
 
+                        // saco diferencia de dias
+                        TimeSpan interval = _fecha_tabla_amortizacion - _ultimo_dia_mes;
+                        _dias_reales = 0;
+                        _dias_reales = interval.Days;
                     }
                 }
 
@@ -2424,7 +2504,7 @@ namespace ExportaImporta
 
 
             _year_buscar = 2019;
-            _mes_buscar = 10;
+            _mes_buscar = 11;
 
             DateTime _primer_dia_mes = new DateTime(_year_buscar, _mes_buscar, 1);
             DateTime _ultimo_dia_mes = _primer_dia_mes.AddMonths(1).AddDays(-1);
@@ -3278,9 +3358,16 @@ namespace ExportaImporta
                     {
                         _id_status = 2;
                     }
-                    
-                   
-                        _id_estado_transacciones = _id_status;
+
+                    if (Convert.ToBoolean(renglon["STATE"].ToString()) == true)
+                    {
+                        _id_estado_transacciones = 1;
+                    }
+                    else
+                    {
+                        _id_estado_transacciones = 2;
+                    }
+                   // _id_estado_transacciones = _id_status;
 
 
                     _id_modo_pago = Convert.ToInt32(renglon["CREDIT_PAYMENT_MODE_ID"].ToString());
@@ -3399,6 +3486,7 @@ namespace ExportaImporta
             Int64 _id_tabla_amortizacion_pago;
             double _valor_transaccion_detalle;
             int _id_status;
+            int _id_estado_transacciones;
 
 
             int reg = dtTransacciones.Rows.Count;
@@ -3426,13 +3514,21 @@ namespace ExportaImporta
                     {
                         _id_status = 2;
                     }
+                    if (Convert.ToBoolean(renglon["STATE"].ToString()) == true)
+                    {
+                        _id_estado_transacciones = 1;
+                    }
+                    else
+                    {
+                        _id_estado_transacciones = 2;
+                    }
 
 
                     //  Console.WriteLine(_fecha_pago_prestaciones);
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("TOTAL DE MODO DE PAGOS PROCESADOS -> " + reg + " LEIDOS -> " + _leidos);
 
-                    ins_core_transacciones_detalle_carga(_id_transacciones_detalle, _id_transacciones, _id_tabla_amortizacion_pago, _valor_transaccion_detalle,  _id_status);
+                    ins_core_transacciones_detalle_carga(_id_transacciones_detalle, _id_transacciones, _id_tabla_amortizacion_pago, _valor_transaccion_detalle,  _id_status, _id_estado_transacciones);
                 }
 
                 Console.WriteLine(reg + "---------------------------------");
@@ -3441,15 +3537,16 @@ namespace ExportaImporta
         }
 
 
-        public static void ins_core_transacciones_detalle_carga(Int64 _id_transacciones_detalle, Int64 _id_transacciones, Int64 _id_tabla_amortizacion_pago, double _valor_transaccion_detalle, int _id_status)
+        public static void ins_core_transacciones_detalle_carga(Int64 _id_transacciones_detalle, Int64 _id_transacciones, Int64 _id_tabla_amortizacion_pago, double _valor_transaccion_detalle, int _id_status, int _id_estado_transacciones)
         {
 
-            string cadena1 = _id_transacciones_detalle+"?"+_id_transacciones + "?" + _id_tabla_amortizacion_pago + "?" + _valor_transaccion_detalle + "?" + _id_status;
-            string cadena2 = "_id_transacciones_detalle?_id_transacciones?_id_tabla_amortizacion_pago?_valor_transaccion_detalle?_id_status";
+            string cadena1 = _id_transacciones_detalle+"?"+_id_transacciones + "?" + _id_tabla_amortizacion_pago + "?" + _valor_transaccion_detalle + "?" + _id_status + "?" + _id_estado_transacciones;
+            string cadena2 = "_id_transacciones_detalle?_id_transacciones?_id_tabla_amortizacion_pago?_valor_transaccion_detalle?_id_status?_id_estado_transacciones";
             string cadena3 = "NpgsqlDbType.Bigint?" +
                             "NpgsqlDbType.Bigint?" +
                             "NpgsqlDbType.Bigint?" +
                              "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Integer?" +
                              "NpgsqlDbType.Integer?";
 
             try
