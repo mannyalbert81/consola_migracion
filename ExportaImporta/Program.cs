@@ -1941,41 +1941,9 @@ namespace ExportaImporta
 
 
 
-            
-
-            if (respuesta > 0)
-            {
-                // saco diferencia de dias
-                TimeSpan interval = _fecha_tabla_amortizacion - _ultimo_dia_mes;
-                _dias_reales = 0;
-                _dias_reales = interval.Days;
-
-                if (_dias_reales >= 90)
-                {
-
-                    _estado_credito_sbs = "VENCIDO";
-                }
-                else
-                {
-
-                    _estado_credito_sbs = "POR VENCER";
-                }
-
-              
-            }
-
-            Console.WriteLine("ESTADO SBS->       " + _estado_credito_sbs + "      DIAS->      " + _dias_reales);
-
-            Console.WriteLine(respuesta);
-            Console.Read();
-
-
             // determino si el credito esta vencido o esta por vencer
             for (_meses_buscar = 1; _meses_buscar <= _mes_buscar; _meses_buscar++)
             {
-
-               
-                
 
                 if (_meses_buscar == 1)
                 {
