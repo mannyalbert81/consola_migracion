@@ -74,7 +74,7 @@ namespace Datos
             
             datos = datos.Replace("''", "null");
 
-           // Console.WriteLine(datos);
+            //Console.WriteLine(datos);
 
 
             NpgsqlCommand comando = MetodosDatos.CrearComandoProc(funcion);
@@ -88,10 +88,25 @@ namespace Datos
                 for (int i = 0; i < vector1.Length; i++)
                 {
                     comando.Parameters.Add(new NpgsqlParameter(vector2[i], vector3[i]));
-                    comando.Parameters[i].Value = vector1[i];
+
+                  
+
+                    if (vector1[i].Length == 0) {
+
+                        comando.Parameters[i].Value = DBNull.Value;
+
+                        //Console.WriteLine(vector1[i] + " -> ");
 
 
-                    //Console.WriteLine(vector1[i]+" -> ");
+                    }
+                    else
+                    {
+
+                        comando.Parameters[i].Value = vector1[i];
+
+
+                    }
+
 
                 }
             }
