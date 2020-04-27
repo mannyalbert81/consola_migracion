@@ -9,7 +9,10 @@ namespace Datos
 {
     class MetodosDatosSQL
     {
-        public static string cadenaConexion = @"Data Source=192.168.1.208;Initial Catalog=one.capremci_PROD;User ID=sa;Password=$software$01";
+
+      //  public static string cadenaConexion = @"Data Source=192.168.1.208;Initial Catalog=one.capremci_PROD;User ID=sa;Password=$software$01";
+        public static string cadenaConexion = @"Data Source=186.4.157.125;Initial Catalog=one.capremci_PROD;User ID=sa;Password=$software$01";
+
         //public static string cadenaConexion = @"Data Source=MASOFT-SERVER;Initial Catalog=agro;User ID=sa;Password=Met@fr@me640";
         //Data Source = 192.168.1.206; Initial Catalog = one.capremci_PROD; User ID = sa; Password=***********
 
