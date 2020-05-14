@@ -105,7 +105,21 @@ namespace Negocio
             return fun.Update(tabla, campo, where);
         }
 
-       
+
+
+        public static int BeginTran(string accion)
+        {
+            Consultas fun = new Consultas();
+            return fun.BeginTran(accion);
+        }
+
+        public static int EndTran(string accion)
+        {
+            Consultas fun = new Consultas();
+            return fun.EndTran(accion);
+        }
+
+
 
     }
 }

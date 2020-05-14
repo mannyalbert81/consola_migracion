@@ -157,6 +157,28 @@ namespace Datos
         }
 
 
+        public int BeginTran(string accion)
+        {
+            NpgsqlConnection conexion = new NpgsqlConnection(MetodosDatos.cadenaConexion);
+            NpgsqlCommand _comando = new NpgsqlCommand(accion, conexion);
+
+
+            return MetodosDatos.EjecutarComando(_comando);
+        }
+
+
+        public int EndTran(string accion)
+        {
+            NpgsqlConnection conexion = new NpgsqlConnection(MetodosDatos.cadenaConexion);
+            NpgsqlCommand _comando = new NpgsqlCommand(accion, conexion);
+
+
+            return MetodosDatos.EjecutarComando(_comando);
+        }
+
+        
+
+
         public static string[] Vector(string cadena)
         {
             string[] vector;

@@ -39,12 +39,12 @@ namespace ExportaImporta
 
 
             // proceso g41 pata biess
-           // generar_g41_biess();
-            generar_g42_biess_nueva();
+            // generar_g41_biess();
+            // generar_g42_biess_nueva();
 
 
             // PROCESO DE CIERRE DE MES CREDITOS
-            // Cierre_Mes_Creditos();
+             Cierre_Mes_Creditos();
 
 
 
@@ -59,12 +59,15 @@ namespace ExportaImporta
 
 
             // MIGRACION TABLAS DE AMORTIZACION
+             //cargar_tablas_amortizacion();
+
+
+            // MIGRACION DETALLE PAGOS TABLAS DE AMORTIZACION
             /*
-            cargar_tablas_amortizacion();
             cargar_parametrizacion_tabla_amortizacion();
             cargar_pagos_tablas_amortizacion();
+            
             */
-
 
 
             // PROCESO PARA CALCULAR MORAS
@@ -72,13 +75,13 @@ namespace ExportaImporta
 
 
             // MIGRACION DE TRANSACCIONES DE CREDITO 
-            /*cargar_modo_pago();
-            cargar_transacciones();
-            */
+           /* cargar_modo_pago();
+            cargar_transacciones();*/
+            
 
 
             // MIGRACION APORTES CTA INDIVIDUAL
-             // cargar_contribucion_cuenta_individual();
+              //cargar_contribucion_cuenta_individual();
 
 
             // MIGRACION APORTES CTA DESEMBOLSAR
@@ -910,7 +913,7 @@ namespace ExportaImporta
         public static void cargar_contribucion_cuenta_individual()
         {
 
-            DataTable dtContribucion_Ind = AccesoLogicaSQL.Select("c.CONTRIBUTION_ID, c.PARTNER_ID, c.DATE, c.PERSONNEL_PAY, c.EMPLOYER_PAY, CASE WHEN c.STATUS=0 THEN 2 ELSE c.STATUS END STATUS, c.DESCRIPTION, c.JOURNAL_ID, c.USER_ID, c.USER_NAME, CASE WHEN c.TYPE=0 THEN 3 ELSE c.TYPE END TYPE, CASE WHEN c.STATE=0 THEN 2 ELSE c.STATE END STATE, CASE WHEN c.ENTITY_EMPLOYER_ID=10000 THEN 104 ELSE c.ENTITY_EMPLOYER_ID END ENTITY_EMPLOYER_ID, c.DATE_ACCOUNT, c.DOCUMENT_NUMBER, c.OBSERVATION, isnull(c.LIQUIDATION_ID,0) LIQUIDATION_ID, isnull(c.DISTRIBUTION_ID,0) DISTRIBUTION_ID", "one.CONTRIBUTION c", "1=1 order by c.CONTRIBUTION_ID asc");
+            DataTable dtContribucion_Ind = AccesoLogicaSQL.Select("c.CONTRIBUTION_ID, c.PARTNER_ID, c.DATE, c.PERSONNEL_PAY, c.EMPLOYER_PAY, CASE WHEN c.STATUS=0 THEN 2 ELSE c.STATUS END STATUS, c.DESCRIPTION, c.JOURNAL_ID, c.USER_ID, c.USER_NAME, CASE WHEN c.TYPE=0 THEN 3 ELSE c.TYPE END TYPE, CASE WHEN c.STATE=0 THEN 2 ELSE c.STATE END STATE, CASE WHEN c.ENTITY_EMPLOYER_ID=10000 THEN 104 ELSE c.ENTITY_EMPLOYER_ID END ENTITY_EMPLOYER_ID, c.DATE_ACCOUNT, c.DOCUMENT_NUMBER, c.OBSERVATION, isnull(c.LIQUIDATION_ID,0) LIQUIDATION_ID, isnull(c.DISTRIBUTION_ID,0) DISTRIBUTION_ID, isnull(c.DISCOUNT_TYPE,0) as DISCOUNT_TYPE", "one.CONTRIBUTION c", "1=1 order by c.CONTRIBUTION_ID asc");
 
             int _leidos_individual = 0;
             Int64 _id_contribucion;
@@ -931,7 +934,7 @@ namespace ExportaImporta
             string _observacion_contribucion;
             Int64 _id_liquidacion;
             Int64 _id_distribucion;
-
+            Int32 _tipo_descuento_contribucion;
 
             int reg = dtContribucion_Ind.Rows.Count;
 
@@ -959,13 +962,13 @@ namespace ExportaImporta
                     _observacion_contribucion = renglon["OBSERVATION"].ToString();
                     _id_liquidacion = Convert.ToInt64(renglon["LIQUIDATION_ID"].ToString());
                     _id_distribucion = Convert.ToInt64(renglon["DISTRIBUTION_ID"].ToString());
-
+                    _tipo_descuento_contribucion = Convert.ToInt32(renglon["DISCOUNT_TYPE"].ToString());
                     _leidos_individual++;
 
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Total Cuenta Individual -> " + reg + " LEIDOS -> " + _leidos_individual);
 
-                    Ins_Cta_Individual(_id_contribucion, _id_participes, _fecha_registro_contribucion, _valor_personal_contribucion, _valor_patronal_contribucion, _id_estatus, _descripcion_contribucion, _id_diario, _id_usuarios, _nombre_usuarios_contribucion, _id_contribucion_tipo, _id_estado_contribucion, _id_entidad_patronal, _fecha_contable_distribucion, _numero_documento_contribucion, _observacion_contribucion, _id_liquidacion, _id_distribucion);
+                    Ins_Cta_Individual(_id_contribucion, _id_participes, _fecha_registro_contribucion, _valor_personal_contribucion, _valor_patronal_contribucion, _id_estatus, _descripcion_contribucion, _id_diario, _id_usuarios, _nombre_usuarios_contribucion, _id_contribucion_tipo, _id_estado_contribucion, _id_entidad_patronal, _fecha_contable_distribucion, _numero_documento_contribucion, _observacion_contribucion, _id_liquidacion, _id_distribucion, _tipo_descuento_contribucion);
 
                 }
 
@@ -975,10 +978,10 @@ namespace ExportaImporta
         }
 
 
-        public static void Ins_Cta_Individual(Int64 _id_contribucion, int _id_participes, DateTime _fecha_registro_contribucion, double _valor_personal_contribucion, double _valor_patronal_contribucion, int _id_estatus, string _descripcion_contribucion, int _id_diario, int _id_usuarios, string _nombre_usuarios_contribucion, int _id_contribucion_tipo, int _id_estado_contribucion, int _id_entidad_patronal, DateTime _fecha_contable_distribucion, string _numero_documento_contribucion, string _observacion_contribucion, Int64 _id_liquidacion, Int64 _id_distribucion)
+        public static void Ins_Cta_Individual(Int64 _id_contribucion, int _id_participes, DateTime _fecha_registro_contribucion, double _valor_personal_contribucion, double _valor_patronal_contribucion, int _id_estatus, string _descripcion_contribucion, int _id_diario, int _id_usuarios, string _nombre_usuarios_contribucion, int _id_contribucion_tipo, int _id_estado_contribucion, int _id_entidad_patronal, DateTime _fecha_contable_distribucion, string _numero_documento_contribucion, string _observacion_contribucion, Int64 _id_liquidacion, Int64 _id_distribucion, Int32 _tipo_descuento_contribucion)
         {
 
-            string cadena1 = _id_contribucion + "?" + _id_participes + "?" + _fecha_registro_contribucion + "?" + _valor_personal_contribucion + "?" + _valor_patronal_contribucion + "?" + _id_estatus + "?" + _descripcion_contribucion + "?" + _id_diario + "?" + _id_usuarios + "?" + _nombre_usuarios_contribucion + "?" + _id_contribucion_tipo + "?" + _id_estado_contribucion + "?" + _id_entidad_patronal + "?" + _fecha_contable_distribucion + "?" + _numero_documento_contribucion + "?" + _observacion_contribucion + "?" + _id_liquidacion + "?" + _id_distribucion;
+            string cadena1 = _id_contribucion + "?" + _id_participes + "?" + _fecha_registro_contribucion + "?" + _valor_personal_contribucion + "?" + _valor_patronal_contribucion + "?" + _id_estatus + "?" + _descripcion_contribucion + "?" + _id_diario + "?" + _id_usuarios + "?" + _nombre_usuarios_contribucion + "?" + _id_contribucion_tipo + "?" + _id_estado_contribucion + "?" + _id_entidad_patronal + "?" + _fecha_contable_distribucion + "?" + _numero_documento_contribucion + "?" + _observacion_contribucion + "?" + _id_liquidacion + "?" + _id_distribucion + "?" +  _tipo_descuento_contribucion;
 
             CultureInfo ci = new CultureInfo("es-EC");
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -986,8 +989,8 @@ namespace ExportaImporta
             Console.WriteLine("LEENDO ->" + cadena1);
             Console.WriteLine("------------------------------------------------------------------------------------------------");
 
-            string cadena2 = "_id_contribucion?_id_participes?_fecha_registro_contribucion?_valor_personal_contribucion?_valor_patronal_contribucion?_id_estatus?_descripcion_contribucion?_id_diario?_id_usuarios?_nombre_usuarios_contribucion?_id_contribucion_tipo?_id_estado_contribucion?_id_entidad_patronal?_fecha_contable_distribucion?_numero_documento_contribucion?_observacion_contribucion?_id_liquidacion?_id_distribucion";
-            string cadena3 = "NpgsqlDbType.Bigint?NpgsqlDbType.Integer?NpgsqlDbType.TimestampTZ?NpgsqlDbType.Double?NpgsqlDbType.Double?NpgsqlDbType.Integer?NpgsqlDbType.Varchar?NpgsqlDbType.Integer?NpgsqlDbType.Integer?NpgsqlDbType.Varchar?NpgsqlDbType.Integer?NpgsqlDbType.Integer?NpgsqlDbType.Integer?NpgsqlDbType.TimestampTZ?NpgsqlDbType.Varchar?NpgsqlDbType.Varchar?NpgsqlDbType.Bigint?NpgsqlDbType.Bigint";
+            string cadena2 = "_id_contribucion?_id_participes?_fecha_registro_contribucion?_valor_personal_contribucion?_valor_patronal_contribucion?_id_estatus?_descripcion_contribucion?_id_diario?_id_usuarios?_nombre_usuarios_contribucion?_id_contribucion_tipo?_id_estado_contribucion?_id_entidad_patronal?_fecha_contable_distribucion?_numero_documento_contribucion?_observacion_contribucion?_id_liquidacion?_id_distribucion?_tipo_descuento_contribucion";
+            string cadena3 = "NpgsqlDbType.Bigint?NpgsqlDbType.Integer?NpgsqlDbType.TimestampTZ?NpgsqlDbType.Double?NpgsqlDbType.Double?NpgsqlDbType.Integer?NpgsqlDbType.Varchar?NpgsqlDbType.Integer?NpgsqlDbType.Integer?NpgsqlDbType.Varchar?NpgsqlDbType.Integer?NpgsqlDbType.Integer?NpgsqlDbType.Integer?NpgsqlDbType.TimestampTZ?NpgsqlDbType.Varchar?NpgsqlDbType.Varchar?NpgsqlDbType.Bigint?NpgsqlDbType.Bigint?NpgsqlDbType.Integer";
 
             try
             {
@@ -1676,15 +1679,15 @@ namespace ExportaImporta
 
             }
 
+
             DateTime _primer_dia_mes = new DateTime(_year_buscar, _mes_buscar, 1);
             DateTime _ultimo_dia_mes = _primer_dia_mes.AddMonths(1).AddDays(-1);
 
-            /*
+            
             // VACIO DATOS DEL MES EXISTENTES
-            DataTable dt_cierre_mes = AccesoLogica.Select("id_creditos_cierre_mes", "core_creditos_cierre_mes c", "cast(c.mes_cierre_mes as varchar)=LPAD('" + _mes_buscar + "',2,'0') and c.anio_cierre_mes=" + _year_buscar + "");
+            DataTable dt_cierre_mes = AccesoLogica.Select("id_creditos_cierre_mes", "core_creditos_cierre_mes c", "c.mes_cierre_mes=" + _mes_buscar + " and c.anio_cierre_mes=" + _year_buscar + "");
             int reg_cierre = dt_cierre_mes.Rows.Count;
             int _id_creditos_cierre_mes = 0;
-
 
             if (reg_cierre > 0)
             {
@@ -1707,17 +1710,16 @@ namespace ExportaImporta
 
 
             }
-            */
+            
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("");
             Console.WriteLine("");
-            //Console.WriteLine("--------------COMENZAMOS CARGA DE CREDITOS CRÉDITOS PERIODO ->    " + _ultimo_dia_mes + "--------------------------------");
-            Console.WriteLine("--------------COMENZAMOS CARGA  Y VEIRIFICACION DE CREDITOS CRÉDITOS --------------------------------");
-
+            Console.WriteLine("--------------COMENZAMOS CARGA DE CREDITOS CRÉDITOS PERIODO ->    " + _ultimo_dia_mes + "--------------------------------");
+           
 
 
             // EMPIEZA CIEERRE DE MES CONSULTANDO LOS CREDITOS
-            DataTable dtCreditos = AccesoLogica.Select("c.id_creditos, c.id_participes, c.monto_otorgado_creditos, c.id_estado_creditos", "core_creditos c", "c.id_estatus=1 and c.id_estado_creditos not in (1,2,3,6)  and c.fecha_concesion_creditos <='" + _ultimo_dia_mes + "'");
+            DataTable dtCreditos = AccesoLogica.Select("c.id_creditos, c.id_participes, c.monto_otorgado_creditos, c.id_estado_creditos", "core_creditos c", "c.id_estatus=1 and c.id_estado_creditos not in (1,2,3,6)  and c.fecha_concesion_creditos <='" + _ultimo_dia_mes + "' ORDER BY c.id_estado_creditos ASC");
             int reg_creditos = dtCreditos.Rows.Count;
 
             if (reg_creditos > 0)
@@ -1768,7 +1770,7 @@ namespace ExportaImporta
 
 
             // CONSULTO MOVIMIENTO INICIAL DEL PERIODO
-            DataTable dtPagos = AccesoLogica.Select("coalesce(sum(ctd.valor_transaccion_detalle),0) as total_movimiento", "core_transacciones ct inner join core_transacciones_detalle ctd on ct.id_transacciones=ctd.id_transacciones inner join core_tabla_amortizacion_pagos ctap on ctd.id_tabla_amortizacion_pago=ctap.id_tabla_amortizacion_pagos inner join core_tabla_amortizacion_parametrizacion ctapa on ctap.id_tabla_amortizacion_parametrizacion=ctapa.id_tabla_amortizacion_parametrizacion", "ct.id_creditos=" + _id_creditos + " and ct.id_status=1 and ct.id_estado_transacciones=1 and ctapa.tipo_tabla_amortizacion_parametrizacion=0 and ctd.id_status=1 and date(ct.fecha_contable_core_transacciones) <='" + _ultimo_dia_mes_inicial + "'");
+            DataTable dtPagos = AccesoLogica.Select("coalesce(sum(ctd.valor_transaccion_detalle),0) as total_movimiento", "core_transacciones ct inner join core_transacciones_detalle ctd on ct.id_transacciones=ctd.id_transacciones inner join core_tabla_amortizacion_pagos ctap on ctd.id_tabla_amortizacion_pago=ctap.id_tabla_amortizacion_pagos inner join core_tabla_amortizacion_parametrizacion ctapa on ctap.id_tabla_amortizacion_parametrizacion=ctapa.id_tabla_amortizacion_parametrizacion", "ct.id_creditos=" + _id_creditos + " and ct.id_status=1 and ct.id_estado_transacciones=1 and ctapa.tipo_tabla_amortizacion_parametrizacion=0 and date(ct.fecha_contable_core_transacciones) <='" + _ultimo_dia_mes_inicial + "'");
             int reg_pagos = dtPagos.Rows.Count;
 
             if (reg_pagos > 0)
@@ -1962,7 +1964,7 @@ namespace ExportaImporta
 
 
 
-            /*
+            
             if (_mes_buscar == 1)
             {
                 if (_sal_ene > 0)
@@ -2382,7 +2384,7 @@ namespace ExportaImporta
                 }
             }
 
-            */
+            
 
 
 
@@ -2420,7 +2422,7 @@ namespace ExportaImporta
             double _movimiento = 0.00;
 
 
-            DataTable dtPagosMensual = AccesoLogica.Select("coalesce(sum(ctd.valor_transaccion_detalle),0) as total_movimiento", "core_transacciones ct inner join core_transacciones_detalle ctd on ct.id_transacciones=ctd.id_transacciones inner join core_tabla_amortizacion_pagos ctap on ctd.id_tabla_amortizacion_pago=ctap.id_tabla_amortizacion_pagos inner join core_tabla_amortizacion_parametrizacion ctapa on ctap.id_tabla_amortizacion_parametrizacion=ctapa.id_tabla_amortizacion_parametrizacion", "ct.id_creditos=" + _id_creditos + " and ct.id_status=1 and ct.id_estado_transacciones=1 and ctapa.tipo_tabla_amortizacion_parametrizacion=0 and ctd.id_status=1 and to_char(ct.fecha_contable_core_transacciones, 'YYYY') ='" + _year_buscar + "' and to_char(ct.fecha_contable_core_transacciones, 'MM')=LPAD('" + _mes_buscar + "',2,'0')");
+            DataTable dtPagosMensual = AccesoLogica.Select("coalesce(sum(ctd.valor_transaccion_detalle),0) as total_movimiento", "core_transacciones ct inner join core_transacciones_detalle ctd on ct.id_transacciones=ctd.id_transacciones inner join core_tabla_amortizacion_pagos ctap on ctd.id_tabla_amortizacion_pago=ctap.id_tabla_amortizacion_pagos inner join core_tabla_amortizacion_parametrizacion ctapa on ctap.id_tabla_amortizacion_parametrizacion=ctapa.id_tabla_amortizacion_parametrizacion", "ct.id_creditos=" + _id_creditos + " and ct.id_status=1 and ct.id_estado_transacciones=1 and ctapa.tipo_tabla_amortizacion_parametrizacion=0 and to_char(ct.fecha_contable_core_transacciones, 'YYYY') ='" + _year_buscar + "' and to_char(ct.fecha_contable_core_transacciones, 'MM')=LPAD('" + _mes_buscar + "',2,'0')");
             int reg_pagos = dtPagosMensual.Rows.Count;
 
             if (reg_pagos > 0)
@@ -4186,8 +4188,10 @@ namespace ExportaImporta
             int _id_status;
             int _id_estado_transacciones;
             int _id_modo_pago;
+            int _id_creditos_tipo_pago=0;
+            int _id_ccomprobantes_reversa=0;
 
-           
+
             int reg = dtTransacciones.Rows.Count;
 
             int _leidos = 0;
@@ -4210,13 +4214,9 @@ namespace ExportaImporta
                     _fecha_contable_core_transacciones = Convert.ToDateTime(renglon["DATE_PROCESS"].ToString());
                     _id_status = Convert.ToInt32(renglon["STATUS"].ToString());
                     _id_estado_transacciones = Convert.ToInt32(renglon["STATE"].ToString());
-
-
-
-
-
-
                     _id_modo_pago = Convert.ToInt32(renglon["CREDIT_PAYMENT_MODE_ID"].ToString());
+                    _id_creditos_tipo_pago = Convert.ToInt32(renglon["TYP_TYPE_PAYMENT_ID"].ToString());
+                    _id_ccomprobantes_reversa = Convert.ToInt32(renglon["JOURNAL_REVERSE_ID"].ToString());
 
 
 
@@ -4224,7 +4224,7 @@ namespace ExportaImporta
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("TOTAL DE MODO DE PAGOS PROCESADOS -> " + reg + " LEIDOS -> " + _leidos);
 
-                    ins_core_transacciones(_id_transacciones, _id_creditos, _id_participes, _fecha_transacciones, _valor_transacciones, _observacion_transacciones, _usuario_usuarios, _id_ccomprobantes_ant, _fecha_contable_core_transacciones, _id_status, _id_estado_transacciones, _id_modo_pago);
+                    ins_core_transacciones(_id_transacciones, _id_creditos, _id_participes, _fecha_transacciones, _valor_transacciones, _observacion_transacciones, _usuario_usuarios, _id_ccomprobantes_ant, _fecha_contable_core_transacciones, _id_status, _id_estado_transacciones, _id_modo_pago, _id_creditos_tipo_pago, _id_ccomprobantes_reversa);
 
                     cargar_transacciones_detalle(_id_transacciones);
                 }
@@ -4235,7 +4235,7 @@ namespace ExportaImporta
         }
 
 
-        public static void ins_core_transacciones(Int64 _id_transacciones, Int64 _id_creditos, Int64 _id_participes, DateTime _fecha_transacciones, double  _valor_transacciones, string  _observacion_transacciones, string  _usuario_usuarios, Int64  _id_ccomprobantes_ant, DateTime _fecha_contable_core_transacciones, int _id_status,  int _id_estado_transacciones, int _id_modo_pago)
+        public static void ins_core_transacciones(Int64 _id_transacciones, Int64 _id_creditos, Int64 _id_participes, DateTime _fecha_transacciones, double  _valor_transacciones, string  _observacion_transacciones, string  _usuario_usuarios, Int64  _id_ccomprobantes_ant, DateTime _fecha_contable_core_transacciones, int _id_status,  int _id_estado_transacciones, int _id_modo_pago, int _id_creditos_tipo_pago, int _id_ccomprobantes_reversa)
         {
 
             string cadena1 = _id_transacciones+"?"+
@@ -4248,8 +4248,10 @@ namespace ExportaImporta
                 _id_ccomprobantes_ant + "?" + 
                 _fecha_contable_core_transacciones + "?" + 
                 _id_status + "?" + 
-                _id_estado_transacciones + "?" + 
-                _id_modo_pago;
+                _id_estado_transacciones + "?" +
+                _id_modo_pago + "?" +
+                _id_creditos_tipo_pago + "?" +
+                _id_ccomprobantes_reversa;
 
 
 
@@ -4265,7 +4267,9 @@ namespace ExportaImporta
                 "_fecha_contable_core_transacciones?" +
                 "_id_status?" +
                 "_id_estado_transacciones?" +
-                "_id_modo_pago";
+                "_id_modo_pago?" +
+                "_id_creditos_tipo_pago?" +
+                "_id_ccomprobantes_reversa";
             string cadena3 = "NpgsqlDbType.Bigint?" +
                             "NpgsqlDbType.Bigint?" +
                             "NpgsqlDbType.Bigint?" +
@@ -4275,6 +4279,8 @@ namespace ExportaImporta
                             "NpgsqlDbType.Varchar?" +
                             "NpgsqlDbType.Bigint?" +
                             "NpgsqlDbType.TimestampTz?" +
+                            "NpgsqlDbType.Integer?" +
+                            "NpgsqlDbType.Integer?" +
                             "NpgsqlDbType.Integer?" +
                             "NpgsqlDbType.Integer?" +
                             "NpgsqlDbType.Integer?";
