@@ -40,7 +40,11 @@ namespace ExportaImporta
 
             // proceso g41 pata biess
             // generar_g41_biess();
+<<<<<<< HEAD
             // generar_g42_biess_nueva();
+=======
+            //          generar_g42_biess_nueva();
+>>>>>>> 524930849535fd934071b784eff09e30614ad87e
 
 
             // PROCESO DE CIERRE DE MES CREDITOS
@@ -81,7 +85,11 @@ namespace ExportaImporta
 
 
             // MIGRACION APORTES CTA INDIVIDUAL
+<<<<<<< HEAD
               //cargar_contribucion_cuenta_individual();
+=======
+            // cargar_contribucion_cuenta_individual();
+>>>>>>> 524930849535fd934071b784eff09e30614ad87e
 
 
             // MIGRACION APORTES CTA DESEMBOLSAR
@@ -95,11 +103,35 @@ namespace ExportaImporta
             //cargar_prestaciones();
             //cargar_documentos_hipotecarios();
             //
+            ///PRESTACIONES
+            ///
+            /*
+                        cargar_liquidacion_historico();
+                        cargar_tipo_pago_liquidacion();
+                        cargar_liquidacion_cabeza();
+                        cargar_liquidacion_detalle();
+                        cargar_liquidacion_forma_pago_carga();
+            */
+
+            ////DESCUENTOS
+            ///
+
+            /*
+            cargar_core_descuentos_formatos_carga();
+            cargar_core_descuentos_registrados_cabeza_carga();
+            cargar_core_descuentos_registrados_detalle_aportes();
+            cargar_core_descuentos_registrados_detalle_contibucion();
+            cargar_core_descuentos_registrados_detalle_creditos();
+            cargar_core_descuentos_registrados_detalle_creditos_trans();
+            */
 
 
-
-           // Console.Read();
-
+            ///SUPERAVIT
+            ///
+          //  carga_core_superavit_pagos();
+           // carga_core_superavit_pagos_cuentas();
+           // carga_core_superavit_pagos_credito();
+            carga_core_superavit_pagos_trabajados();
         }
 
 
@@ -118,44 +150,44 @@ namespace ExportaImporta
             */
             Console.WriteLine("-----------VACIANDO CONTRIBUCIONES PAGAS----------------------");
             AccesoLogica.TruncateCascade("core_contribucion_pagada");
-           /*
+            /*
 
 
-            Console.WriteLine("-----------VACIANDO PAGOS TABLAS AMORTIZACION----------------------");
-            AccesoLogica.TruncateCascade("core_tabla_amortizacion_pagos");
-            Console.WriteLine("-----------VACIANDO PARAMETRIZACIONES PAGOS TABLAS AMORTIZACION----------------------");
-            AccesoLogica.TruncateCascade("core_tabla_amortizacion_parametrizacion");
-            Console.WriteLine("-----------VACIANDO TABLAS DE AMORTIZACION HISTORICAS----------------------");
-            AccesoLogica.TruncateCascade("core_tabla_amortizacion_historico");
-            Console.WriteLine("-----------VACIANDO TABLAS DE AMORTIZACION PAGARES----------------------");
-            AccesoLogica.TruncateCascade("core_tabla_amortizacion_pagare");
-            Console.WriteLine("-----------VACIANDO TABLAS DE AMORTIZACION----------------------");
-            AccesoLogica.TruncateCascade("core_tabla_amortizacion");
-            Console.WriteLine("-----------VACIANDO CREDITOS GARANTIAS----------------------");
-            AccesoLogica.TruncateCascade("core_creditos_garantias");
-            Console.WriteLine("-----------VACIANDO CREDITOS RENOVACIONES----------------------");
-            AccesoLogica.TruncateCascade("core_creditos_renovaciones");
-            Console.WriteLine("-----------VACIANDO CREDITOS RETENCIONES----------------------");
-            AccesoLogica.TruncateCascade("core_creditos_retenciones");
-            Console.WriteLine("-----------VACIANDO CREDITOS TRABAJADOS DETALLE----------------------");
-            AccesoLogica.TruncateCascade("core_creditos_trabajados_detalle");
-            Console.WriteLine("-----------VACIANDO CREDITOS TRABAJADOS CABEZA----------------------");
-            AccesoLogica.TruncateCascade("core_creditos_trabajados_cabeza");
-            Console.WriteLine("-----------VACIANDO ARCHIVOS DE RECAUDACIONES DETALLE----------------------");
-            AccesoLogica.TruncateCascade("core_archivo_recaudaciones_detalle");
-            Console.WriteLine("-----------VACIANDO ARCHIVOS DE RECAUDACIONES----------------------");
-            AccesoLogica.TruncateCascade("core_archivo_recaudaciones");
-            Console.WriteLine("-----------VACIANDO CREDITOS----------------------");
-            AccesoLogica.TruncateCascade("core_creditos");
-            AccesoLogica.TruncateCascade("core_transacciones");
-            Console.WriteLine("-----------VACIANDO TRANSACCIONES DETALLE----------------------");
-            AccesoLogica.TruncateCascade("core_transacciones_detalle");
-            Console.WriteLine("-----------VACIANDO PRESTACIONES----------------------");
-            AccesoLogica.TruncateCascade("core_prestaciones");
-            Console.WriteLine("-----------VACIANDO MODO PAGO----------------------");
-            AccesoLogica.TruncateCascade("core_modo_pago");
-            Console.WriteLine("---------------------------------");
-            */
+             Console.WriteLine("-----------VACIANDO PAGOS TABLAS AMORTIZACION----------------------");
+             AccesoLogica.TruncateCascade("core_tabla_amortizacion_pagos");
+             Console.WriteLine("-----------VACIANDO PARAMETRIZACIONES PAGOS TABLAS AMORTIZACION----------------------");
+             AccesoLogica.TruncateCascade("core_tabla_amortizacion_parametrizacion");
+             Console.WriteLine("-----------VACIANDO TABLAS DE AMORTIZACION HISTORICAS----------------------");
+             AccesoLogica.TruncateCascade("core_tabla_amortizacion_historico");
+             Console.WriteLine("-----------VACIANDO TABLAS DE AMORTIZACION PAGARES----------------------");
+             AccesoLogica.TruncateCascade("core_tabla_amortizacion_pagare");
+             Console.WriteLine("-----------VACIANDO TABLAS DE AMORTIZACION----------------------");
+             AccesoLogica.TruncateCascade("core_tabla_amortizacion");
+             Console.WriteLine("-----------VACIANDO CREDITOS GARANTIAS----------------------");
+             AccesoLogica.TruncateCascade("core_creditos_garantias");
+             Console.WriteLine("-----------VACIANDO CREDITOS RENOVACIONES----------------------");
+             AccesoLogica.TruncateCascade("core_creditos_renovaciones");
+             Console.WriteLine("-----------VACIANDO CREDITOS RETENCIONES----------------------");
+             AccesoLogica.TruncateCascade("core_creditos_retenciones");
+             Console.WriteLine("-----------VACIANDO CREDITOS TRABAJADOS DETALLE----------------------");
+             AccesoLogica.TruncateCascade("core_creditos_trabajados_detalle");
+             Console.WriteLine("-----------VACIANDO CREDITOS TRABAJADOS CABEZA----------------------");
+             AccesoLogica.TruncateCascade("core_creditos_trabajados_cabeza");
+             Console.WriteLine("-----------VACIANDO ARCHIVOS DE RECAUDACIONES DETALLE----------------------");
+             AccesoLogica.TruncateCascade("core_archivo_recaudaciones_detalle");
+             Console.WriteLine("-----------VACIANDO ARCHIVOS DE RECAUDACIONES----------------------");
+             AccesoLogica.TruncateCascade("core_archivo_recaudaciones");
+             Console.WriteLine("-----------VACIANDO CREDITOS----------------------");
+             AccesoLogica.TruncateCascade("core_creditos");
+             AccesoLogica.TruncateCascade("core_transacciones");
+             Console.WriteLine("-----------VACIANDO TRANSACCIONES DETALLE----------------------");
+             AccesoLogica.TruncateCascade("core_transacciones_detalle");
+             Console.WriteLine("-----------VACIANDO PRESTACIONES----------------------");
+             AccesoLogica.TruncateCascade("core_prestaciones");
+             Console.WriteLine("-----------VACIANDO MODO PAGO----------------------");
+             AccesoLogica.TruncateCascade("core_modo_pago");
+             Console.WriteLine("---------------------------------");
+             */
 
 
 
@@ -188,7 +220,7 @@ namespace ExportaImporta
              */
             Console.WriteLine("-----------SECUENCIA CONTRIBUCIONES PAGADAS----------------------");
             AccesoLogica.Select("ALTER SEQUENCE core_contribucion_pagada_id_contribucion_pagada_seq RESTART WITH 1");
-           
+
             /*
 
             Console.WriteLine("-----------SECUENCIA TABLAS DE PAGOS AMORTIZACIONES----------------------");
@@ -252,7 +284,8 @@ namespace ExportaImporta
         }
 
 
-        public static void calcular_moras() {
+        public static void calcular_moras()
+        {
 
             int _leidos_individual = 0;
             int _year_buscar;
@@ -355,7 +388,8 @@ namespace ExportaImporta
 
                         }
                     }
-                    else {
+                    else
+                    {
 
 
                         if (_fecha_anterior_tabla_amortizacion == null)
@@ -406,7 +440,8 @@ namespace ExportaImporta
                     }
 
 
-                } else
+                }
+                else
                 {
 
                     Console.ForegroundColor = ConsoleColor.Blue;
@@ -535,10 +570,12 @@ namespace ExportaImporta
         }
 
 
-        public static void Actualiza_Mora(int _id_tabla_amortizacion, int _id_creditos, int _numero_pago_tabla_amortizacion, double _valor_mora_cuota) {
+        public static void Actualiza_Mora(int _id_tabla_amortizacion, int _id_creditos, int _numero_pago_tabla_amortizacion, double _valor_mora_cuota)
+        {
 
 
-            try {
+            try
+            {
 
 
 
@@ -679,7 +716,8 @@ namespace ExportaImporta
             int reg = dtParticipes.Rows.Count;
 
             Console.WriteLine("---------------------------------");
-            if (reg > 0) {
+            if (reg > 0)
+            {
 
                 foreach (DataRow renglon in dtParticipes.Rows)
                 {
@@ -1660,7 +1698,8 @@ namespace ExportaImporta
         }
 
 
-        public static void Cierre_Mes_Creditos() {
+        public static void Cierre_Mes_Creditos()
+        {
 
             int _leidos = 0;
             int _year_buscar;
@@ -1830,7 +1869,8 @@ namespace ExportaImporta
             {
 
                 // consigo movimiento de enero
-                if (_meses_buscar == 1) {
+                if (_meses_buscar == 1)
+                {
 
                     _mov_ene = Buscar_Pagos_Mensuales(_id_creditos, _year_buscar, _meses_buscar);
                     _sal_ene = _monto_otorgado_creditos - (_mov_ini + _mov_ene);
@@ -2476,7 +2516,8 @@ namespace ExportaImporta
 
 
             // si la fecha es nula busco el ultimo pago de capital en las transacciones
-            if (_fecha_tabla_amortizacion == null) {
+            if (_fecha_tabla_amortizacion == null)
+            {
 
 
 
@@ -2528,7 +2569,8 @@ namespace ExportaImporta
 
 
 
-                                if (_capital_pagado > 0.00) {
+                                if (_capital_pagado > 0.00)
+                                {
 
                                     break;
                                 }
@@ -2760,8 +2802,9 @@ namespace ExportaImporta
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Error al insertar Tabla de Modo de pagos" + Ex.Message);
-                string cadena5 = "_error_errores_importacion";
-                string cadena6 = "NpgsqlDbType.Varchar";
+
+                //string cadena5 = "_error_errores_importacion";
+                //string cadena6 = "NpgsqlDbType.Varchar";
                 // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
                 Console.WriteLine("ERROR INSERTADO ->" + cadena1);
@@ -3008,7 +3051,7 @@ namespace ExportaImporta
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("TOTAL CREDITOS ->   " + reg_creditos + "    LEIDOS ->  " + _leidos + "      NUMERO CEDULA ->  " + _identificacion_g42_biess);
                     Console.WriteLine("-----------------------------------------------------------------------------------------------------------------");
-                  //  Insertar_G42_BIESS(_tipo_identificacion_g42_biess, _identificacion_g42_biess, _tipo_prestacion_g42_biess, _estado_participe_cesante_g42_biess, _estado_participe_jubilado_g42_biess, _aporte_personal_cesantia_g42_biess, _aporte_personal_jubilado_g42_biess, _aporte_adicional_jubilacion_g42_biess, _aporte_adicional_cesantia_g42_biess, _saldo_cuenta_individual_patronal_g42_biess, _saldo_cuenta_individual_cesantia_g42_biess, _saldo_cuenta_individual_jubilacion_g42_biess, _saldo_aporte_personal_jubilacion_g42_biess, _saldo_aporte_personal_cesantia_g42_biess, _saldo_aporte_adicional_jubilacion_g42_biess, _saldo_aporte_adicional_cesantia_g42_biess, _saldo_rendimiento_patronal_otros_g42_biess, _saldo_rendimiento_aporte_personal_jubilacion_g42_biess, _saldo_rendimiento_aporte_personal_cesantia_g42_biess, _saldo_rendimiento_aporte_adicional_jubilacion_g42_biess, _retencion_fiscal_g42_biess, _fecha_desafiliacion_voluntaria_g42_biess, _monto_desafiliacion_voluntaria_liquidacion_desafiliacion_g42, _valor_pendiente_pago_desafiliacion_g42_biess, _valor_pagado_participe_desafiliado_g42_biess, _motivo_liquidacion_g42_biess, _fecha_termino_relacion_laboral_g42_biess, _saldo_cuenta_individual_liquidacion_prestacion_cesantia_g42_bie, _saldo_cuenta_individual_liquidacion_prestacion_jubilado_g42_bie, _detalle_otros_valores_pagados_y_pendientes_pago_g42_biess, _valores_pagados_fondo_g42_biess, _valores_pendientes_pago_cuentas_por_pagar_particpe_g42_biess, _valor_pagado_participe_por_cesantia_g42_biess, _valor_pagado_participe_por_jubiliacion_g42_biess, _descripcion_otros_conceptos_g42_biess, _valores_pagados_al_participe_otros_conceptos_g42_biess, _anio_g42_biess, _mes_g42_biess, _saldo_rendimiento_aporte_adicional_cesantia_g42_biess);
+                    //  Insertar_G42_BIESS(_tipo_identificacion_g42_biess, _identificacion_g42_biess, _tipo_prestacion_g42_biess, _estado_participe_cesante_g42_biess, _estado_participe_jubilado_g42_biess, _aporte_personal_cesantia_g42_biess, _aporte_personal_jubilado_g42_biess, _aporte_adicional_jubilacion_g42_biess, _aporte_adicional_cesantia_g42_biess, _saldo_cuenta_individual_patronal_g42_biess, _saldo_cuenta_individual_cesantia_g42_biess, _saldo_cuenta_individual_jubilacion_g42_biess, _saldo_aporte_personal_jubilacion_g42_biess, _saldo_aporte_personal_cesantia_g42_biess, _saldo_aporte_adicional_jubilacion_g42_biess, _saldo_aporte_adicional_cesantia_g42_biess, _saldo_rendimiento_patronal_otros_g42_biess, _saldo_rendimiento_aporte_personal_jubilacion_g42_biess, _saldo_rendimiento_aporte_personal_cesantia_g42_biess, _saldo_rendimiento_aporte_adicional_jubilacion_g42_biess, _retencion_fiscal_g42_biess, _fecha_desafiliacion_voluntaria_g42_biess, _monto_desafiliacion_voluntaria_liquidacion_desafiliacion_g42, _valor_pendiente_pago_desafiliacion_g42_biess, _valor_pagado_participe_desafiliado_g42_biess, _motivo_liquidacion_g42_biess, _fecha_termino_relacion_laboral_g42_biess, _saldo_cuenta_individual_liquidacion_prestacion_cesantia_g42_bie, _saldo_cuenta_individual_liquidacion_prestacion_jubilado_g42_bie, _detalle_otros_valores_pagados_y_pendientes_pago_g42_biess, _valores_pagados_fondo_g42_biess, _valores_pendientes_pago_cuentas_por_pagar_particpe_g42_biess, _valor_pagado_participe_por_cesantia_g42_biess, _valor_pagado_participe_por_jubiliacion_g42_biess, _descripcion_otros_conceptos_g42_biess, _valores_pagados_al_participe_otros_conceptos_g42_biess, _anio_g42_biess, _mes_g42_biess, _saldo_rendimiento_aporte_adicional_cesantia_g42_biess);
                     Console.WriteLine("-----------------------------------------------------------------------------------------------------------------");
 
 
@@ -3140,33 +3183,33 @@ namespace ExportaImporta
             double _retencion_fiscal_g42_biess = 0;
 
 
-           
+
             DateTime? _fecha_desafiliacion_voluntaria_g42_biess = null;
             double _monto_desafiliacion_voluntaria_liquidacion_desafiliacion_g42 = 0;
             double _valor_pendiente_pago_desafiliacion_g42_biess = 0;
             double _valor_pagado_participe_desafiliado_g42_biess = 0;
-            
-            
-            
-            
-           string _motivo_liquidacion_g42_biess = "PORCESANTIA";
-           DateTime? _fecha_termino_relacion_laboral_g42_biess = null;
-           double _saldo_cuenta_individual_liquidacion_prestacion_cesantia_g42 = 0;
-           double _saldo_cuenta_individual_liquidacion_prestacion_jubilado_g42 = 0;
-           string _detalle_otros_valores_pagados_y_pendientes_pago_g42_biess = "";
 
-           double _valores_pagados_al_fondo_g42_biess = 0;
 
-           double _valores_pendientes_pago_al_fondo_g42_biess = 0;
-           double _valor_pagado_participe_por_cesantia_g42_biess = 0;
-            
-           double _valor_pagado_participe_por_jubiliacion_g42_biess = 0;
-           string _descripcion_otros_conceptos_g42_biess = "";
-           double _valores_pagados_al_participe_otros_conceptos_g42_biess = 0;
-          
-           int _anio_g42_biess = _year_buscar;
-           int _mes_g42_biess = _mes_buscar;
-           
+
+
+            string _motivo_liquidacion_g42_biess = "PORCESANTIA";
+            DateTime? _fecha_termino_relacion_laboral_g42_biess = null;
+            double _saldo_cuenta_individual_liquidacion_prestacion_cesantia_g42 = 0;
+            double _saldo_cuenta_individual_liquidacion_prestacion_jubilado_g42 = 0;
+            string _detalle_otros_valores_pagados_y_pendientes_pago_g42_biess = "";
+
+            double _valores_pagados_al_fondo_g42_biess = 0;
+
+            double _valores_pendientes_pago_al_fondo_g42_biess = 0;
+            double _valor_pagado_participe_por_cesantia_g42_biess = 0;
+
+            double _valor_pagado_participe_por_jubiliacion_g42_biess = 0;
+            string _descripcion_otros_conceptos_g42_biess = "";
+            double _valores_pagados_al_participe_otros_conceptos_g42_biess = 0;
+
+            int _anio_g42_biess = _year_buscar;
+            int _mes_g42_biess = _mes_buscar;
+
 
 
 
@@ -3177,13 +3220,13 @@ namespace ExportaImporta
 
 
             // consulto a base de datos SQL
-            DataTable dtParticipes_Activos = AccesoLogicaSQL.Select("RPT.PARTNER_ID, CASE WHEN LEN(RPT.cedu)=10 THEN 'CED' WHEN LEN(RPT.cedu)=13 THEN 'RUC' WHEN LEN(RPT.cedu)>13 THEN 'PAS' END TIPO_IDENTIFICACION,"+
+            DataTable dtParticipes_Activos = AccesoLogicaSQL.Select("RPT.PARTNER_ID, CASE WHEN LEN(RPT.cedu)=10 THEN 'CED' WHEN LEN(RPT.cedu)=13 THEN 'RUC' WHEN LEN(RPT.cedu)>13 THEN 'PAS' END TIPO_IDENTIFICACION," +
              " RPT.cedu IDENTIFICACION, 'CESANTIA' AS TIPO_PRESTACION, CASE WHEN RPT.Estado = 'Activo' THEN 'PARTICIPEACTIVO' WHEN RPT.Estado = 'Desafiliado' THEN 'PASIVODESAF' WHEN RPT.Estado = 'Liquidado Cesante' THEN 'LIQUIDADO' END ESTADO_PARTICPE_CESANTE," +
              " RPT.SAL_PAT_FINAL SALDO_PATRONAL_FINAL, RPT.SAL_PER_FINAL SALDO_PERSONAL_FINAL, RPT.SAL_PAT_FINAL + RPT.SAL_PER_FINAL as CUENTA_INDIVIDUAL," +
              " (select ISNULL(SUM(c.PERSONNEL_PAY + c.EMPLOYER_PAY), 0)" +
              " from one.CONTRIBUTION c" +
              " where c.TYPE = 1 and c.STATUS <> 0" +
-             " AND c.PARTNER_ID = RPT.PARTNER_ID and year(c.DATE) = "+ _year_buscar + " and MONTH(c.DATE) = "+ _mes_buscar + "" +
+             " AND c.PARTNER_ID = RPT.PARTNER_ID and year(c.DATE) = " + _year_buscar + " and MONTH(c.DATE) = " + _mes_buscar + "" +
              " AND(c.DESCRIPTION LIKE '%Descuento mensual%'" +
              " OR c.DESCRIPTION LIKE '%APOR%'" +
              " OR c.DESCRIPTION LIKE ''" +
@@ -3229,7 +3272,7 @@ namespace ExportaImporta
              "  (select ISNULL(SUM(c.PERSONNEL_PAY + c.EMPLOYER_PAY), 0)" +
              "  from one.CONTRIBUTION c" +
              "  where c.TYPE in (49, 50) and c.STATUS <> 0" +
-             "  AND c.PARTNER_ID = RPT.PARTNER_ID and year(c.DATE) = "+ _year_buscar + "" +
+             "  AND c.PARTNER_ID = RPT.PARTNER_ID and year(c.DATE) = " + _year_buscar + "" +
              "  AND(c.DESCRIPTION <> 'Liquidacion' and c.DESCRIPTION not like 'Pago del crédito:%'" +
              "  AND c.DESCRIPTION <> 'Reingreso(Aporte Patronal)'" +
              "  and c.DESCRIPTION <> 'Envio Superavit REINCORPORADO'" +
@@ -3266,7 +3309,7 @@ namespace ExportaImporta
                     _identificacion_g42_biess = renglon_ac["IDENTIFICACION"].ToString();
                     _tipo_prestacion_g42_biess = renglon_ac["TIPO_PRESTACION"].ToString();
                     _estado_participe_cesante_g42_biess = renglon_ac["ESTADO_PARTICPE_CESANTE"].ToString();
-                    
+
                     _saldo_cuenta_individual_patronal_g42_biess = Convert.ToDouble(renglon_ac["SALDO_PATRONAL_FINAL"].ToString());
                     _saldo_aporte_personal_cesantia_g42_biess = Convert.ToDouble(renglon_ac["SALDO_PERSONAL_FINAL"].ToString());
                     _saldo_cuenta_individual_cesantia_g42_biess = Convert.ToDouble(renglon_ac["CUENTA_INDIVIDUAL"].ToString());
@@ -3278,7 +3321,7 @@ namespace ExportaImporta
 
 
 
-                    
+
 
 
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -3405,7 +3448,7 @@ namespace ExportaImporta
                     "      where LIQUIDATION_ID = l.LIQUIDATION_ID and VALUE > 0 and CODE = 1" +
 
                     "      AND MOTIVE LIKE '%Total aportes personales 2 50%'" +
-                   "  ) as personal_restante FROM one.LIQUIDATION l inner join one.PARTNER p on p.PARTNER_ID=l.PARTNER_ID where l.STATUS<>0 and l.STATE in (4) )T", " YEAR(T.DATE_FOLDER_PAY)="+ _year_buscar + " and MONTH(T.DATE_FOLDER_PAY)="+_mes_buscar+" and t.TYPE=3");
+                   "  ) as personal_restante FROM one.LIQUIDATION l inner join one.PARTNER p on p.PARTNER_ID=l.PARTNER_ID where l.STATUS<>0 and l.STATE in (4) )T", " YEAR(T.DATE_FOLDER_PAY)=" + _year_buscar + " and MONTH(T.DATE_FOLDER_PAY)=" + _mes_buscar + " and t.TYPE=3");
 
 
 
@@ -3419,7 +3462,7 @@ namespace ExportaImporta
 
                 foreach (DataRow renglon_pa in dtParticipes_Pasivos.Rows)
                 {
-                  
+
                     _identificacion_g42_biess = renglon_pa["IDENTITY_CARD"].ToString();
                     _monto_desafiliacion_voluntaria_liquidacion_desafiliacion_g42 = Convert.ToDouble(renglon_pa["cuenta_individual"].ToString());
                     _valor_pagado_participe_desafiliado_g42_biess = Convert.ToDouble(renglon_pa["PAGO"].ToString());
@@ -3429,14 +3472,15 @@ namespace ExportaImporta
 
 
 
-                    DataTable dtParticipes = AccesoLogica.Select("identificacion_g42_biess", "core_g42_biess", "identificacion_g42_biess='"+ _tipo_identificacion_g42_biess + "' AND anio_g42_biess="+ _year_buscar + " and mes_g42_biess="+ _mes_buscar + "");
+                    DataTable dtParticipes = AccesoLogica.Select("identificacion_g42_biess", "core_g42_biess", "identificacion_g42_biess='" + _tipo_identificacion_g42_biess + "' AND anio_g42_biess=" + _year_buscar + " and mes_g42_biess=" + _mes_buscar + "");
                     int reg_calcular = dtParticipes.Rows.Count;
 
                     if (reg_calcular > 0)
                     {
-                       
+
                     }
-                    else {
+                    else
+                    {
                         _leidos++;
                     }
 
@@ -3449,7 +3493,7 @@ namespace ExportaImporta
                     Insertar_G42_BIESS_PASIVOS(_numero_registros_g42_biess, _identificacion_g42_biess, _monto_desafiliacion_voluntaria_liquidacion_desafiliacion_g42, _valor_pagado_participe_desafiliado_g42_biess, _fecha_desafiliacion_voluntaria_g42_biess, _valor_pendiente_pago_desafiliacion_g42_biess,
                    _anio_g42_biess,
                    _mes_g42_biess);
-                  
+
                     Console.WriteLine("-----------------------------------------------------------------------------------------------------------------");
 
 
@@ -3569,16 +3613,19 @@ namespace ExportaImporta
                     _valor_pagado_participe_por_cesantia_g42_biess = Convert.ToDouble(renglon_c["PAGO"].ToString());
 
 
-                    if (_tipo == "Cesante") {
+                    if (_tipo == "Cesante")
+                    {
 
-                        if (_valores_pagados_al_fondo_g42_biess>0) {
+                        if (_valores_pagados_al_fondo_g42_biess > 0)
+                        {
 
                             _detalle_otros_valores_pagados_y_pendientes_pago_g42_biess = "PORPRESTAOTORPART";
                         }
 
-                        
+
                     }
-                    else {
+                    else
+                    {
 
                         if (_valores_pagados_al_fondo_g42_biess > 0)
                         {
@@ -3586,11 +3633,11 @@ namespace ExportaImporta
                             _detalle_otros_valores_pagados_y_pendientes_pago_g42_biess = "OTROSCONCEPTOS";
                         }
 
-                        
+
                     }
 
 
-                   
+
 
 
                     DataTable dtParticipes1 = AccesoLogica.Select("identificacion_g42_biess", "core_g42_biess", "identificacion_g42_biess='" + _tipo_identificacion_g42_biess + "' AND anio_g42_biess=" + _year_buscar + " and mes_g42_biess=" + _mes_buscar + "");
@@ -3683,7 +3730,7 @@ namespace ExportaImporta
 
 
             string cadena1 = _numero_registros_g42_biess + "?" + _tipo_identificacion_g42_biess + "?" + _identificacion_g42_biess + "?" + _tipo_prestacion_g42_biess + "?" + _estado_participe_cesante_g42_biess + "?" + _estado_participe_jubilado_g42_biess + "?" + _aporte_personal_cesantia_g42_biess + "?" + _aporte_personal_jubilado_g42_biess + "?" + _aporte_adicional_jubilacion_g42_biess + "?" + _aporte_adicional_cesantia_g42_biess + "?" + _rendimiento_anual_g42_biess + "?" + _saldo_cuenta_individual_patronal_g42_biess + "?" + _saldo_cuenta_individual_cesantia_g42_biess + "?" + _saldo_cuenta_individual_jubilacion_g42_biess + "?" + _saldo_aporte_personal_jubilacion_g42_biess + "?" + _saldo_aporte_personal_cesantia_g42_biess + "?" + _saldo_aporte_adicional_jubilacion_g42_biess + "?" + _saldo_aporte_adicional_cesantia_g42_biess + "?" + _saldo_rendimiento_patronal_otros_g42_biess + "?" + _saldo_rendimiento_aporte_personal_jubilacion_g42_biess + "?" + _saldo_rendimiento_aporte_personal_cesantia_g42_biess + "?" + _saldo_rendimiento_aporte_adicional_cesantia_g42_biess + "?" + _saldo_rendimiento_aporte_adicional_jubilacion_g42_biess + "?" + _retencion_fiscal_g42_biess + "?" + _anio_g42_biess + "?" + _mes_g42_biess;
-           
+
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("------------------------------------------------------------------------------------------------");
             Console.WriteLine("LEENDO ->" + cadena1);
@@ -3725,7 +3772,7 @@ namespace ExportaImporta
 
         public static void Insertar_G42_BIESS_PASIVOS(int _numero_registros_g42_biess,
                   string _identificacion_g42_biess,
-                 double _monto_desafiliacion_voluntaria_liquidacion_desafiliacion_g42, 
+                 double _monto_desafiliacion_voluntaria_liquidacion_desafiliacion_g42,
                  double _valor_pagado_participe_desafiliado_g42_biess,
                  DateTime? _fecha_desafiliacion_voluntaria_g42_biess, double _valor_pendiente_pago_desafiliacion_g42_biess,
                   int _anio_g42_biess,
@@ -3776,7 +3823,7 @@ namespace ExportaImporta
 
 
 
-        public static void Insertar_G42_BIESS_CESANTES( int _numero_registros_g42_biess, string _identificacion_g42_biess,
+        public static void Insertar_G42_BIESS_CESANTES(int _numero_registros_g42_biess, string _identificacion_g42_biess,
                     string _motivo_liquidacion_g42_biess,
                     DateTime? _fecha_termino_relacion_laboral_g42_biess,
                     double _saldo_cuenta_individual_liquidacion_prestacion_cesantia_g42,
@@ -3785,7 +3832,7 @@ namespace ExportaImporta
                     double _valores_pagados_al_fondo_g42_biess,
                      double _valores_pendientes_pago_al_fondo_g42_biess,
                     double _valor_pagado_participe_por_cesantia_g42_biess,
-                    double  _valor_pagado_participe_por_jubiliacion_g42_biess,
+                    double _valor_pagado_participe_por_jubiliacion_g42_biess,
                     string _descripcion_otros_conceptos_g42_biess,
                     double _valores_pagados_al_participe_otros_conceptos_g42_biess,
                      int _anio_g42_biess,
@@ -3857,20 +3904,20 @@ namespace ExportaImporta
         ///
         public static void cargar_prestaciones()
         {
-           // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
-           // CultureInfo culture = CultureInfo.CurrentCulture;
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
             //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            DateTime dtm = DateTime.Now; 
+            DateTime dtm = DateTime.Now;
             Console.WriteLine("------------------------------------------------------------------------------------------------");
-             Console.WriteLine("LEENDO ->" + dtm);
+            Console.WriteLine("LEENDO ->" + dtm);
             Console.WriteLine("------------------------------------------------------------------------------------------------");
 
 
             DataTable dtLiquidation = AccesoLogicaSQL.Select("LIQUIDATION_ID, REFERENCE_ID, HISTORICAL_BASIC_QUANTITY_ID, HISTORICAL_PAY_PERCENTAGE_ID, PARTNER_ID, CORRECTION_FACTOR_VALUE_ID, DATE_CONCLUSION, SUBTOTAL, NET_VALUE_TO_PAY, IMPOSITION_NUMBERS, STATUS , OBSERVATION , TYPE  , STATE  , VOUCHER  , CHECK_NUMBER , PARTNER_IS_ALIVE, FOLDER_NUMBER, FILE_NUMBER, DATE_FOLDER_ENTRANCE, DOCUMENT_NUMBER, USER_ID, USER_NAME, JOURNAL_ID, YEAR_FOR_SEVERANCE, YEAR_FOR_SEVERANCE_PAY, PRORATE_FACTOR_VALUE, FOLDER_STATE_ID,ISNULL( DATE_FOLDER_PAY,'') AS DATE_FOLDER_PAY, NUMBER_FOLDER, DATE_ENTRANCE_PN , DATE_EXIT_PN , OUTCOME_VALUE , LIQUIDATION_HISTORICAL_ID, LIQUIDATION_HISTORICAL_ID_ADITIONAL", " one.LIQUIDATION", " LIQUIDATION_ID > 0");
 
-            
+
 
             int _id_prestaciones;
             int _id_participe;
@@ -3915,8 +3962,8 @@ namespace ExportaImporta
                     {
                         _id_estatus = 2;
                     }
-                    Console.WriteLine("STATUS -> "+_id_estatus+"  " + renglon["STATUS"].ToString());
-                   // Console.Read();
+                    Console.WriteLine("STATUS -> " + _id_estatus + "  " + renglon["STATUS"].ToString());
+                    // Console.Read();
 
                     _observacion_prestaciones = Convert.ToString(renglon["OBSERVATION"].ToString());
                     _id_tipo_prestaciones = Convert.ToInt32(renglon["TYPE"].ToString());
@@ -3928,15 +3975,15 @@ namespace ExportaImporta
                     {
                         _id_estado_prestaciones = Convert.ToInt32(renglon["STATE"].ToString());
                     }
-                    
+
 
                     _cuenta_participe_pago_prestaciones = Convert.ToString(renglon["VOUCHER"].ToString());
                     _carpeta_prestaciones = Convert.ToString(renglon["FOLDER_NUMBER"].ToString());
                     _archivo_prestaciones = Convert.ToString(renglon["FILE_NUMBER"].ToString());
-                   
-                        _fecha_solicitud_prestaciones = Convert.ToDateTime(renglon["DATE_FOLDER_ENTRANCE"].ToString());
-                 
-                    
+
+                    _fecha_solicitud_prestaciones = Convert.ToDateTime(renglon["DATE_FOLDER_ENTRANCE"].ToString());
+
+
                     _numero_prestaciones = Convert.ToString(renglon["DOCUMENT_NUMBER"].ToString());
                     _usuario_usuarios = Convert.ToString(renglon["USER_NAME"].ToString());
                     _fecha_pago_prestaciones = Convert.ToDateTime(renglon["DATE_FOLDER_PAY"].ToString());
@@ -3944,7 +3991,7 @@ namespace ExportaImporta
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("TOTAL DE PRESTACIONES PROCESADAS -> " + reg + " LEIDOS -> " + _leidos_prestaciones);
 
-                    Ins_prestaciones(_id_prestaciones,  _id_participe,  0,  0,  0,  _total_recibir_prestaciones,  _numero_aportaciones_prestaciones,  _id_estatus,  _observacion_prestaciones,  _id_tipo_prestaciones,  _id_estado_prestaciones,  _cuenta_participe_pago_prestaciones,  _carpeta_prestaciones,  _archivo_prestaciones,  _numero_prestaciones,  _fecha_solicitud_prestaciones,  _fecha_pago_prestaciones,  _usuario_usuarios);
+                    Ins_prestaciones(_id_prestaciones, _id_participe, 0, 0, 0, _total_recibir_prestaciones, _numero_aportaciones_prestaciones, _id_estatus, _observacion_prestaciones, _id_tipo_prestaciones, _id_estado_prestaciones, _cuenta_participe_pago_prestaciones, _carpeta_prestaciones, _archivo_prestaciones, _numero_prestaciones, _fecha_solicitud_prestaciones, _fecha_pago_prestaciones, _usuario_usuarios);
                 }
 
                 Console.WriteLine(reg + "---------------------------------");
@@ -3957,29 +4004,29 @@ namespace ExportaImporta
 
         public static void Ins_prestaciones(int _id_prestaciones, int _id_participe, double _mitad_aporte_personal_prestaciones, double _total_aporte_personal_prestaciones, double _total_descuentos_prestaciones, double _total_recibir_prestaciones, int _numero_aportaciones_prestaciones, int _id_estatus, string _observacion_prestaciones, int _id_tipo_prestaciones, int _id_estado_prestaciones, string _cuenta_participe_pago_prestaciones, string _carpeta_prestaciones, string _archivo_prestaciones, string _numero_prestaciones, DateTime _fecha_solicitud_prestaciones, DateTime _fecha_pago_prestaciones, string _usuario_usuarios)
         {
-      
-            string cadena1 = _id_prestaciones+"?"+
-                _id_participe + "?" + 
-                _mitad_aporte_personal_prestaciones + "?" + 
-                _total_aporte_personal_prestaciones + "?" + 
-                _total_descuentos_prestaciones + "?" + 
-                _total_recibir_prestaciones + "?" + 
-                _numero_aportaciones_prestaciones + "?" + 
-                _id_estatus + "?" + 
-                _observacion_prestaciones + "?" + 
-                _id_tipo_prestaciones + "?" + 
-                _id_estado_prestaciones + "?" + 
-                _cuenta_participe_pago_prestaciones + "?" + 
-                _carpeta_prestaciones + "?" + 
-                _archivo_prestaciones + "?" + 
-                _numero_prestaciones + "?" + 
-                _fecha_solicitud_prestaciones + "?" + 
-                _fecha_pago_prestaciones + "?" + 
+
+            string cadena1 = _id_prestaciones + "?" +
+                _id_participe + "?" +
+                _mitad_aporte_personal_prestaciones + "?" +
+                _total_aporte_personal_prestaciones + "?" +
+                _total_descuentos_prestaciones + "?" +
+                _total_recibir_prestaciones + "?" +
+                _numero_aportaciones_prestaciones + "?" +
+                _id_estatus + "?" +
+                _observacion_prestaciones + "?" +
+                _id_tipo_prestaciones + "?" +
+                _id_estado_prestaciones + "?" +
+                _cuenta_participe_pago_prestaciones + "?" +
+                _carpeta_prestaciones + "?" +
+                _archivo_prestaciones + "?" +
+                _numero_prestaciones + "?" +
+                _fecha_solicitud_prestaciones + "?" +
+                _fecha_pago_prestaciones + "?" +
                 _usuario_usuarios;
 
-          
 
-        
+
+
             string cadena2 = "_id_prestaciones?" +
                 "_id_participe?" +
                 "_mitad_aporte_personal_prestaciones?" +
@@ -4003,7 +4050,7 @@ namespace ExportaImporta
                 "NpgsqlDbType.Double?" +
                 "NpgsqlDbType.Double?" +
                 "NpgsqlDbType.Double?" +
-                "?NpgsqlDbType.Double?" + 
+                "?NpgsqlDbType.Double?" +
                 "NpgsqlDbType.Integer?" +
                 "NpgsqlDbType.Integer?" +
                 "NpgsqlDbType.Varchar?" +
@@ -4015,7 +4062,7 @@ namespace ExportaImporta
                 "NpgsqlDbType.Varchar?" +
                 "NpgsqlDbType.TimestampTz?" +
                 "NpgsqlDbType.TimestampTz?" +
-                "NpgsqlDbType.Varchar" ;
+                "NpgsqlDbType.Varchar";
 
             try
             {
@@ -4031,9 +4078,9 @@ namespace ExportaImporta
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Error al insertar Tabla de Prestaciones" + Ex.Message);
-                string cadena5 = "_error_errores_importacion";
-                string cadena6 = "NpgsqlDbType.Varchar";
-               // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                //  string cadena5 = "_error_errores_importacion";
+                //   string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
                 Console.WriteLine("ERROR INSERTADO ->" + cadena1);
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
@@ -4045,7 +4092,7 @@ namespace ExportaImporta
 
 
 
-        
+
 
         public static void cargar_modo_pago()
         {
@@ -4064,7 +4111,7 @@ namespace ExportaImporta
 
 
 
-            int     _id_modo_pago;
+            int _id_modo_pago;
             string _nombre_modo_pago;
             string _descripcion_modo_pago;
 
@@ -4083,7 +4130,7 @@ namespace ExportaImporta
                     _nombre_modo_pago = Convert.ToString(renglon["NAME"].ToString());
                     _descripcion_modo_pago = Convert.ToString(renglon["DESCRIPTION"].ToString());
 
-                  //  Console.WriteLine(_fecha_pago_prestaciones);
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("TOTAL DE MODO DE PAGOS PROCESADOS -> " + reg + " LEIDOS -> " + _leidos);
 
@@ -4109,7 +4156,7 @@ namespace ExportaImporta
 
             string cadena2 = "_id_modo_pago?_nombre_modo_pago?_descripcion_modo_pago";
             string cadena3 = "NpgsqlDbType.Integer?" +
-               
+
                 "NpgsqlDbType.Varchar?" +
                 "NpgsqlDbType.Varchar";
 
@@ -4127,13 +4174,13 @@ namespace ExportaImporta
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Error al insertar Tabla de Modo de pagos" + Ex.Message);
-                string cadena5 = "_error_errores_importacion";
-                string cadena6 = "NpgsqlDbType.Varchar";
+                //string cadena5 = "_error_errores_importacion";
+                //string cadena6 = "NpgsqlDbType.Varchar";
                 // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
                 Console.WriteLine("ERROR INSERTADO ->" + cadena1);
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
-               // Console.Read();
+                // Console.Read();
 
             }
 
@@ -4169,8 +4216,8 @@ namespace ExportaImporta
                 "CURRENCY_ID," +
                 "DATE_PROCESS," +
                 "OLD_CODE," +
-                "CASE WHEN STATUS = 0 THEN 2 ELSE STATUS END AS STATUS,"+
-                "CASE WHEN STATE = 0 THEN 2 ELSE STATE END AS STATE,"+
+                "CASE WHEN STATUS = 0 THEN 2 ELSE STATUS END AS STATUS," +
+                "CASE WHEN STATE = 0 THEN 2 ELSE STATE END AS STATE," +
                 "CREDIT_PAYMENT_MODE_ID," +
                 "REFERENCE_NUMBER," +
                 "JOURNAL_REVERSE_ID," +
@@ -4192,6 +4239,10 @@ namespace ExportaImporta
             int _id_ccomprobantes_reversa=0;
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 524930849535fd934071b784eff09e30614ad87e
             int reg = dtTransacciones.Rows.Count;
 
             int _leidos = 0;
@@ -4235,6 +4286,7 @@ namespace ExportaImporta
         }
 
 
+<<<<<<< HEAD
         public static void ins_core_transacciones(Int64 _id_transacciones, Int64 _id_creditos, Int64 _id_participes, DateTime _fecha_transacciones, double  _valor_transacciones, string  _observacion_transacciones, string  _usuario_usuarios, Int64  _id_ccomprobantes_ant, DateTime _fecha_contable_core_transacciones, int _id_status,  int _id_estado_transacciones, int _id_modo_pago, int _id_creditos_tipo_pago, int _id_ccomprobantes_reversa)
         {
 
@@ -4252,6 +4304,23 @@ namespace ExportaImporta
                 _id_modo_pago + "?" +
                 _id_creditos_tipo_pago + "?" +
                 _id_ccomprobantes_reversa;
+=======
+        public static void ins_core_transacciones(Int64 _id_transacciones, Int64 _id_creditos, Int64 _id_participes, DateTime _fecha_transacciones, double _valor_transacciones, string _observacion_transacciones, string _usuario_usuarios, Int64 _id_ccomprobantes_ant, DateTime _fecha_contable_core_transacciones, int _id_status, int _id_estado_transacciones, int _id_modo_pago)
+        {
+
+            string cadena1 = _id_transacciones + "?" +
+                _id_creditos + "?" +
+                _id_participes + "?" +
+                _fecha_transacciones + "?" +
+                _valor_transacciones + "?" +
+                _observacion_transacciones + "?" +
+                _usuario_usuarios + "?" +
+                _id_ccomprobantes_ant + "?" +
+                _fecha_contable_core_transacciones + "?" +
+                _id_status + "?" +
+                _id_estado_transacciones + "?" +
+                _id_modo_pago;
+>>>>>>> 524930849535fd934071b784eff09e30614ad87e
 
 
 
@@ -4267,15 +4336,20 @@ namespace ExportaImporta
                 "_fecha_contable_core_transacciones?" +
                 "_id_status?" +
                 "_id_estado_transacciones?" +
+<<<<<<< HEAD
                 "_id_modo_pago?" +
                 "_id_creditos_tipo_pago?" +
                 "_id_ccomprobantes_reversa";
+=======
+                "_id_modo_pago";
+
+>>>>>>> 524930849535fd934071b784eff09e30614ad87e
             string cadena3 = "NpgsqlDbType.Bigint?" +
                             "NpgsqlDbType.Bigint?" +
                             "NpgsqlDbType.Bigint?" +
                              "NpgsqlDbType.TimestampTz?" +
-                            "NpgsqlDbType.Numeric?"+
-                            "NpgsqlDbType.Varchar?"+
+                            "NpgsqlDbType.Numeric?" +
+                            "NpgsqlDbType.Varchar?" +
                             "NpgsqlDbType.Varchar?" +
                             "NpgsqlDbType.Bigint?" +
                             "NpgsqlDbType.TimestampTz?" +
@@ -4299,13 +4373,13 @@ namespace ExportaImporta
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Error al insertar Tabla de Transacciones" + Ex.Message);
-                string cadena5 = "_error_errores_importacion";
-                string cadena6 = "NpgsqlDbType.Varchar";
+                // string cadena5 = "_error_errores_importacion";
+                // string cadena6 = "NpgsqlDbType.Varchar";
                 // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
                 Console.WriteLine("ERROR INSERTADO ->" + cadena1);
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
-               // Console.Read();
+                // Console.Read();
 
             }
 
@@ -4331,10 +4405,10 @@ namespace ExportaImporta
                 "APROVED_AMORTIZATION_TABLE_ADDITIONAL_VALUE_ID," +
                 "VALUE," +
                 "CASE WHEN STATUS = 0 THEN 2 ELSE STATUS END AS STATUS," +
-                "CASE WHEN STATE = 0 THEN 2 ELSE STATE END AS STATE", " one.CREDIT_TRANSACTION_DETAIL", " CREDIT_TRANSACTION_ID="+ _id_transacciones + " ORDER BY CREDIT_TRANSACTION_DETAIL_ID ASC");
+                "CASE WHEN STATE = 0 THEN 2 ELSE STATE END AS STATE", " one.CREDIT_TRANSACTION_DETAIL", " CREDIT_TRANSACTION_ID=" + _id_transacciones + " ORDER BY CREDIT_TRANSACTION_DETAIL_ID ASC");
 
             Int64 _id_transacciones_detalle;
-           // Int64 _id_transacciones;
+            // Int64 _id_transacciones;
             Int64 _id_tabla_amortizacion_pago;
             double _valor_transaccion_detalle;
             int _id_status;
@@ -4354,7 +4428,7 @@ namespace ExportaImporta
 
                     _id_transacciones_detalle = Convert.ToInt64(renglon["CREDIT_TRANSACTION_DETAIL_ID"].ToString());
                     _id_transacciones = Convert.ToInt64(renglon["CREDIT_TRANSACTION_ID"].ToString());
-                    
+
                     _id_tabla_amortizacion_pago = Convert.ToInt64(renglon["APROVED_AMORTIZATION_TABLE_ADDITIONAL_VALUE_ID"].ToString());
                     _valor_transaccion_detalle = Convert.ToDouble(renglon["VALUE"].ToString());
                     _id_status = Convert.ToInt32(renglon["STATUS"].ToString());
@@ -4366,7 +4440,7 @@ namespace ExportaImporta
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("TOTAL DE MODO DE PAGOS PROCESADOS -> " + reg + " LEIDOS -> " + _leidos);
 
-                    ins_core_transacciones_detalle_carga(_id_transacciones_detalle, _id_transacciones, _id_tabla_amortizacion_pago, _valor_transaccion_detalle,  _id_status, _id_estado_transacciones);
+                    ins_core_transacciones_detalle_carga(_id_transacciones_detalle, _id_transacciones, _id_tabla_amortizacion_pago, _valor_transaccion_detalle, _id_status, _id_estado_transacciones);
                 }
 
                 Console.WriteLine(reg + "---------------------------------");
@@ -4378,7 +4452,7 @@ namespace ExportaImporta
         public static void ins_core_transacciones_detalle_carga(Int64 _id_transacciones_detalle, Int64 _id_transacciones, Int64 _id_tabla_amortizacion_pago, double _valor_transaccion_detalle, int _id_status, int _id_estado_transacciones)
         {
 
-            string cadena1 = _id_transacciones_detalle+"?"+_id_transacciones + "?" + _id_tabla_amortizacion_pago + "?" + _valor_transaccion_detalle + "?" + _id_status + "?" + _id_estado_transacciones;
+            string cadena1 = _id_transacciones_detalle + "?" + _id_transacciones + "?" + _id_tabla_amortizacion_pago + "?" + _valor_transaccion_detalle + "?" + _id_status + "?" + _id_estado_transacciones;
             string cadena2 = "_id_transacciones_detalle?_id_transacciones?_id_tabla_amortizacion_pago?_valor_transaccion_detalle?_id_status?_id_estado_transacciones";
             string cadena3 = "NpgsqlDbType.Bigint?" +
                             "NpgsqlDbType.Bigint?" +
@@ -4401,20 +4475,20 @@ namespace ExportaImporta
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Error al insertar Tabla de Transacciones detalle" + Ex.Message);
-                string cadena5 = "_error_errores_importacion";
-                string cadena6 = "NpgsqlDbType.Varchar";
+                //  string cadena5 = "_error_errores_importacion";
+                //  string cadena6 = "NpgsqlDbType.Varchar";
                 // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
                 Console.WriteLine("ERROR INSERTADO ->" + cadena1);
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
-               // Console.Read();
+                // Console.Read();
 
             }
 
         }
 
 
-       
+
 
         public static void cargar_documentos_hipotecarios()
         {
@@ -4434,9 +4508,9 @@ namespace ExportaImporta
 
             Int64 _id_credito;
             // Int64 _id_transacciones;
-            
-            double _valor_avaluo_core_documentos_hipotecario = 0; 
-           
+
+            double _valor_avaluo_core_documentos_hipotecario = 0;
+
             int reg = dtTransacciones.Rows.Count;
 
             int _leidos = 0;
@@ -4451,7 +4525,7 @@ namespace ExportaImporta
                     _id_credito = Convert.ToInt64(renglon["CREDIT_ID"].ToString());
                     _valor_avaluo_core_documentos_hipotecario = Convert.ToDouble(renglon["PROPERTY_APPRAISAL"].ToString());
 
-                 
+
 
                     //  Console.WriteLine(_fecha_pago_prestaciones);
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -4487,8 +4561,8 @@ namespace ExportaImporta
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Error al insertar documentos hipotecarios" + Ex.Message);
-                string cadena5 = "_error_errores_importacion";
-                string cadena6 = "NpgsqlDbType.Varchar";
+                //   string cadena5 = "_error_errores_importacion";
+                //  string cadena6 = "NpgsqlDbType.Varchar";
                 // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
                 Console.WriteLine("ERROR INSERTADO ->" + cadena1);
@@ -4498,6 +4572,2847 @@ namespace ExportaImporta
             }
 
         }
+
+
+
+
+        /// <summary>
+        /// /LIQUIDACIONES HISTORICOS
+        /// </summary>
+        public static void cargar_liquidacion_historico()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO LIQUIDACION HISTORICO ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+
+
+            DataTable dtLiquidacionHistorico = AccesoLogicaSQL.Select("l.LIQUIDATION_HISTORICAL_ID, " +
+                "l.LIQUIDATION_STATE, " +
+                "l.REGISTER_DATE, " +
+                "l.USER_NAME, " +
+                "l.OBSERVATION, " +
+                "CASE WHEN l.STATUS = 0 THEN 2 " +
+                "ELSE l.STATUS END AS STATUS",
+                " one.LIQUIDATION_HISTORICAL l ",
+                " 1= 1");
+            /*
+            public.ins_core_liquidaciones_historico_carga(
+    _id_liquidaciones_historico integer,
+    _id_estado_prestaciones integer,
+    _fecha_registro_liquidaciones_historico timestamp with time zone,
+    _observaciones_liquidacion_historico character varying,
+    _id_usuarios integer,
+    _id_status integer)
+    */
+
+            int _id_liquidaciones_historico;
+            int _id_estado_prestaciones;
+            DateTime _fecha_registro_liquidaciones_historico;
+            string _observaciones_liquidacion_historico;
+            int _id_usuarios;
+            int _id_status;
+
+
+            int reg = dtLiquidacionHistorico.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtLiquidacionHistorico.Rows)
+                {
+                    _leidos++;
+
+
+                    _id_liquidaciones_historico = Convert.ToInt32(renglon["LIQUIDATION_HISTORICAL_ID"].ToString());
+                    _id_estado_prestaciones = Convert.ToInt32(renglon["LIQUIDATION_STATE"].ToString());
+                    _fecha_registro_liquidaciones_historico = Convert.ToDateTime(renglon["REGISTER_DATE"].ToString());
+                    _observaciones_liquidacion_historico = Convert.ToString(renglon["OBSERVATION"].ToString()) + " USER:" + Convert.ToString(renglon["USER_NAME"].ToString());
+                    _id_usuarios = 34;
+                    _id_status = Convert.ToInt32(renglon["STATUS"].ToString());
+
+
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE LIQUIDACION HISTORICOS PROCSADOS -> " + reg + " LEIDOS -> " + _leidos);
+
+                    //Console.WriteLine("DETALLE: " + _id_liquidaciones_historico+" Estado: "+ _id_estado_prestaciones + " Fecha: " + _fecha_registro_liquidaciones_historico + " Observacion: " + _observaciones_liquidacion_historico + " id Usuario: " + _id_usuarios + " Starus: " + _id_status);
+                    ins_core_liquidaciones_historico_carga(_id_liquidaciones_historico, _id_estado_prestaciones, _fecha_registro_liquidaciones_historico, _observaciones_liquidacion_historico, _id_usuarios, _id_status);
+
+
+
+
+
+                    //cargar_transacciones_detalle(_id_transacciones);
+                }
+
+                Console.Read();
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+
+        public static void ins_core_liquidaciones_historico_carga(int _id_liquidaciones_historico, int _id_estado_prestaciones, DateTime _fecha_registro_liquidaciones_historico, string _observaciones_liquidacion_historico, int _id_usuarios, int _id_status)
+        {
+            Console.WriteLine("1->" + _id_liquidaciones_historico + "2-> " + _id_estado_prestaciones + "3-> " + _fecha_registro_liquidaciones_historico + "4-> " + _observaciones_liquidacion_historico + "5-> " + _id_usuarios + "6-> " + _id_status);
+            string cadena1 = _id_liquidaciones_historico + "?" + _id_estado_prestaciones + "?" + _fecha_registro_liquidaciones_historico + "?" + _observaciones_liquidacion_historico + "?" + _id_usuarios + "?" + _id_status;
+            string cadena2 = "_id_liquidaciones_historico?_id_estado_prestaciones?_fecha_registro_liquidaciones_historico?_observaciones_liquidacion_historico?_id_usuarios?_id_status";
+            string cadena3 = "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.TimestampTz?" +
+                            "NpgsqlDbType.Varchar?" +
+                            "NpgsqlDbType.Int?" +
+                            "NpgsqlDbType.Int";
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_liquidaciones_historico_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO LIQUIDACIONES HISTORICOS ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+
+
+            }
+            catch (Exception Ex)
+
+            {
+
+                Console.ForegroundColor = ConsoleColor.Red;
+
+                Console.WriteLine("Error al insertar LIQUIDACIONES HISTORICOS " + Ex.Message);
+                //    string cadena5 = "_error_errores_importacion";
+                //    string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.Read();
+
+
+            }
+
+        }
+
+
+
+
+
+        public static void cargar_tipo_pago_liquidacion()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO TIPO PAGO LIQUIDACION  ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtPagoLiquidacion = AccesoLogicaSQL.Select("CATALOG_VALUE, CATALOG_NAME, CATALOG_DESCRIPTION",
+                " one.CATALOG c",
+                " c.CATALOG_IDENTITY like '%LIQUIDATION_SUMMARY_ID%' ");
+
+            int _id_tipo_pago_liquidacion;
+            string _nombre_tipo_pago_liquidacion;
+            string _descripcion_tipo_pago_liquidacion;
+
+            int reg = dtPagoLiquidacion.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtPagoLiquidacion.Rows)
+                {
+                    _leidos++;
+
+
+
+                    _id_tipo_pago_liquidacion = Convert.ToInt32(renglon["CATALOG_VALUE"].ToString());
+                    _nombre_tipo_pago_liquidacion = Convert.ToString(renglon["CATALOG_NAME"].ToString());
+                    _descripcion_tipo_pago_liquidacion = Convert.ToString(renglon["CATALOG_DESCRIPTION"].ToString());
+
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE TIPO PAGO  LIQUIDACION  PROCSADOS -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_tipo_pago_liquidacion_carga(_id_tipo_pago_liquidacion, _nombre_tipo_pago_liquidacion, _descripcion_tipo_pago_liquidacion);
+
+
+
+                }
+
+                //cargar_transacciones_detalle(_id_transacciones);
+
+
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+
+
+
+
+        public static void ins_core_tipo_pago_liquidacion_carga(int _id_tipo_pago_liquidacion, string _nombre_tipo_pago_liquidacion, string _descripcion_tipo_pago_liquidacion)
+        {
+            string cadena1 = _id_tipo_pago_liquidacion + "?" + _nombre_tipo_pago_liquidacion + "?" + _descripcion_tipo_pago_liquidacion;
+            string cadena2 = "_id_tipo_pago_liquidacion?_nombre_tipo_pago_liquidacion?_descripcion_tipo_pago_liquidacion";
+            string cadena3 = "NpgsqlDbType.Int?" +
+                            "NpgsqlDbType.Varchar?" +
+                            "NpgsqlDbType.Varchar";
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_tipo_pago_liquidacion_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO TIPO PAGO LIQUIDACIONES ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar TIPO PAGO LIQUIDACIONES" + Ex.Message);
+                //   string cadena5 = "_error_errores_importacion";
+                //   string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                // Console.Read();
+
+            }
+
+        }
+
+
+
+
+
+
+        public static void cargar_liquidacion_cabeza()
+        {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            CultureInfo culture = CultureInfo.CurrentCulture;
+            Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO TIPO  LIQUIDACION CABEZA  ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtLiquidacionCabeza = AccesoLogicaSQL.Select("l.LIQUIDATION_ID, " +
+                "l.PARTNER_ID, " +
+                "l.DATE_CONCLUSION, " +
+                "l.NET_VALUE_TO_PAY, " +
+                "l.IMPOSITION_NUMBERS, " +
+                "CASE WHEN l.STATUS=0 THEN 2 ELSE l.STATUS END AS STATUS, " +
+                "l.OBSERVATION, " +
+                "l.TYPE, " +
+                "l.STATE, " +
+                "l.VOUCHER, " +
+                "l.FOLDER_NUMBER, " +
+                "l.FILE_NUMBER, " +
+                "CONVERT(datetime, l.DATE_FOLDER_ENTRANCE , 21) AS DATE_FOLDER_ENTRANCE, " +
+                "l.DOCUMENT_NUMBER, " +
+                "l.USER_NAME, " +
+                "CONVERT(datetime, l.DATE_FOLDER_PAY , 21) AS DATE_FOLDER_PAY , " +
+                "l.NUMBER_FOLDER, " +
+                "l.DATE_ENTRANCE_PN, " +
+                "l.DATE_EXIT_PN, " +
+                "l.LIQUIDATION_HISTORICAL_ID",
+                " one.LIQUIDATION l",
+                "  1=1 ");
+
+            /*
+             public.ins_core_liquidacion_cabeza_carga(
+    _id_liquidacion_cabeza integer,
+    _id_participes bigint,
+    _valor_neto_pagar_liquidacion_cabeza numeric,
+    _cantidad_aportaciones_liquidacion_cabeza integer,
+    _id_status integer,
+    _observacion_liquidacion_cabeza character varying,
+    _id_tipo_prestaciones integer,
+    _id_estado_prestaciones integer,
+    _sustento_liquidacion_cabeza character varying,
+    _carpeta_numero_liquidacion_cabeza character varying,
+    _file_number_liquidacion_cabeza integer,
+    _fecha_entrada_carpeta_liquidacion_cabeza timestamp with time zone,
+    _user_name character varying,
+    _id_usuarios integer,
+    _fecha_pago_carpeta_liquidacion_cabeza timestamp with time zone,
+    _numero_documento_liquidacion_cabeza integer,
+    _fecha_entrada_liquidacion_cabeza timestamp with time zone,
+    _numero_carpeta_liquidacion_cabeza integer,
+    _fecha_salida_liquidacion_cabeza timestamp with time zone,
+    _id_liquidaciones_historico integer)
+            */
+
+
+            int _id_liquidacion_cabeza;
+            Int64 _id_participes;
+            double _valor_neto_pagar_liquidacion_cabeza;
+            int _cantidad_aportaciones_liquidacion_cabeza;
+            int _id_status;
+            string _observacion_liquidacion_cabeza;
+            int _id_tipo_prestaciones;
+            int _id_estado_prestaciones;
+            string _sustento_liquidacion_cabeza;
+            string _carpeta_numero_liquidacion_cabeza;
+            int _file_number_liquidacion_cabeza;
+            DateTime _fecha_entrada_carpeta_liquidacion_cabeza;
+            string _user_name;
+            int _id_usuarios;
+            DateTime _fecha_pago_carpeta_liquidacion_cabeza;
+            int _numero_documento_liquidacion_cabeza;
+            DateTime _fecha_entrada_liquidacion_cabeza;
+            int _numero_carpeta_liquidacion_cabeza;
+            DateTime _fecha_salida_liquidacion_cabeza;
+            int _id_liquidaciones_historico;
+
+
+
+            int reg = dtLiquidacionCabeza.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtLiquidacionCabeza.Rows)
+                {
+                    _leidos++;
+
+
+                    _id_liquidacion_cabeza = Convert.ToInt32(renglon["LIQUIDATION_ID"].ToString());
+                    _id_participes = Convert.ToInt64(renglon["PARTNER_ID"].ToString());
+                    _valor_neto_pagar_liquidacion_cabeza = Convert.ToDouble(renglon["NET_VALUE_TO_PAY"].ToString());
+                    _cantidad_aportaciones_liquidacion_cabeza = Convert.ToInt32(renglon["IMPOSITION_NUMBERS"].ToString());
+                    _id_status = Convert.ToInt32(renglon["STATUS"].ToString());
+                    _observacion_liquidacion_cabeza = Convert.ToString(renglon["OBSERVATION"].ToString());
+                    _id_tipo_prestaciones = Convert.ToInt32(renglon["TYPE"].ToString());
+                    _id_estado_prestaciones = Convert.ToInt32(renglon["STATE"].ToString());
+                    _sustento_liquidacion_cabeza = Convert.ToString(renglon["VOUCHER"].ToString());
+                    _carpeta_numero_liquidacion_cabeza = Convert.ToString(renglon["FOLDER_NUMBER"].ToString());
+                    _file_number_liquidacion_cabeza = Convert.ToInt32(renglon["FILE_NUMBER"].ToString());
+                    _fecha_entrada_carpeta_liquidacion_cabeza = Convert.ToDateTime(renglon["DATE_FOLDER_ENTRANCE"].ToString());
+                    _user_name = Convert.ToString(renglon["USER_NAME"].ToString());
+                    _id_usuarios = 34; //Convert.ToInt32(renglon["CATALOG_VALUE"].ToString());
+
+                    if (renglon["DATE_FOLDER_PAY"].ToString() != "")
+                    {
+                        _fecha_pago_carpeta_liquidacion_cabeza = Convert.ToDateTime(renglon["DATE_FOLDER_PAY"].ToString());
+                    }
+                    else
+                    {
+                        _fecha_pago_carpeta_liquidacion_cabeza = Convert.ToDateTime("1/1/1900 9:48:32");
+
+                    }
+
+
+                    _numero_documento_liquidacion_cabeza = Convert.ToInt32(renglon["NUMBER_FOLDER"].ToString());
+                    _fecha_entrada_liquidacion_cabeza = Convert.ToDateTime(renglon["DATE_ENTRANCE_PN"].ToString());
+
+                    _numero_carpeta_liquidacion_cabeza = Convert.ToInt32(renglon["NUMBER_FOLDER"].ToString());
+                    _fecha_salida_liquidacion_cabeza = Convert.ToDateTime(renglon["DATE_EXIT_PN"].ToString());
+                    if (renglon["LIQUIDATION_HISTORICAL_ID"].ToString() != "")
+                    {
+                        _id_liquidaciones_historico = Convert.ToInt32(renglon["LIQUIDATION_HISTORICAL_ID"].ToString());
+                    }
+                    else
+                    {
+                        _id_liquidaciones_historico = 0;
+                    }
+
+
+
+
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE TIPO PAGO  LIQUIDACION  PROCSADOS -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_liquidacion_cabeza_carga(_id_liquidacion_cabeza, _id_participes, _valor_neto_pagar_liquidacion_cabeza, _cantidad_aportaciones_liquidacion_cabeza, _id_status, _observacion_liquidacion_cabeza, _id_tipo_prestaciones, _id_estado_prestaciones, _sustento_liquidacion_cabeza, _carpeta_numero_liquidacion_cabeza, _file_number_liquidacion_cabeza, _fecha_entrada_carpeta_liquidacion_cabeza, _user_name, _id_usuarios, _fecha_pago_carpeta_liquidacion_cabeza, _numero_documento_liquidacion_cabeza, _fecha_entrada_liquidacion_cabeza, _numero_carpeta_liquidacion_cabeza, _fecha_salida_liquidacion_cabeza, _id_liquidaciones_historico);
+
+
+
+                }
+
+                //cargar_transacciones_detalle(_id_transacciones);
+
+
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+
+
+        public static void ins_core_liquidacion_cabeza_carga(int _id_liquidacion_cabeza, Int64 _id_participes, double _valor_neto_pagar_liquidacion_cabeza, int _cantidad_aportaciones_liquidacion_cabeza, int _id_status, string _observacion_liquidacion_cabeza, int _id_tipo_prestaciones, int _id_estado_prestaciones, string _sustento_liquidacion_cabeza, string _carpeta_numero_liquidacion_cabeza, int _file_number_liquidacion_cabeza, DateTime _fecha_entrada_carpeta_liquidacion_cabeza, string _user_name, int _id_usuarios, DateTime _fecha_pago_carpeta_liquidacion_cabeza, int _numero_documento_liquidacion_cabeza, DateTime _fecha_entrada_liquidacion_cabeza, int _numero_carpeta_liquidacion_cabeza, DateTime _fecha_salida_liquidacion_cabeza, int _id_liquidaciones_historico)
+        {
+            string cadena1 = _id_liquidacion_cabeza + "?" + _id_participes + "?" + _valor_neto_pagar_liquidacion_cabeza + "?" + _cantidad_aportaciones_liquidacion_cabeza + "?" + _id_status + "?" + _observacion_liquidacion_cabeza + "?" + _id_tipo_prestaciones + "?" + _id_estado_prestaciones + "?" + _sustento_liquidacion_cabeza + "?" + _carpeta_numero_liquidacion_cabeza + "?" + _file_number_liquidacion_cabeza + "?" + _fecha_entrada_carpeta_liquidacion_cabeza + "?" + _user_name + "?" + _id_usuarios + "?" + _fecha_pago_carpeta_liquidacion_cabeza + "?" + _numero_documento_liquidacion_cabeza + "?" + _fecha_entrada_liquidacion_cabeza + "?" + _numero_carpeta_liquidacion_cabeza + "?" + _fecha_salida_liquidacion_cabeza + "?" + _id_liquidaciones_historico;
+            string cadena2 = " _id_liquidacion_cabeza?_id_participes?_valor_neto_pagar_liquidacion_cabeza?_cantidad_aportaciones_liquidacion_cabeza?_id_status?_observacion_liquidacion_cabeza?_id_tipo_prestaciones?_id_estado_prestaciones?_sustento_liquidacion_cabeza?_carpeta_numero_liquidacion_cabeza?_file_number_liquidacion_cabeza?_fecha_entrada_carpeta_liquidacion_cabeza?_user_name?_id_usuarios?_fecha_pago_carpeta_liquidacion_cabeza?_numero_documento_liquidacion_cabeza?_fecha_entrada_liquidacion_cabeza?_numero_carpeta_liquidacion_cabeza?_fecha_salida_liquidacion_cabeza?_id_liquidaciones_historico";
+            string cadena3 = "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Bigint?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Varchar?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Varchar?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.TimestampTz?" +
+                            "NpgsqlDbType.Varchar?" +
+                            "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.TimestampTz?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.TimestampTz?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.TimestampTz?" +
+                             "NpgsqlDbType.Int";
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_liquidacion_cabeza_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO TIPO PAGO LIQUIDACIONES ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar TIPO PAGO LIQUIDACIONES" + Ex.Message);
+                //  string cadena5 = "_error_errores_importacion";
+                //  string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR hISTORICO ->" + _id_liquidaciones_historico);
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.Read();
+
+            }
+
+        }
+
+
+
+
+
+
+        public static void cargar_liquidacion_detalle()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO TIPO  LIQUIDACION DETALLE  ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtLiquidacionDetalle = AccesoLogicaSQL.Select("L.LIQUIDATION_SUMMARY_ID, " +
+                "L.LIQUIDATION_ID, " +
+                "L.MOTIVE, " +
+                "L.VALUE, " +
+                "l.PERCENTAGE, " +
+                "l.CALCULATION_BASE, " +
+                "l.REGISTER_DATE, " +
+                "l.code as typo_liquidacion, " +
+                "l.TABLE_NAME, " +
+                "l.OBSERVATION      ",
+                " one.LIQUIDATION_SUMMARY l",
+                " 1=1 ");
+
+            /*
+             public.ins_core_liquidacion_detalle_carga(
+    _id_liquidacion_detalle integer,
+    _id_liquidacion_cabeza integer,
+    _motivo_liquidacion_detalle character varying,
+    _valor_liquidacion_detalle numeric,
+    _porcentaje_liquidacion_detalle numeric,
+    _base_calcuo_liquidacion_detalle numeric,
+    _fecha_registro_liquidacion_detalle timestamp with time zone,
+    _id_tipo_prestaciones integer,
+    _nombre_tabla_liquidacion_detalle character varying,
+    _observacion_liquidacion_detalle character varying)
+            */
+
+
+            int _id_liquidacion_detalle;
+            int _id_liquidacion_cabeza;
+            string _motivo_liquidacion_detalle;
+            double _valor_liquidacion_detalle;
+            double _porcentaje_liquidacion_detalle;
+            double _base_calcuo_liquidacion_detalle;
+            DateTime _fecha_registro_liquidacion_detalle;
+            int _id_tipo_prestaciones;
+            string _nombre_tabla_liquidacion_detalle;
+            string _observacion_liquidacion_detalle;
+
+
+
+            int reg = dtLiquidacionDetalle.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtLiquidacionDetalle.Rows)
+                {
+                    _leidos++;
+
+                    _id_liquidacion_detalle = Convert.ToInt32(renglon["LIQUIDATION_SUMMARY_ID"].ToString());
+                    _id_liquidacion_cabeza = Convert.ToInt32(renglon["LIQUIDATION_ID"].ToString());
+                    _motivo_liquidacion_detalle = Convert.ToString(renglon["MOTIVE"].ToString());
+                    _valor_liquidacion_detalle = Convert.ToDouble(renglon["VALUE"].ToString());
+                    _porcentaje_liquidacion_detalle = Convert.ToDouble(renglon["PERCENTAGE"].ToString());
+                    _base_calcuo_liquidacion_detalle = Convert.ToDouble(renglon["CALCULATION_BASE"].ToString());
+                    _fecha_registro_liquidacion_detalle = Convert.ToDateTime(renglon["REGISTER_DATE"].ToString());
+                    _id_tipo_prestaciones = Convert.ToInt32(renglon["typo_liquidacion"].ToString());
+                    _nombre_tabla_liquidacion_detalle = Convert.ToString(renglon["TABLE_NAME"].ToString());
+                    _observacion_liquidacion_detalle = Convert.ToString(renglon["OBSERVATION"].ToString());
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE TIPO LIQUIDACION  DETALLE -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_liquidacion_detalle_carga(_id_liquidacion_detalle, _id_liquidacion_cabeza, _motivo_liquidacion_detalle, _valor_liquidacion_detalle, _porcentaje_liquidacion_detalle, _base_calcuo_liquidacion_detalle, _fecha_registro_liquidacion_detalle, _id_tipo_prestaciones, _nombre_tabla_liquidacion_detalle, _observacion_liquidacion_detalle);
+
+
+
+                }
+
+                //cargar_transacciones_detalle(_id_transacciones);
+
+
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+
+        public static void ins_core_liquidacion_detalle_carga(int _id_liquidacion_detalle, int _id_liquidacion_cabeza, string _motivo_liquidacion_detalle, double _valor_liquidacion_detalle, double _porcentaje_liquidacion_detalle, double _base_calcuo_liquidacion_detalle, DateTime _fecha_registro_liquidacion_detalle, int _id_tipo_prestaciones, string _nombre_tabla_liquidacion_detalle, string _observacion_liquidacion_detalle)
+        {
+
+
+            string cadena1 = _id_liquidacion_detalle + "?" + _id_liquidacion_cabeza + "?" + _motivo_liquidacion_detalle + "?" + _valor_liquidacion_detalle + "?" + _porcentaje_liquidacion_detalle + "?" + _base_calcuo_liquidacion_detalle + "?" + _fecha_registro_liquidacion_detalle + "?" + _id_tipo_prestaciones + "?" + _nombre_tabla_liquidacion_detalle + "?" + _observacion_liquidacion_detalle;
+            string cadena2 = "_id_liquidacion_detalle?_id_liquidacion_cabeza?_motivo_liquidacion_detalle?_valor_liquidacion_detalle?_porcentaje_liquidacion_detalle?_base_calcuo_liquidacion_detalle?_fecha_registro_liquidacion_detalle?_id_tipo_prestaciones?_nombre_tabla_liquidacion_detalle?_observacion_liquidacion_detalle";
+
+            string cadena3 = "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Varchar?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.TimestampTz?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Varchar?" +
+                             "NpgsqlDbType.Varchar";
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_liquidacion_detalle_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO  LIQUIDACIONES DETALLE ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar  LIQUIDACIONES DETALLE" + Ex.Message);
+                //  string cadena5 = "_error_errores_importacion";
+                //   string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.Read();
+
+            }
+
+        }
+
+
+
+
+
+
+
+
+        public static void cargar_liquidacion_forma_pago_carga()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO  LIQUIDACION FORMA PAGO   ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtLiquidacionFormaPago = AccesoLogicaSQL.Select("l.LIQUIDATION_PAYMENT_FORM_ID, " +
+                "l.LIQUIDATION_ID, " +
+                "l.PAYMENT_TYPE, " +
+                "l.MOVEMENT_TYPE, " +
+                "l.BANK_ID, " +
+                "l.BANK_NAME, " +
+                "l.NUMBER_ACCOUNT, " +
+                "l.VALUE, " +
+                "CASE WHEN l.STATUS=0 THEN 2 ELSE l." +
+                "STATUS END AS STATUS",
+                " one.LIQUIDATION_PAYMENT_FORM l",
+                " 1=1 ");
+
+            /*
+              public.ins_core_liquidacion_forma_pago_carga(
+    _id_liquidacion_forma_pago integer,
+    _id_liquidacion_cabeza integer,
+    _tipo_pago_liquidacion_forma_pago integer,
+    _tipo_movimiento integer,
+    _id_bancos integer,
+    _nombre_banco_liquidacion_forma_pago character varying,
+    _numero_cuenta_liquidacion_forma_pago character varying,
+    _valor_liquidacion_forma_pago numeric,
+    _id_status integer*/
+
+
+            int _id_liquidacion_forma_pago;
+            int _id_liquidacion_cabeza;
+            int _tipo_pago_liquidacion_forma_pago;
+            int _tipo_movimiento;
+            int _id_bancos;
+            string _nombre_banco_liquidacion_forma_pago;
+            string _numero_cuenta_liquidacion_forma_pago;
+            double _valor_liquidacion_forma_pago;
+            int _id_status;
+
+
+            int reg = dtLiquidacionFormaPago.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtLiquidacionFormaPago.Rows)
+                {
+                    _leidos++;
+
+
+
+                    _id_liquidacion_forma_pago = Convert.ToInt32(renglon["LIQUIDATION_PAYMENT_FORM_ID"].ToString());
+                    _id_liquidacion_cabeza = Convert.ToInt32(renglon["LIQUIDATION_ID"].ToString());
+                    _tipo_pago_liquidacion_forma_pago = Convert.ToInt32(renglon["PAYMENT_TYPE"].ToString());
+                    _tipo_movimiento = Convert.ToInt32(renglon["MOVEMENT_TYPE"].ToString());
+                    _id_bancos = 0;
+                    if (renglon["BANK_ID"].ToString() != "")
+                    {
+
+                        if (renglon["BANK_ID"].ToString() == "BG" || renglon["BANK_ID"].ToString() == "BGR" || renglon["BANK_ID"].ToString() == "BP" || renglon["BANK_ID"].ToString() == "BPI" || renglon["BANK_ID"].ToString() == "PR" || renglon["BANK_ID"].ToString() == "PRODU")
+                        {
+                            switch (renglon["BANK_ID"].ToString())
+                            {
+                                case "BG":
+                                    _id_bancos = 1020;
+                                    break;
+                                case "BGR":
+                                    _id_bancos = 1020;
+                                    break;
+                                case "BP":
+                                    _id_bancos = 1029;
+                                    break;
+                                case "BPI":
+                                    _id_bancos = 1029;
+                                    break;
+                                case "PR":
+                                    _id_bancos = 1033;
+                                    break;
+                                case "PRODU":
+                                    _id_bancos = 1033;
+                                    break;
+                            }
+
+
+                        }
+                        else
+                        {
+                            _id_bancos = Convert.ToInt32(renglon["BANK_ID"].ToString());
+                        }
+
+
+                    }
+                    else
+                    {
+                        _id_bancos = 0;
+                    }
+
+                    _nombre_banco_liquidacion_forma_pago = Convert.ToString(renglon["BANK_NAME"].ToString());
+                    _numero_cuenta_liquidacion_forma_pago = Convert.ToString(renglon["NUMBER_ACCOUNT"].ToString());
+                    _valor_liquidacion_forma_pago = Convert.ToDouble(renglon["VALUE"].ToString());
+                    _id_status = Convert.ToInt32(renglon["STATUS"].ToString());
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE TIPO LIQUIDACION  DETALLE -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_liquidacion_forma_pago_carga(_id_liquidacion_forma_pago, _id_liquidacion_cabeza, _tipo_pago_liquidacion_forma_pago, _tipo_movimiento, _id_bancos, _nombre_banco_liquidacion_forma_pago, _numero_cuenta_liquidacion_forma_pago, _valor_liquidacion_forma_pago, _id_status);
+
+
+
+                }
+
+                //cargar_transacciones_detalle(_id_transacciones);
+
+
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+
+        public static void ins_core_liquidacion_forma_pago_carga(int _id_liquidacion_forma_pago,
+                                                                    int _id_liquidacion_cabeza,
+                                                                    int _tipo_pago_liquidacion_forma_pago,
+                                                                    int _tipo_movimiento,
+                                                                    int _id_bancos,
+                                                                    string _nombre_banco_liquidacion_forma_pago,
+                                                                    string _numero_cuenta_liquidacion_forma_pago,
+                                                                    double _valor_liquidacion_forma_pago,
+                                                                    int _id_status)
+        {
+
+
+            string cadena1 = _id_liquidacion_forma_pago + "?" + _id_liquidacion_cabeza + "?" + _tipo_pago_liquidacion_forma_pago + "?" + _tipo_movimiento + "?" + _id_bancos + "?" + _nombre_banco_liquidacion_forma_pago + "?" + _numero_cuenta_liquidacion_forma_pago + "?" + _valor_liquidacion_forma_pago + "?" + _id_status;
+            string cadena2 = "_id_liquidacion_forma_pago?_id_liquidacion_cabeza?_tipo_pago_liquidacion_forma_pago?_tipo_movimiento?_id_bancos?_nombre_banco_liquidacion_forma_pago?_numero_cuenta_liquidacion_forma_pago?_valor_liquidacion_forma_pago?_id_status";
+
+            string cadena3 = "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Varchar?" +
+                             "NpgsqlDbType.Varchar?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Int";
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_liquidacion_forma_pago_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO  FORMAS DE PAGO LIQUIDACIONES ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar  LIQUIDACIONES FORMA DE PAGO" + Ex.Message);
+                //   string cadena5 = "_error_errores_importacion";
+                //   string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                // Console.Read();
+
+            }
+
+        }
+
+
+
+
+
+        ///DESCUENTOS
+        ///
+
+
+        public static void cargar_core_descuentos_formatos_carga()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO  LIQUIDACION FORMA PAGO   ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtDescuentos = AccesoLogicaSQL.Select("ID, " +
+                "ID_ENTIDAD_PATRONAL, " +
+                "NOMBRE, " +
+                "SP, " +
+                "PARAMETRO1, " +
+                "PARAMETRO2, " +
+                "PARAMETRO3, " +
+                "ENTRADA ",
+                " one.DESCUENTOS_FORMATOS",
+                " 1=1 ");
+
+            /*
+               public.ins_core_descuentos_formatos_carga(
+    _id_descuentos_formatos integer,
+    _id_entidad_patronal integer,
+    _nombre_descuentos_formatos character varying,
+    _sp_descuentos_formatos character varying,
+    _parametro_uno_descuentos_formatos character varying,
+    _parametro_dos_descuentos_formatos character varying,
+    _parametro_tres_descuentos_formatos character varying,
+    _entrada_descuentos_formatos boolean)*/
+
+
+            int _id_descuentos_formatos;
+            int _id_entidad_patronal;
+            string _nombre_descuentos_formatos;
+            string _sp_descuentos_formatos;
+            string _parametro_uno_descuentos_formatos;
+            string _parametro_dos_descuentos_formatos;
+            string _parametro_tres_descuentos_formatos;
+            bool _entrada_descuentos_formatos;
+
+
+            int reg = dtDescuentos.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtDescuentos.Rows)
+                {
+                    _leidos++;
+
+                    _id_descuentos_formatos = Convert.ToInt32(renglon["ID"].ToString());
+                    _id_entidad_patronal = Convert.ToInt32(renglon["ID_ENTIDAD_PATRONAL"].ToString());
+                    _nombre_descuentos_formatos = Convert.ToString(renglon["NOMBRE"].ToString());
+                    _sp_descuentos_formatos = Convert.ToString(renglon["SP"].ToString());
+                    _parametro_uno_descuentos_formatos = Convert.ToString(renglon["PARAMETRO1"].ToString());
+                    _parametro_dos_descuentos_formatos = Convert.ToString(renglon["PARAMETRO2"].ToString());
+                    _parametro_tres_descuentos_formatos = Convert.ToString(renglon["PARAMETRO3"].ToString());
+                    _entrada_descuentos_formatos = Convert.ToBoolean(renglon["ENTRADA"].ToString());
+
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE TIPO LIQUIDACION  DETALLE -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_descuentos_formatos_carga(_id_descuentos_formatos, _id_entidad_patronal, _nombre_descuentos_formatos, _sp_descuentos_formatos, _parametro_uno_descuentos_formatos, _parametro_dos_descuentos_formatos, _parametro_tres_descuentos_formatos, _entrada_descuentos_formatos);
+
+
+
+                }
+
+                //cargar_transacciones_detalle(_id_transacciones);
+
+
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+
+        public static void ins_core_descuentos_formatos_carga(
+                                        int _id_descuentos_formatos,
+                                        int _id_entidad_patronal,
+                                        string _nombre_descuentos_formatos,
+                                        string _sp_descuentos_formatos,
+                                        string _parametro_uno_descuentos_formatos,
+                                        string _parametro_dos_descuentos_formatos,
+                                        string _parametro_tres_descuentos_formatos,
+                                        bool _entrada_descuentos_formatos)
+        {
+
+
+            string cadena1 = _id_descuentos_formatos + "?" + _id_entidad_patronal + "?" + _nombre_descuentos_formatos + "?" + _sp_descuentos_formatos + "?" + _parametro_uno_descuentos_formatos + "?" + _parametro_dos_descuentos_formatos + "?" + _parametro_tres_descuentos_formatos + "?" + _entrada_descuentos_formatos;
+            string cadena2 = "_id_descuentos_formatos?_id_entidad_patronal?_nombre_descuentos_formatos?_sp_descuentos_formatos?_parametro_uno_descuentos_formatos?_parametro_dos_descuentos_formatos?_parametro_tres_descuentos_formatos?_entrada_descuentos_formatos";
+
+            string cadena3 = "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Varchar?" +
+                             "NpgsqlDbType.Varchar?" +
+                             "NpgsqlDbType.Varchar?" +
+                             "NpgsqlDbType.Varchar?" +
+                             "NpgsqlDbType.Varchar?" +
+                             "NpgsqlDbType.Boolean";
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_descuentos_formatos_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO  DESCUENTOS FORMAS DE PAGO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar  DESCUENTOS FORMAS DE PAGO" + Ex.Message);
+                //     string cadena5 = "_error_errores_importacion";
+                //     string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                // Console.Read();
+
+            }
+
+        }
+
+
+
+
+
+
+        public static void cargar_core_descuentos_registrados_cabeza_carga()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO  DESCUENTOS REGISTRADOS CABEZA   ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtDescuentos = AccesoLogicaSQL.Select("DESCUENTOS_REGISTRADOS_ID, " +
+                "ID_ENTIDAD_PATRONAL, " +
+                "ANIO, " +
+                "MES, " +
+                "USUARIO, " +
+                "FECHA, " +
+                "ARCHIVO, " +
+                "ID_FORMATO, " +
+                "PROCESADO, " +
+                "ERROR, " +
+                "TIPO_CREDITO, OBSERVATION, " +
+                "proccess_server",
+                " one.DESCUENTOS_REGISTRADOS",
+                " 1=1 ORDER BY DESCUENTOS_REGISTRADOS_ID ASC ");
+
+            /*
+              
+            public.ins_core_descuentos_registrados_cabeza_carga(
+    _id_descuentos_registrados_cabeza integer,
+    _id_entidad_patronal integer,
+    _year_descuentos_registrados_cabeza integer,
+    _mes_descuentos_registrados_cabeza integer,
+    _usuario_descuentos_registrados_cabeza character varying,
+    _id_usuarios integer,
+    _fecha_descuentos_registrados_cabeza timestamp with time zone,
+    _nombre_archivo_descuentos_registrados_cabeza character varying,
+    _id_descuentos_formatos integer,
+    _procesado_descuentos_registrados_cabeza boolean,
+    _erro_descuentos_registrados_cabeza boolean,
+    _tipo_credito integer,
+    _observacion_descuentos_registrados_cabeza integer,
+    _fecha_proceso_descuentos_registrados_cabeza timestamp with time zone)
+             
+             
+             */
+
+
+            int _id_descuentos_registrados_cabeza;
+            int _id_entidad_patronal;
+            int _year_descuentos_registrados_cabeza;
+            int _mes_descuentos_registrados_cabeza;
+            string _usuario_descuentos_registrados_cabeza;
+            int _id_usuarios;
+            DateTime _fecha_descuentos_registrados_cabeza;
+            string _nombre_archivo_descuentos_registrados_cabeza;
+            int _id_descuentos_formatos;
+            bool _procesado_descuentos_registrados_cabeza;
+            bool _erro_descuentos_registrados_cabeza;
+            int _tipo_credito;
+            string _observacion_descuentos_registrados_cabeza;
+            DateTime _fecha_proceso_descuentos_registrados_cabeza;
+
+            int reg = dtDescuentos.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtDescuentos.Rows)
+                {
+                    _leidos++;
+
+                    _id_descuentos_registrados_cabeza = Convert.ToInt32(renglon["DESCUENTOS_REGISTRADOS_ID"].ToString());
+
+                    if (renglon["ID_ENTIDAD_PATRONAL"].ToString() == "-1")
+                    {
+                        _id_entidad_patronal = 999;
+                    }
+                    else
+                    {
+                        _id_entidad_patronal = Convert.ToInt32(renglon["ID_ENTIDAD_PATRONAL"].ToString());
+
+                    }
+
+                    
+                    
+                    _year_descuentos_registrados_cabeza = Convert.ToInt32(renglon["ANIO"].ToString());
+                    _mes_descuentos_registrados_cabeza = Convert.ToInt32(renglon["MES"].ToString());
+                    _usuario_descuentos_registrados_cabeza = Convert.ToString(renglon["USUARIO"].ToString());
+                    _id_usuarios = 34; // Convert.ToInt32(renglon["ID"].ToString());
+                    _fecha_descuentos_registrados_cabeza = Convert.ToDateTime(renglon["FECHA"].ToString());
+                    _nombre_archivo_descuentos_registrados_cabeza = Convert.ToString(renglon["ARCHIVO"].ToString());
+                    _id_descuentos_formatos = Convert.ToInt32(renglon["ID_FORMATO"].ToString());
+                    _procesado_descuentos_registrados_cabeza = Convert.ToBoolean(renglon["PROCESADO"].ToString());
+                    _erro_descuentos_registrados_cabeza = Convert.ToBoolean(renglon["ERROR"].ToString());
+                    if (renglon["TIPO_CREDITO"].ToString() != "")
+                    {
+                        _tipo_credito = Convert.ToInt32(renglon["TIPO_CREDITO"].ToString());
+                    }
+                    else
+                    {
+                        _tipo_credito = 0;
+                    }
+                    
+                    _observacion_descuentos_registrados_cabeza = Convert.ToString(renglon["OBSERVATION"].ToString());
+                    _fecha_proceso_descuentos_registrados_cabeza = Convert.ToDateTime(renglon["proccess_server"].ToString());
+
+
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE descuentos cabeza -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_descuentos_registrados_cabeza_carga(_id_descuentos_registrados_cabeza, _id_entidad_patronal, _year_descuentos_registrados_cabeza, _mes_descuentos_registrados_cabeza, _usuario_descuentos_registrados_cabeza, _id_usuarios, _fecha_descuentos_registrados_cabeza, _nombre_archivo_descuentos_registrados_cabeza, _id_descuentos_formatos, _procesado_descuentos_registrados_cabeza, _erro_descuentos_registrados_cabeza, _tipo_credito, _observacion_descuentos_registrados_cabeza, _fecha_proceso_descuentos_registrados_cabeza);
+
+
+
+                }
+
+                //cargar_transacciones_detalle(_id_transacciones);
+
+
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+
+        public static void ins_core_descuentos_registrados_cabeza_carga(int _id_descuentos_registrados_cabeza,
+            int _id_entidad_patronal,
+            int _year_descuentos_registrados_cabeza,
+            int _mes_descuentos_registrados_cabeza,
+            string _usuario_descuentos_registrados_cabeza,
+            int _id_usuarios,
+            DateTime _fecha_descuentos_registrados_cabeza,
+            string _nombre_archivo_descuentos_registrados_cabeza,
+            int _id_descuentos_formatos,
+            bool _procesado_descuentos_registrados_cabeza, 
+            bool _erro_descuentos_registrados_cabeza, 
+            int _tipo_credito,  
+            string _observacion_descuentos_registrados_cabeza,  
+            DateTime _fecha_proceso_descuentos_registrados_cabeza)
+
+        {
+
+            
+            string cadena1 = _id_descuentos_registrados_cabeza + "?"+_id_entidad_patronal + "?" + _year_descuentos_registrados_cabeza + "?" + _mes_descuentos_registrados_cabeza + "?" + _usuario_descuentos_registrados_cabeza + "?" + _id_usuarios + "?" + _fecha_descuentos_registrados_cabeza + "?" + _nombre_archivo_descuentos_registrados_cabeza + "?" + _id_descuentos_formatos + "?" + _procesado_descuentos_registrados_cabeza + "?" + _erro_descuentos_registrados_cabeza + "?" + _tipo_credito + "?" + _observacion_descuentos_registrados_cabeza + "?" + _fecha_proceso_descuentos_registrados_cabeza;
+            string cadena2 = "_id_descuentos_registrados_cabeza?_id_entidad_patronal?_year_descuentos_registrados_cabeza?_mes_descuentos_registrados_cabeza?_usuario_descuentos_registrados_cabeza?_id_usuarios?_fecha_descuentos_registrados_cabeza?_nombre_archivo_descuentos_registrados_cabeza?_id_descuentos_formatos?_procesado_descuentos_registrados_cabeza?_erro_descuentos_registrados_cabeza?_tipo_credito?_observacion_descuentos_registrados_cabez?_fecha_proceso_descuentos_registrados_cabeza";
+
+            string cadena3 = "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Varchar?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.TimestampTz?" +
+                             "NpgsqlDbType.Varchar?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Boolean?" +
+                             "NpgsqlDbType.Boolean?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Varchar?" +
+                             "NpgsqlDbType.TimestampTz";
+
+            
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_descuentos_registrados_cabeza_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO  DESCUENTOS  CABEZA ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar  DESCUENTOS CABEZA" + Ex.Message);
+                //     string cadena5 = "_error_errores_importacion";
+                //     string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+             //    Console.Read();
+
+            }
+
+        }
+
+
+
+
+
+
+
+        public static void cargar_core_descuentos_registrados_detalle_aportes()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO  DESCUENTOS REGISTRADOS CABEZA   ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtDescuentos = AccesoLogicaSQL.Select("DESCUENTOS_REGISTRADOS_ID," +
+                "ID," +
+                "ID_ENTIDAD_PATRONAL," +
+                "ANIO," +
+                "MES," +
+                "ID_AFILIADO," +
+                "APORTE_PERSONAL, " +
+                "APORTE_PATRONAL," +
+                "RMU," +
+                "LIQUIDO," +
+                "MULTAS," +
+                "ANTIGUEDAD," +
+                "ALTA," +
+                "ID_FORMATO," +
+                "PROCESADO," +
+                "SALDO",
+                " one.DESCUENTOS_REGISTRADOS_APORTE",
+                " 1=1  ORDER BY ID ASC");
+
+            /*
+              public.ins_core_descuentos_registrados_detalle_aportes_carga(
+    _id_descuentos_registrados_detalle_aportes bigint,
+    _id_descuentos_registrados_cabeza integer
+    _id_entidad_patronal integer,
+    _year_descuentos_registrados_detalle_aportes integer,
+    _mes_descuentos_registrados_detalle_aportes integer,
+    _id_participes integer,
+    _aporte_personal_descuentos_registrados_detalle_aportes numeric,
+    _aporte_patronal_descuentos_registrados_detalle_aportes numeric,
+    _rmu_descuentos_registrados_detalle_aportes numeric,
+    _liquido_descuentos_registrados_detalle_aportes numeric,
+    _multas_descuentos_registrados_detalle_aportes numeric,
+    _antiguedad_descuentos_registrados_detalle_aportes numeric,
+    _alta_descuentos_registrados_detalle_aportes boolean,
+    _id_descuentos_formatos integer,
+    _procesado_descuentos_registrados_detalle_aportes boolean,
+    _saldo_descuentos_registrados_detalle_aportes numeric)
+             */
+
+            Int64 _id_descuentos_registrados_detalle_aportes;
+            int _id_descuentos_registrados_cabeza;
+            int _id_entidad_patronal;
+            int _year_descuentos_registrados_detalle_aportes;
+            int _mes_descuentos_registrados_detalle_aportes;
+            int _id_participes;
+            double _aporte_personal_descuentos_registrados_detalle_aportes;
+            double _aporte_patronal_descuentos_registrados_detalle_aportes;
+            double _rmu_descuentos_registrados_detalle_aportes;
+            double _liquido_descuentos_registrados_detalle_aportes;
+            double _multas_descuentos_registrados_detalle_aportes;
+            double _antiguedad_descuentos_registrados_detalle_aportes;
+            bool _alta_descuentos_registrados_detalle_aportes;
+            int _id_descuentos_formatos;
+            bool _procesado_descuentos_registrados_detalle_aportes;
+            double _saldo_descuentos_registrados_detalle_aportes;
+            
+
+            int reg = dtDescuentos.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtDescuentos.Rows)
+                {
+                    _leidos++;
+                    _id_descuentos_registrados_detalle_aportes                    = Convert.ToInt64(renglon["ID"].ToString());
+                    _id_descuentos_registrados_cabeza                              = Convert.ToInt32(renglon["DESCUENTOS_REGISTRADOS_ID"].ToString());
+                    _id_entidad_patronal                                            = Convert.ToInt32(renglon["ID_ENTIDAD_PATRONAL"].ToString()); 
+                    _year_descuentos_registrados_detalle_aportes                    = Convert.ToInt32(renglon["ANIO"].ToString()); 
+                    _mes_descuentos_registrados_detalle_aportes                     = Convert.ToInt32(renglon["MES"].ToString()); 
+                    _id_participes                                                  = Convert.ToInt32(renglon["ID_AFILIADO"].ToString()); 
+                    _aporte_personal_descuentos_registrados_detalle_aportes      = Convert.ToDouble(renglon["APORTE_PERSONAL"].ToString()); 
+                    _aporte_patronal_descuentos_registrados_detalle_aportes      = Convert.ToDouble(renglon["APORTE_PATRONAL"].ToString()); 
+                    _rmu_descuentos_registrados_detalle_aportes                  = Convert.ToDouble(renglon["RMU"].ToString());
+                    _liquido_descuentos_registrados_detalle_aportes              = Convert.ToDouble(renglon["LIQUIDO"].ToString());
+                    _multas_descuentos_registrados_detalle_aportes               = Convert.ToDouble(renglon["MULTAS"].ToString());
+                    _antiguedad_descuentos_registrados_detalle_aportes           = Convert.ToDouble(renglon["ANTIGUEDAD"].ToString());
+                    _alta_descuentos_registrados_detalle_aportes                   = Convert.ToBoolean(renglon["ALTA"].ToString()); 
+                    _id_descuentos_formatos                                         = Convert.ToInt32(renglon["ID_FORMATO"].ToString());
+                    _procesado_descuentos_registrados_detalle_aportes              = Convert.ToBoolean(renglon["PROCESADO"].ToString());
+                    _saldo_descuentos_registrados_detalle_aportes                = Convert.ToDouble(renglon["SALDO"].ToString());
+                    
+
+
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE descuentos cabeza -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_descuentos_registrados_detalle_aportes_carga(_id_descuentos_registrados_detalle_aportes,
+                                    _id_descuentos_registrados_cabeza,
+                                    _id_entidad_patronal,
+                                    _year_descuentos_registrados_detalle_aportes,
+                                    _mes_descuentos_registrados_detalle_aportes,
+                                    _id_participes,
+                                    _aporte_personal_descuentos_registrados_detalle_aportes,
+                                    _aporte_patronal_descuentos_registrados_detalle_aportes,
+                                    _rmu_descuentos_registrados_detalle_aportes,
+                                    _liquido_descuentos_registrados_detalle_aportes,
+                                    _multas_descuentos_registrados_detalle_aportes,
+                                    _antiguedad_descuentos_registrados_detalle_aportes,
+                                    _alta_descuentos_registrados_detalle_aportes,
+                                    _id_descuentos_formatos,
+                                    _procesado_descuentos_registrados_detalle_aportes,
+                                    _saldo_descuentos_registrados_detalle_aportes);
+
+
+
+                }
+
+                //cargar_transacciones_detalle(_id_transacciones);
+
+
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+
+        public static void ins_core_descuentos_registrados_detalle_aportes_carga(
+            Int64 _id_descuentos_registrados_detalle_aportes,
+            int _id_descuentos_registrados_cabeza,
+        int _id_entidad_patronal,
+        int _year_descuentos_registrados_detalle_aportes,
+        int _mes_descuentos_registrados_detalle_aportes,
+        int _id_participes,
+        double _aporte_personal_descuentos_registrados_detalle_aportes,
+        double _aporte_patronal_descuentos_registrados_detalle_aportes,
+        double _rmu_descuentos_registrados_detalle_aportes,
+        double _liquido_descuentos_registrados_detalle_aportes,
+        double _multas_descuentos_registrados_detalle_aportes,
+        double _antiguedad_descuentos_registrados_detalle_aportes,
+        bool _alta_descuentos_registrados_detalle_aportes,
+        int _id_descuentos_formatos,
+        bool _procesado_descuentos_registrados_detalle_aportes,
+        double _saldo_descuentos_registrados_detalle_aportes)
+
+        {
+
+
+            string cadena1 = 
+                _id_descuentos_registrados_detalle_aportes+"?"+
+                _id_descuentos_registrados_cabeza + "?" +
+                _id_entidad_patronal + "?" + 
+                _year_descuentos_registrados_detalle_aportes + "?" + 
+                _mes_descuentos_registrados_detalle_aportes+"?" + 
+                _id_participes+ "?" + 
+                _aporte_personal_descuentos_registrados_detalle_aportes+"?" + 
+                _aporte_patronal_descuentos_registrados_detalle_aportes+"?" + 
+                _rmu_descuentos_registrados_detalle_aportes+"?" + 
+                _liquido_descuentos_registrados_detalle_aportes+"?" + 
+                _multas_descuentos_registrados_detalle_aportes+"?" + 
+                _antiguedad_descuentos_registrados_detalle_aportes+"?" + 
+                _alta_descuentos_registrados_detalle_aportes+"?" + 
+                _id_descuentos_formatos+"?" + 
+                _procesado_descuentos_registrados_detalle_aportes+"?" + 
+                _saldo_descuentos_registrados_detalle_aportes;
+
+            string cadena2 = "_id_descuentos_registrados_detalle_aportes?" +
+                "_id_descuentos_registrados_cabeza?" +
+                "_id_entidad_patrona?" +
+                "_year_descuentos_registrados_detalle_aportes?" +
+                "_mes_descuentos_registrados_detalle_aportes?" +
+                "_id_participes?" +
+                "_aporte_personal_descuentos_registrados_detalle_aportes?" +
+                "_aporte_patronal_descuentos_registrados_detalle_aportes?" +
+                "_rmu_descuentos_registrados_detalle_aportes?" +
+                "_liquido_descuentos_registrados_detalle_aportes?" +
+                "_multas_descuentos_registrados_detalle_aportes?" +
+                "_antiguedad_descuentos_registrados_detalle_aportes?" +
+                "_alta_descuentos_registrados_detalle_aportes?" +
+                "_id_descuentos_formatos?" +
+                "_procesado_descuentos_registrados_detalle_aportes?" +
+                "_saldo_descuentos_registrados_detalle_aportes";
+
+            string cadena3 = "NpgsqlDbType.BigInt?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Boolean?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Boolean?" +
+                             "NpgsqlDbType.Numeric";
+
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_descuentos_registrados_detalle_aportes_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO  DESCUENTOS  DETALLE APORTES ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar  DESCUENTOS DETALLE APORTES" + Ex.Message);
+                //     string cadena5 = "_error_errores_importacion";
+                //     string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                // Console.Read();
+
+            }
+
+        }
+
+
+
+
+
+        public static void cargar_core_descuentos_registrados_detalle_contibucion()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO  DESCUENTOS REGISTRADOS DETALLE CONTRIBUCION   ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtDescuentos = AccesoLogicaSQL.Select("ID, DESCUENTOS_REGISTRADOS_APORTES_ID, CONTRIBUTION_ID",
+                " one.DESCUENTOS_REGISTRADOS_CONTRIBUTION",
+                " 1=1 ORDER BY ID ASC");
+
+            /*
+               public.ins_core_descuentos_registrados_detalle_contibucion_carga(
+    _id_descuentos_registrados_detalle_contibucion bigint,
+    _id_descuentos_registrados_detalle_aportes bigint,
+    _id_contribucion bigint)
+             */
+            Int64 _id_descuentos_registrados_detalle_contibucion;
+            Int64 _id_descuentos_registrados_detalle_aportes;
+            Int64    _id_contribucion;
+
+
+            int reg = dtDescuentos.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtDescuentos.Rows)
+                {
+                    _leidos++;
+                    _id_descuentos_registrados_detalle_contibucion = Convert.ToInt64(renglon["ID"].ToString());
+                    _id_descuentos_registrados_detalle_aportes = Convert.ToInt64(renglon["DESCUENTOS_REGISTRADOS_APORTES_ID"].ToString());
+                    _id_contribucion = Convert.ToInt64(renglon["CONTRIBUTION_ID"].ToString());
+
+                    
+
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE descuentos cabeza -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_descuentos_registrados_detalle_contibucion_carga(
+                                            _id_descuentos_registrados_detalle_contibucion,
+                                            _id_descuentos_registrados_detalle_aportes,
+                                            _id_contribucion);
+
+
+                }
+
+                //cargar_transacciones_detalle(_id_transacciones);
+
+
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+
+        public static void ins_core_descuentos_registrados_detalle_contibucion_carga(Int64 _id_descuentos_registrados_detalle_contibucion, 
+                                            Int64 _id_descuentos_registrados_detalle_aportes,
+                                            Int64  _id_contribucion)
+            
+        {
+            
+            string cadena1 = _id_descuentos_registrados_detalle_contibucion + "?" + _id_descuentos_registrados_detalle_aportes + "?" + _id_contribucion;
+            string cadena2 = "_id_descuentos_registrados_detalle_contibucion?_id_descuentos_registrados_detalle_aportes?_id_contribucion";
+
+            string cadena3 = "NpgsqlDbType.BigInt?" +
+                             "NpgsqlDbType.BigInt?" +
+                             "NpgsqlDbType.BigInt";
+
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_descuentos_registrados_detalle_contibucion_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO  DESCUENTOS  DETALLE CONTRIBUCION ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar  DESCUENTOS DETALLE CONTRIBUCION" + Ex.Message);
+                //     string cadena5 = "_error_errores_importacion";
+                //     string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                // Console.Read();
+
+            }
+
+        }
+
+               
+
+        public static void cargar_core_descuentos_registrados_detalle_creditos()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO  DESCUENTOS REGISTRADOS DETALLE CREDITOS   ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtDescuentos = AccesoLogicaSQL.Select("DESCUENTOS_REGISTRADOS_ID, " +
+                "ID," +
+                "ID_ENTIDAD_PATRONAL, " +
+                "ANIO, " +
+                "MES, " +
+                "ID_TIPO_DESCUENTO, " +
+                "ID_AFILIADO, " +
+                "ID_CREDITO, " +
+                "CUOTA," +
+                "MONTO," +
+                "PLAZO, " +
+                "ALTA, " +
+                "ID_FORMATO, " +
+                "PROCESADO," +
+                "SALDO, " +
+                "MORA, " +
+                "CREDIT_PAY_RESULT, " +
+                "MES_DESCUENTO",
+                " one.DESCUENTOS_REGISTRADOS_CREDITO",
+                " 1=1 ORDER BY ID ASC");
+
+            /*
+               public.ins_core_descuentos_registrados_detalle_creditos_carga(
+    _id_descuentos_registrados_detalle_creditos bigint,
+    _id_descuentos_registrados_cabeza integer,
+    _id_entidad_patronal integer,
+    _year_descuentos_registrados_detalle_creditos integer,
+    _mes_descuentos_registrados_detalle_creditos integer,
+    _id_tipo_descuento integer,
+    _id_participes integer,
+    _id_creditos bigint,
+    _cuota_descuentos_registrados_detalle_creditos numeric,
+    _monto_descuentos_registrados_detalle_creditos numeric,
+    _plazo_descuentos_registrados_detalle_creditos integer,
+    _alta_descuentos_registrados_detalle_creditos boolean,
+    _id_descuentos_formatos integer,
+    _procesado_descuentos_registrados_detalle_creditos boolean,
+    _saldo_descuentos_registrados_detalle_creditos numeric,
+    _mora_descuentos_registrados_detalle_creditos numeric,
+    _credito_pay_descuentos_registrados_detalle_creditos integer,
+    _mes_desc_descuentos_registrados_detalle_creditos character varying
+             */
+            Int64 _id_descuentos_registrados_detalle_creditos;
+            int _id_descuentos_registrados_cabeza;
+            int _id_entidad_patronal;
+            int _year_descuentos_registrados_detalle_creditos;
+            int _mes_descuentos_registrados_detalle_creditos;
+            int _id_tipo_descuento;
+            int _id_participes;
+            Int64 _id_creditos;
+            double _cuota_descuentos_registrados_detalle_creditos;
+            double _monto_descuentos_registrados_detalle_creditos;
+            int _plazo_descuentos_registrados_detalle_creditos;
+            bool _alta_descuentos_registrados_detalle_creditos;
+            int _id_descuentos_formatos;
+            bool _procesado_descuentos_registrados_detalle_creditos;
+            double _saldo_descuentos_registrados_detalle_creditos;
+            double _mora_descuentos_registrados_detalle_creditos;
+            int _credito_pay_descuentos_registrados_detalle_creditos;
+            string _mes_desc_descuentos_registrados_detalle_creditos;
+
+
+
+            int reg = dtDescuentos.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtDescuentos.Rows)
+                {
+                    _leidos++;
+                   
+                    _id_descuentos_registrados_detalle_creditos           = Convert.ToInt64(renglon["ID"].ToString());
+                    _id_descuentos_registrados_cabeza                       = Convert.ToInt32(renglon["DESCUENTOS_REGISTRADOS_ID"].ToString());
+                    _id_entidad_patronal                                    = Convert.ToInt32(renglon["ID_ENTIDAD_PATRONAL"].ToString());
+                    _year_descuentos_registrados_detalle_creditos           = Convert.ToInt32(renglon["ANIO"].ToString());
+                    _mes_descuentos_registrados_detalle_creditos            = Convert.ToInt32(renglon["MES"].ToString());
+                    if (renglon["ID_TIPO_DESCUENTO"].ToString() != "")
+                    {
+                        _id_tipo_descuento = Convert.ToInt32(renglon["ID_TIPO_DESCUENTO"].ToString());
+                    }
+                    else
+                    {
+                        _id_tipo_descuento = 0;
+                    }
+                    
+                    _id_participes                                          = Convert.ToInt32(renglon["ID_AFILIADO"].ToString());
+                    if (renglon["ID_CREDITO"].ToString() != "")
+                    {
+                        _id_creditos = Convert.ToInt64(renglon["ID_CREDITO"].ToString());
+                    }
+                    else
+                    {
+                        _id_creditos = 0;
+                    }
+                    
+                    _cuota_descuentos_registrados_detalle_creditos       = Convert.ToDouble(renglon["CUOTA"].ToString());
+                    _monto_descuentos_registrados_detalle_creditos       = Convert.ToDouble(renglon["MONTO"].ToString());
+                    _plazo_descuentos_registrados_detalle_creditos          = Convert.ToInt32(renglon["PLAZO"].ToString());
+                    _alta_descuentos_registrados_detalle_creditos          = Convert.ToBoolean(renglon["ALTA"].ToString());
+                    _id_descuentos_formatos                                 = Convert.ToInt32(renglon["ID_FORMATO"].ToString());
+                    _procesado_descuentos_registrados_detalle_creditos     = Convert.ToBoolean(renglon["PROCESADO"].ToString());
+                    _saldo_descuentos_registrados_detalle_creditos       = Convert.ToDouble(renglon["SALDO"].ToString());
+                    _mora_descuentos_registrados_detalle_creditos        = Convert.ToDouble(renglon["MORA"].ToString());
+                    if (renglon["CREDIT_PAY_RESULT"].ToString() != "")
+                    {
+                        _credito_pay_descuentos_registrados_detalle_creditos = Convert.ToInt32(renglon["CREDIT_PAY_RESULT"].ToString());
+                    }
+                    else
+                    {
+                        _credito_pay_descuentos_registrados_detalle_creditos = 0;
+                    }
+                    
+                    _mes_desc_descuentos_registrados_detalle_creditos    = Convert.ToString(renglon["MES_DESCUENTO"].ToString());
+                    
+
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE descuentos cabeza -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_descuentos_registrados_detalle_creditos_carga( _id_descuentos_registrados_detalle_creditos,
+                                    _id_descuentos_registrados_cabeza,
+                                    _id_entidad_patronal,
+                                    _year_descuentos_registrados_detalle_creditos,
+                                    _mes_descuentos_registrados_detalle_creditos,
+                                    _id_tipo_descuento,
+                                    _id_participes,
+                                    _id_creditos,
+                                    _cuota_descuentos_registrados_detalle_creditos,
+                                    _monto_descuentos_registrados_detalle_creditos,
+                                    _plazo_descuentos_registrados_detalle_creditos,
+                                    _alta_descuentos_registrados_detalle_creditos,
+                                    _id_descuentos_formatos,
+                                    _procesado_descuentos_registrados_detalle_creditos,
+                                    _saldo_descuentos_registrados_detalle_creditos,
+                                    _mora_descuentos_registrados_detalle_creditos,
+                                    _credito_pay_descuentos_registrados_detalle_creditos,
+                                    _mes_desc_descuentos_registrados_detalle_creditos);
+
+
+                }
+
+                //cargar_transacciones_detalle(_id_transacciones);
+
+
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+
+        public static void ins_core_descuentos_registrados_detalle_creditos_carga(Int64 _id_descuentos_registrados_detalle_creditos,
+                                    int _id_descuentos_registrados_cabeza,
+                                    int _id_entidad_patronal,
+                                    int _year_descuentos_registrados_detalle_creditos,
+                                    int _mes_descuentos_registrados_detalle_creditos,
+                                    int _id_tipo_descuento,
+                                    int _id_participes,
+                                    Int64 _id_creditos,
+                                    double _cuota_descuentos_registrados_detalle_creditos,
+                                    double _monto_descuentos_registrados_detalle_creditos,
+                                    int _plazo_descuentos_registrados_detalle_creditos,
+                                    bool _alta_descuentos_registrados_detalle_creditos,
+                                    int _id_descuentos_formatos,
+                                    bool _procesado_descuentos_registrados_detalle_creditos,
+                                    double _saldo_descuentos_registrados_detalle_creditos,
+                                    double _mora_descuentos_registrados_detalle_creditos,
+                                    int _credito_pay_descuentos_registrados_detalle_creditos,
+                                    string _mes_desc_descuentos_registrados_detalle_creditos)
+
+
+        {
+
+            string cadena1 = _id_descuentos_registrados_detalle_creditos+"?"+
+                                    _id_descuentos_registrados_cabeza + "?" +
+                                    _id_entidad_patronal + "?" +
+                                    _year_descuentos_registrados_detalle_creditos + "?" +
+                                    _mes_descuentos_registrados_detalle_creditos + "?" +
+                                    _id_tipo_descuento + "?" +
+                                    _id_participes + "?" +
+                                    _id_creditos + "?" +
+                                    _cuota_descuentos_registrados_detalle_creditos + "?" +
+                                    _monto_descuentos_registrados_detalle_creditos + "?" +
+                                    _plazo_descuentos_registrados_detalle_creditos + "?" +
+                                    _alta_descuentos_registrados_detalle_creditos + "?" +
+                                    _id_descuentos_formatos + "?" +
+                                    _procesado_descuentos_registrados_detalle_creditos + "?" +
+                                    _saldo_descuentos_registrados_detalle_creditos + "?" +
+                                    _mora_descuentos_registrados_detalle_creditos + "?" +
+                                    _credito_pay_descuentos_registrados_detalle_creditos + "?" +
+                                    _mes_desc_descuentos_registrados_detalle_creditos;
+            string cadena2 = "_id_descuentos_registrados_detalle_creditos?" +
+                "_id_descuentos_registrados_cabeza?" +
+                "_id_entidad_patronal?" +
+                "_year_descuentos_registrados_detalle_creditos?" +
+                "_mes_descuentos_registrados_detalle_creditos?" +
+                "_id_tipo_descuento?" +
+                "_id_participes?" +
+                "_id_creditos?" +
+                "_cuota_descuentos_registrados_detalle_creditos?" +
+                "_monto_descuentos_registrados_detalle_creditos?" +
+                "_plazo_descuentos_registrados_detalle_creditos?" +
+                "_alta_descuentos_registrados_detalle_creditos?" +
+                "_id_descuentos_formatos?" +
+                "_procesado_descuentos_registrados_detalle_creditos?" +
+                "_saldo_descuentos_registrados_detalle_creditos?" +
+                "_mora_descuentos_registrados_detalle_creditos?" +
+                "_credito_pay_descuentos_registrados_detalle_creditos?" +
+                "_mes_desc_descuentos_registrados_detalle_creditos";
+
+            string cadena3 = "NpgsqlDbType.BigInt?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.BigInt?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Boolean?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Boolean?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Varchar";
+
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_descuentos_registrados_detalle_creditos_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO  DESCUENTOS  DETALLE CREDITOS ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar  DESCUENTOS DETALLE CREDITOS" + Ex.Message);
+                //     string cadena5 = "_error_errores_importacion";
+                //     string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                // Console.Read();
+
+            }
+
+        }
+
+
+
+
+
+
+        public static void cargar_core_descuentos_registrados_detalle_creditos_trans()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO  DESCUENTOS REGISTRADOS DETALLE CREDITOS TRANSACCIONES   ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtDescuentos = AccesoLogicaSQL.Select("ID," +
+                "DESCUENTOS_REGISTRADOS_CREDITO_ID, " +
+                "CREDIT_TRANSACTION_ID, " +
+                "VALOR_CUENTA_POR_PAGAR, " +
+                "CREDIT_PAY_RESULT, " +
+                "CXP_VCHRNMBR, " +
+                "OBSERVATION" ,
+                " one.DESCUENTOS_REGISTRADOS_CREDITO_TRANSACCION",
+                " 1=1 ORDER BY ID ASC");
+
+            /*
+               public.ins_core_descuentos_registrados_detalle_creditos_trans_carga(
+    _id_descuentos_registrados_detalle_creditos_trans bigint,
+    _id_descuentos_registrados_detalle_creditos bigint,
+    _id_transacciones bigint,
+    _valor_cxp_descuentos_registrados_detalle_creditos_trans numeric,
+    _credit_pay_descuentos_registrados_detalle_creditos_trans integer,
+    _cxp_voucher_descuentos_registrados_detalle_creditos_trans character varying,
+    _observacion_descuentos_registrados_detalle_creditos_trans character varying)
+             */
+            Int64 _id_descuentos_registrados_detalle_creditos_trans;
+            Int64 _id_descuentos_registrados_detalle_creditos;
+            Int64 _id_transacciones;
+            double _valor_cxp_descuentos_registrados_detalle_creditos_trans;
+            int _credit_pay_descuentos_registrados_detalle_creditos_trans;
+            string _cxp_voucher_descuentos_registrados_detalle_creditos_trans;
+            string _observacion_descuentos_registrados_detalle_creditos_trans;
+
+
+
+            int reg = dtDescuentos.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtDescuentos.Rows)
+                {
+                    _leidos++;
+
+                    _id_descuentos_registrados_detalle_creditos_trans         = Convert.ToInt64(renglon["ID"].ToString());
+                    _id_descuentos_registrados_detalle_creditos               = Convert.ToInt64(renglon["ID"].ToString());
+                    _id_transacciones                                         = Convert.ToInt64(renglon["ID"].ToString());
+                    _valor_cxp_descuentos_registrados_detalle_creditos_trans = Convert.ToInt64(renglon["ID"].ToString());
+                    _credit_pay_descuentos_registrados_detalle_creditos_trans   = Convert.ToInt32(renglon["ID"].ToString());
+                    _cxp_voucher_descuentos_registrados_detalle_creditos_trans =  Convert.ToString(renglon["ID"].ToString());
+                    _observacion_descuentos_registrados_detalle_creditos_trans  = Convert.ToString(renglon["ID"].ToString());
+
+                    
+
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE descuentos cabeza -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_descuentos_registrados_detalle_creditos_trans_carga(_id_descuentos_registrados_detalle_creditos_trans,
+                    _id_descuentos_registrados_detalle_creditos,
+                    _id_transacciones,
+                    _valor_cxp_descuentos_registrados_detalle_creditos_trans,
+                    _credit_pay_descuentos_registrados_detalle_creditos_trans,
+                    _cxp_voucher_descuentos_registrados_detalle_creditos_trans,
+                    _observacion_descuentos_registrados_detalle_creditos_trans);
+
+
+
+                }
+
+                //cargar_transacciones_detalle(_id_transacciones);
+
+
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+
+        public static void ins_core_descuentos_registrados_detalle_creditos_trans_carga(Int64 _id_descuentos_registrados_detalle_creditos_trans,
+                    Int64 _id_descuentos_registrados_detalle_creditos,
+                    Int64 _id_transacciones,
+                    double _valor_cxp_descuentos_registrados_detalle_creditos_trans,
+                    int _credit_pay_descuentos_registrados_detalle_creditos_trans,
+                    string _cxp_voucher_descuentos_registrados_detalle_creditos_trans,
+                    string _observacion_descuentos_registrados_detalle_creditos_trans)
+
+
+        {
+
+            string cadena1 = _id_descuentos_registrados_detalle_creditos_trans+"?"+
+                    _id_descuentos_registrados_detalle_creditos + "?" +
+                    _id_transacciones + "?" +
+                    _valor_cxp_descuentos_registrados_detalle_creditos_trans + "?" +
+                    _credit_pay_descuentos_registrados_detalle_creditos_trans + "?" +
+                    _cxp_voucher_descuentos_registrados_detalle_creditos_trans + "?" +
+                    _observacion_descuentos_registrados_detalle_creditos_trans;
+
+            string cadena2 = "_id_descuentos_registrados_detalle_creditos_trans?" +
+                "_id_descuentos_registrados_detalle_creditos?" +
+                "_id_transacciones?" +
+                "_valor_cxp_descuentos_registrados_detalle_creditos_trans?" +
+                "_credit_pay_descuentos_registrados_detalle_creditos_trans?" +
+                "_cxp_voucher_descuentos_registrados_detalle_creditos_trans?" +
+                "_observacion_descuentos_registrados_detalle_creditos_trans";
+
+            string cadena3 = "NpgsqlDbType.BigInt?" +
+                             "NpgsqlDbType.BigInt?" +
+                             "NpgsqlDbType.BigInt?" +
+                             "NpgsqlDbType.Numeric?" +
+                             "NpgsqlDbType.Int?" +
+                             "NpgsqlDbType.Varchar?" +
+                             "NpgsqlDbType.Varchar";
+            
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_descuentos_registrados_detalle_creditos_trans_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO  DESCUENTOS  DETALLE CREDITOS TRANSACCIONES ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar  DESCUENTOS DETALLE CREDITOS TRANSACCIONES" + Ex.Message);
+                //     string cadena5 = "_error_errores_importacion";
+                //     string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+               //  Console.Read();
+
+            }
+
+        }
+
+
+
+
+        public static void carga_core_superavit_pagos()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO  SUPERAVIT PAGOS   ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtSuperavit = AccesoLogicaSQL.Select("[SURPLUS_PAYMENT_ID], " +
+                "[PARTNER_ID]," +
+                "[TYPE_SURPLUS_PAYMENT_ID]," +
+                "[SUPERAVIT_PAYMENT_FORM_ID], " +
+                "[YEAR_PAY]," +
+                "[SURPLUS_PERSONAL_CTAIND], " +
+                "[SURPLUS_PATRONAL_CTAIND]," +
+                "[SURPLUS_PERSONAL_CXPDF]," +
+                "[SURPLUS_PATRONAL_CXPDF], " +
+                "[IR_PER_COBRADO_CTAIND], " +
+                "[IR_PAT_COBRADO_CTAIND], " +
+                "[IR_PER_COBRADO_CXPDF], " +
+                "[IR_PAT_COBRADO_CXPDF], " +
+                "[IR_PER_CALCULADO_CTAIND], " +
+                "[IR_PAT_CALCULADO_CTAIND], " +
+                "[IR_PER_CALCULADO_CXPDF], " +
+                "[IR_PAT_CALCULADO_CXPDF], " +
+                "[VALUE_TO_PAY], " +
+                "[OBSERVATION], " +
+                "[USER_NAME], " +
+                "[DATE_ENTRANCE], " +
+                "[DATE_ACCOUNT], " +
+                "[JOURNAL], " +
+                "[JOURNAL_ORIGIN], " +
+                "[STATE], " +
+                "[STATUS], " +
+                "[USER_PAID]",
+                "one.SURPLUS_PAYMENT",
+                " 1=1 ORDER BY SURPLUS_PAYMENT_ID ASC");
+
+            /*
+              public.ins_core_superavit_pagos_carga(
+    _id_superavit_pagos bigint,
+    _id_participes integer,
+    _tipo_superavit_pagos integer,
+    _form_superavit_pagos integer,
+    _year_superavit_pagos integer,
+    _ctaind_personal_superavit_pagos numeric,
+    _ctaind_patronal_superavit_pagos numeric,
+    _cxpdf_personal_superavit_pagos numeric,
+    _cxpdf_patronal_superavit_pagos numeric,
+    _ir_personal_cobrado_ctaind_superavit_pagos numeric,
+    _ir_patronal_cobrado_ctaind_superavit_pagos numeric,
+    _ir_personal_cobrado_cxpdf_superavit_pagos numeric,
+    _ir_patronal_cobrado_cxpdf_superavit_pagos numeric,
+    _ir_personal_calculado_ctaind_superavit_pagos numeric,
+    _ir_patronal_calculado_ctaind_superavit_pagos numeric,
+    _ir_personal_calculado_cxpdf_superavit_pagos numeric,
+    _ir_patronal_calculado_cxpdf_superavit_pagos numeric,
+    _valor_pagar_superavit_pagos numeric,
+    _observacion_superavit_pagos character varying,
+    _usuario__superavit_pagos character varying,
+    _fecha_entrada_superavit_pagos timestamp with time zone,
+    _fecha_cuenta_superavit_pagos timestamp with time zone,
+    _diario_superavit_pagos integer,
+    _diario_origen_superavit_pagos integer,
+    _id_superavit_estados integer,
+    _id_estatus integer,
+    _usuario_paga_superavit_pagos character varying)
+             */
+            Int64 _id_superavit_pagos;
+            Int64 _id_participes;
+            int _tipo_superavit_pagos;
+            int _form_superavit_pagos;
+            int _year_superavit_pagos;
+            double _ctaind_personal_superavit_pagos;
+            double _ctaind_patronal_superavit_pagos;
+            double _cxpdf_personal_superavit_pagos;
+            double _cxpdf_patronal_superavit_pagos;
+            double _ir_personal_cobrado_ctaind_superavit_pagos;
+            double _ir_patronal_cobrado_ctaind_superavit_pagos;
+            double _ir_personal_cobrado_cxpdf_superavit_pagos;
+            double _ir_patronal_cobrado_cxpdf_superavit_pagos;
+            double _ir_personal_calculado_ctaind_superavit_pagos;
+            double _ir_patronal_calculado_ctaind_superavit_pagos;
+            double _ir_personal_calculado_cxpdf_superavit_pagos;
+            double _ir_patronal_calculado_cxpdf_superavit_pagos;
+            double _valor_pagar_superavit_pagos;
+            string _observacion_superavit_pagos;
+            string _usuario__superavit_pagos;
+            DateTime _fecha_entrada_superavit_pagos;
+            DateTime _fecha_cuenta_superavit_pagos;
+            int _diario_superavit_pagos;
+            int _diario_origen_superavit_pagos;
+            int _id_superavit_estados;
+            int _id_estatus;
+            string _usuario_paga_superavit_pagos;
+
+
+
+            int reg = dtSuperavit.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtSuperavit.Rows)
+                {
+                    _leidos++;
+
+
+                    _id_superavit_pagos                               =  Convert.ToInt64(renglon["SURPLUS_PAYMENT_ID"].ToString());
+                    _id_participes                                    = Convert.ToInt64(renglon["PARTNER_ID"].ToString());
+                    _tipo_superavit_pagos                               = Convert.ToInt32(renglon["TYPE_SURPLUS_PAYMENT_ID"].ToString());
+                    if (renglon["SUPERAVIT_PAYMENT_FORM_ID"].ToString() != "")
+                    {
+                        _form_superavit_pagos = Convert.ToInt32(renglon["SUPERAVIT_PAYMENT_FORM_ID"].ToString());
+                    }
+                    else
+                    {
+                        _form_superavit_pagos = 0;
+                    }
+                    
+                    _year_superavit_pagos                               = Convert.ToInt32(renglon["YEAR_PAY"].ToString());
+                    _ctaind_personal_superavit_pagos                 = Convert.ToDouble(renglon["SURPLUS_PERSONAL_CTAIND"].ToString());
+                    _ctaind_patronal_superavit_pagos                 = Convert.ToDouble(renglon["SURPLUS_PATRONAL_CTAIND"].ToString());
+                    _cxpdf_personal_superavit_pagos                  = Convert.ToDouble(renglon["SURPLUS_PERSONAL_CXPDF"].ToString());
+                    _cxpdf_patronal_superavit_pagos                  = Convert.ToDouble(renglon["SURPLUS_PATRONAL_CXPDF"].ToString());
+                    _ir_personal_cobrado_ctaind_superavit_pagos      = Convert.ToDouble(renglon["IR_PER_COBRADO_CTAIND"].ToString());
+                    _ir_patronal_cobrado_ctaind_superavit_pagos      = Convert.ToDouble(renglon["IR_PAT_COBRADO_CTAIND"].ToString());
+                    _ir_personal_cobrado_cxpdf_superavit_pagos       = Convert.ToDouble(renglon["IR_PER_COBRADO_CXPDF"].ToString());
+
+                    if (renglon["IR_PAT_COBRADO_CXPDF"].ToString() != "")
+                    {
+                        _ir_patronal_cobrado_cxpdf_superavit_pagos = Convert.ToDouble(renglon["IR_PAT_COBRADO_CXPDF"].ToString());
+                    }
+                    else
+                    {
+                        _ir_patronal_cobrado_cxpdf_superavit_pagos = 0;
+                    }
+                    
+                    
+                    _ir_personal_calculado_ctaind_superavit_pagos    = Convert.ToDouble(renglon["IR_PER_CALCULADO_CTAIND"].ToString());
+                    _ir_patronal_calculado_ctaind_superavit_pagos    = Convert.ToDouble(renglon["IR_PAT_CALCULADO_CTAIND"].ToString());
+                    _ir_personal_calculado_cxpdf_superavit_pagos     = Convert.ToDouble(renglon["IR_PER_CALCULADO_CXPDF"].ToString());
+                    _ir_patronal_calculado_cxpdf_superavit_pagos     = Convert.ToDouble(renglon["IR_PAT_CALCULADO_CXPDF"].ToString());
+                    _valor_pagar_superavit_pagos                     = Convert.ToDouble(renglon["VALUE_TO_PAY"].ToString());
+                    _observacion_superavit_pagos                     = Convert.ToString(renglon["OBSERVATION"].ToString());
+                    _usuario__superavit_pagos                        = Convert.ToString(renglon["USER_NAME"].ToString());
+
+                    
+                    if (renglon["DATE_ENTRANCE"].ToString() != "")
+                    {
+                        _fecha_entrada_superavit_pagos = Convert.ToDateTime(renglon["DATE_ENTRANCE"].ToString());
+                    }
+                    else
+                    {
+                        _fecha_entrada_superavit_pagos = Convert.ToDateTime("01-01-1900");
+                    }
+
+                    if (renglon["DATE_ACCOUNT"].ToString() != "")
+                    {
+                        _fecha_cuenta_superavit_pagos = Convert.ToDateTime(renglon["DATE_ACCOUNT"].ToString());
+                    }
+                    else
+                    {
+                        _fecha_cuenta_superavit_pagos = Convert.ToDateTime("01-01-1900");
+                    }
+                    if (renglon["JOURNAL"].ToString() != "")
+                    {
+                        _diario_superavit_pagos = Convert.ToInt32(renglon["JOURNAL"].ToString());
+                    }
+                    else
+                    {
+                        _diario_superavit_pagos = 0;
+                    }
+
+                    if (renglon["JOURNAL_ORIGIN"].ToString() != "")
+                    {
+                        _diario_origen_superavit_pagos = Convert.ToInt32(renglon["JOURNAL_ORIGIN"].ToString());
+                    }
+                    else
+                    {
+                        _diario_origen_superavit_pagos = 0;
+                    }
+                    
+                    _id_superavit_estados                               = Convert.ToInt32(renglon["STATE"].ToString());
+
+                    
+
+                    if (renglon["STATUS"].ToString() == "0")
+                    {
+                        _id_estatus = 2;
+                    }
+                    else
+                    {
+                        _id_estatus = 1;
+                    }
+
+                    _usuario_paga_superavit_pagos = Convert.ToString(renglon["USER_PAID"].ToString());
+
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE descuentos cabeza -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_superavit_pagos_carga(_id_superavit_pagos,
+                    _id_participes,
+                    _tipo_superavit_pagos,
+                    _form_superavit_pagos,
+                    _year_superavit_pagos,
+                    _ctaind_personal_superavit_pagos,
+                    _ctaind_patronal_superavit_pagos,
+                    _cxpdf_personal_superavit_pagos,
+                    _cxpdf_patronal_superavit_pagos,
+                    _ir_personal_cobrado_ctaind_superavit_pagos,
+                    _ir_patronal_cobrado_ctaind_superavit_pagos,
+                    _ir_personal_cobrado_cxpdf_superavit_pagos,
+                    _ir_patronal_cobrado_cxpdf_superavit_pagos,
+                    _ir_personal_calculado_ctaind_superavit_pagos,
+                    _ir_patronal_calculado_ctaind_superavit_pagos,
+                    _ir_personal_calculado_cxpdf_superavit_pagos,
+                    _ir_patronal_calculado_cxpdf_superavit_pagos,
+                    _valor_pagar_superavit_pagos,
+                    _observacion_superavit_pagos,
+                    _usuario__superavit_pagos,
+                    _fecha_entrada_superavit_pagos,
+                    _fecha_cuenta_superavit_pagos,
+                    _diario_superavit_pagos,
+                    _diario_origen_superavit_pagos,
+                    _id_superavit_estados,
+                    _id_estatus,
+                    _usuario_paga_superavit_pagos);
+
+
+
+                }
+
+                //cargar_transacciones_detalle(_id_transacciones);
+
+
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+
+        public static void ins_core_superavit_pagos_carga(
+                        Int64 _id_superavit_pagos,
+                        Int64 _id_participes,
+                        int _tipo_superavit_pagos,
+                        int _form_superavit_pagos,
+                        int _year_superavit_pagos,
+                        double _ctaind_personal_superavit_pagos,
+                        double _ctaind_patronal_superavit_pagos,
+                        double _cxpdf_personal_superavit_pagos,
+                        double _cxpdf_patronal_superavit_pagos,
+                        double _ir_personal_cobrado_ctaind_superavit_pagos,
+                        double _ir_patronal_cobrado_ctaind_superavit_pagos,
+                        double _ir_personal_cobrado_cxpdf_superavit_pagos,
+                        double _ir_patronal_cobrado_cxpdf_superavit_pagos,
+                        double _ir_personal_calculado_ctaind_superavit_pagos,
+                        double _ir_patronal_calculado_ctaind_superavit_pagos,
+                        double _ir_personal_calculado_cxpdf_superavit_pagos,
+                        double _ir_patronal_calculado_cxpdf_superavit_pagos,
+                        double _valor_pagar_superavit_pagos,
+                        string _observacion_superavit_pagos,
+                        string _usuario__superavit_pagos,
+                        DateTime _fecha_entrada_superavit_pagos,
+                        DateTime _fecha_cuenta_superavit_pagos,
+                        int _diario_superavit_pagos,
+                        int _diario_origen_superavit_pagos,
+                        int _id_superavit_estados,
+                        int _id_estatus,
+                        string _usuario_paga_superavit_pagos)
+
+
+        {
+
+            string cadena1 = _id_superavit_pagos+"?"+
+                            _id_participes + "?" +
+                            _tipo_superavit_pagos + "?" +
+                            _form_superavit_pagos + "?" +
+                            _year_superavit_pagos + "?" +
+                            _ctaind_personal_superavit_pagos + "?" +
+                            _ctaind_patronal_superavit_pagos + "?" +
+                            _cxpdf_personal_superavit_pagos + "?" +
+                            _cxpdf_patronal_superavit_pagos + "?" +
+                            _ir_personal_cobrado_ctaind_superavit_pagos + "?" +
+                            _ir_patronal_cobrado_ctaind_superavit_pagos + "?" +
+                            _ir_personal_cobrado_cxpdf_superavit_pagos + "?" +
+                            _ir_patronal_cobrado_cxpdf_superavit_pagos + "?" +
+                            _ir_personal_calculado_ctaind_superavit_pagos + "?" +
+                            _ir_patronal_calculado_ctaind_superavit_pagos + "?" +
+                            _ir_personal_calculado_cxpdf_superavit_pagos + "?" +
+                            _ir_patronal_calculado_cxpdf_superavit_pagos + "?" +
+                            _valor_pagar_superavit_pagos + "?" +
+                            _observacion_superavit_pagos + "?" +
+                            _usuario__superavit_pagos + "?" +
+                            _fecha_entrada_superavit_pagos + "?" +
+                            _fecha_cuenta_superavit_pagos + "?" +
+                            _diario_superavit_pagos + "?" +
+                            _diario_origen_superavit_pagos + "?" +
+                            _id_superavit_estados + "?" +
+                            _id_estatus + "?" +
+                            _usuario_paga_superavit_pagos;
+
+            string cadena2 = "_id_superavit_pagos?" +
+                "_id_participes?" +
+                "_tipo_superavit_pagos?" +
+                "_form_superavit_pagos?" +
+                "_year_superavit_pagos?" +
+                "_ctaind_personal_superavit_pagos?" +
+                "_ctaind_patronal_superavit_pagos?" +
+                "_cxpdf_personal_superavit_pagos?" +
+                "_cxpdf_patronal_superavit_pagos?" +
+                "_ir_personal_cobrado_ctaind_superavit_pagos?" +
+                "_ir_patronal_cobrado_ctaind_superavit_pagos?" +
+                "_ir_personal_cobrado_cxpdf_superavit_pagos?" +
+                "_ir_patronal_cobrado_cxpdf_superavit_pagos?" +
+                "_ir_personal_calculado_ctaind_superavit_pagos?" +
+                "_ir_patronal_calculado_ctaind_superavit_pagos?" +
+                "_ir_personal_calculado_cxpdf_superavit_pagos?" +
+                "_ir_patronal_calculado_cxpdf_superavit_pagos?" +
+                "_valor_pagar_superavit_pagos?" +
+                "_observacion_superavit_pagos?" +
+                "_usuario__superavit_pagos?" +
+                "_fecha_entrada_superavit_pagos?" +
+                "_fecha_cuenta_superavit_pagos?" +
+                "_diario_superavit_pagos?" +
+                "_diario_origen_superavit_pagos?" +
+                "_id_superavit_estados?" +
+                "_id_estatus?" +
+                "_usuario_paga_superavit_pagos";
+
+            string cadena3 = "NpgsqlDbType.Bigint?" +
+                                "NpgsqlDbType.Bigint?" +
+                                "NpgsqlDbType.Integer?" +
+                                "NpgsqlDbType.Integer?" +
+                                "NpgsqlDbType.Integer?" +
+                                "NpgsqlDbType.Numeric?" +
+                                "NpgsqlDbType.Numeric?" +
+                                "NpgsqlDbType.Numeric?" +
+                                "NpgsqlDbType.Numeric?" +
+                                "NpgsqlDbType.Numeric?" +
+                                "NpgsqlDbType.Numeric?" +
+                                "NpgsqlDbType.Numeric?" +
+                                "NpgsqlDbType.Numeric?" +
+                                "NpgsqlDbType.Numeric?" +
+                                "NpgsqlDbType.Numeric?" +
+                                "NpgsqlDbType.Numeric?" +
+                                "NpgsqlDbType.Numeric?" +
+                                "NpgsqlDbType.Numeric?" +
+                                "NpgsqlDbType.Varchar?" +
+                                "NpgsqlDbType.Varchar?" +
+                                "NpgsqlDbType.TimestampTz?" +
+                                "NpgsqlDbType.TimestampTz?" +
+                                "NpgsqlDbType.Integer?" +
+                                "NpgsqlDbType.Integer?" +
+                                "NpgsqlDbType.Integer?" +
+                                "NpgsqlDbType.Integer?" +
+                                "NpgsqlDbType.Varchar";
+            
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_superavit_pagos_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO  SUPERAVIT PAGOS ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar  SUPERAVIT PAGOS" + Ex.Message);
+                //     string cadena5 = "_error_errores_importacion";
+                //     string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                //  Console.Read();
+
+            }
+
+        }
+
+
+
+
+
+        public static void carga_core_superavit_pagos_cuentas()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO  SUPERAVIT PAGOS CUENTAS   ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtSuperavit = AccesoLogicaSQL.Select("[SURPLUS_PAYMENT_ACCOUNT_ID] , " +
+                "[PROCESS], " +
+                "[ACCOUNTING_ACCOUNTS_INDEX], " +
+                "[ORIENTATION], " +
+                "[STATUS]",
+                "one.SURPLUS_PAYMENT_ACCOUNT",
+                " 1=1 ");
+
+            /*
+              public.ins_core_superavit_pagos_cuentas_carga(
+    _id_superavit_pagos_cuentas integer,
+    _proceso_superavit_pagos_cuentas character varying,
+    _id_plan_cuentas integer,
+    _cuenta_ant_superavit_pagos_cuentas integer,
+    _naturaleza_superavit_pagos_cuentas character varying,
+    _id_estatus integer)
+             */
+            int _id_superavit_pagos_cuentas;
+            string _proceso_superavit_pagos_cuentas;
+            int _id_plan_cuentas;
+            int _cuenta_ant_superavit_pagos_cuentas;
+            string _naturaleza_superavit_pagos_cuentas;
+            int _id_estatus;
+
+
+
+            int reg = dtSuperavit.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtSuperavit.Rows)
+                {
+                    _leidos++;
+
+                    _id_superavit_pagos_cuentas                 = Convert.ToInt32(renglon["SURPLUS_PAYMENT_ACCOUNT_ID"].ToString());
+                    _proceso_superavit_pagos_cuentas         = Convert.ToString(renglon["PROCESS"].ToString());;
+                    _id_plan_cuentas = 588;
+                    _cuenta_ant_superavit_pagos_cuentas         = Convert.ToInt32(renglon["ACCOUNTING_ACCOUNTS_INDEX"].ToString());
+                    _naturaleza_superavit_pagos_cuentas      = Convert.ToString(renglon["ORIENTATION"].ToString());
+
+                    if (renglon["STATUS"].ToString() == "0")
+                    {
+                        _id_estatus = 2;
+                    }
+                    else
+                    {
+                        _id_estatus = 1;
+                    }
+
+
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE descuentos cabeza -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_superavit_pagos_cuentas_carga(_id_superavit_pagos_cuentas, 
+                        _proceso_superavit_pagos_cuentas, 
+                        _id_plan_cuentas, 
+                        _cuenta_ant_superavit_pagos_cuentas, 
+                        _naturaleza_superavit_pagos_cuentas, 
+                        _id_estatus);
+
+
+                }
+
+                //cargar_transacciones_detalle(_id_transacciones);
+
+
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+
+        public static void ins_core_superavit_pagos_cuentas_carga(int _id_superavit_pagos_cuentas,
+                                string _proceso_superavit_pagos_cuentas,
+                                int _id_plan_cuentas,
+                                int _cuenta_ant_superavit_pagos_cuentas,
+                                string _naturaleza_superavit_pagos_cuentas,
+                                int _id_estatus)
+
+
+        {
+
+            string cadena1 = _id_superavit_pagos_cuentas+"?"+
+                            _proceso_superavit_pagos_cuentas + "?" +
+                            _id_plan_cuentas + "?" +
+                            _cuenta_ant_superavit_pagos_cuentas + "?" +
+                            _naturaleza_superavit_pagos_cuentas + "?" +
+                            _id_estatus;
+
+            string cadena2 = "_id_superavit_pagos_cuentas?" +
+                "_proceso_superavit_pagos_cuentas?" +
+                "_id_plan_cuentas?" +
+                "_cuenta_ant_superavit_pagos_cuentas?" +
+                "_naturaleza_superavit_pagos_cuentas?" +
+                "_id_estatus";
+
+            string cadena3 = "NpgsqlDbType.Int?" +
+                              "NpgsqlDbType.Varchar?" +
+                              "NpgsqlDbType.Int?" +
+                              "NpgsqlDbType.Int?" +
+                              "NpgsqlDbType.Varchar?" +
+                              "NpgsqlDbType.Int";
+
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_superavit_pagos_cuentas_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO  SUPERAVIT PAGOS CUENTAS ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar  SUPERAVIT PAGOS CUENTAS " + Ex.Message);
+                //     string cadena5 = "_error_errores_importacion";
+                //     string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                  Console.Read();
+
+            }
+
+        }
+
+
+
+        
+
+        public static void carga_core_superavit_pagos_credito()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO  SUPERAVIT PAGOS CREDITOS   ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtSuperavit = AccesoLogicaSQL.Select("SURPLUS_PAYMENT_CREDIT_ID, SURPLUS_PAYMENT_ID, CREDIT_TRANSACTION, STATE, STATUS ",
+                "one.SURPLUS_PAYMENT_CREDIT",
+                " 1=1 ");
+
+            /*
+              ins_core_superavit_pagos_credito_carga(
+    _id_superavit_pagos_credito bigint,
+    _id_superavit_pagos bigint,
+    _id_transacciones bigint,
+    _id_superavit_estados integer,
+    _id_estatus integer)
+    */
+
+            Int64 _id_superavit_pagos_credito;
+            Int64 _id_superavit_pagos;
+            Int64 _id_transacciones;
+            int _id_superavit_estados;
+            int _id_estatus;
+            
+
+            int reg = dtSuperavit.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtSuperavit.Rows)
+                {
+                    _leidos++;
+
+                    _id_superavit_pagos_credito           = Convert.ToInt64(renglon["SURPLUS_PAYMENT_CREDIT_ID"].ToString()); 
+                    _id_superavit_pagos                   = Convert.ToInt64(renglon["SURPLUS_PAYMENT_ID"].ToString());
+                    _id_transacciones                     = Convert.ToInt64(renglon["CREDIT_TRANSACTION"].ToString());
+                    _id_superavit_estados                 = Convert.ToInt32(renglon["STATE"].ToString());
+                    _id_estatus                           = Convert.ToInt32(renglon["STATUS"].ToString());
+                    
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE descuentos cabeza -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_superavit_pagos_credito_carga(_id_superavit_pagos_credito,
+                                                           _id_superavit_pagos,
+                                                           _id_transacciones,
+                                                           _id_superavit_estados,
+                                                           _id_estatus);
+
+
+                }
+
+                //cargar_transacciones_detalle(_id_transacciones);
+
+
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+
+        public static void ins_core_superavit_pagos_credito_carga(Int64 _id_superavit_pagos_credito,
+                                Int64 _id_superavit_pagos,
+                                Int64 _id_transacciones,
+                                int _id_superavit_estados,
+                                int _id_estatus)
+
+
+        {
+
+            string cadena1 = _id_superavit_pagos_credito+"?"+
+                             _id_superavit_pagos + "?" +
+                             _id_transacciones + "?" +
+                             _id_superavit_estados + "?" +
+                             _id_estatus;
+
+            string cadena2 = "_id_superavit_pagos_credito?" +
+                "_id_superavit_pagos?" +
+                "_id_transacciones?" +
+                "_id_superavit_estados?" +
+                "_id_estatus";
+
+            string cadena3 = "NpgsqlDbType.Bigint?" +
+                              "NpgsqlDbType.Bigint?" +
+                              "NpgsqlDbType.Bigint?" +
+                              "NpgsqlDbType.Int?" +
+                              "NpgsqlDbType.Int";
+
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_superavit_pagos_credito_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO  SUPERAVIT PAGOS CREDITOS ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar  SUPERAVIT PAGOS CREDITOS " + Ex.Message);
+                //     string cadena5 = "_error_errores_importacion";
+                //     string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                //  Console.Read();
+
+            }
+
+        }
+
+
+
+
+
+
+        public static void carga_core_superavit_pagos_trabajados()
+        {
+            // Thread.CurrentThread.CurrentCulture = new CultureInfo("es-EC");
+            // CultureInfo culture = CultureInfo.CurrentCulture;
+            //Console.WriteLine("The current culture is {0} [{1}]", culture.NativeName, culture.Name);
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            DateTime dtm = DateTime.Now;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEYENDO  SUPERAVIT PAGOS TRABAJADOS   ->" + dtm);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+            DataTable dtSuperavit = AccesoLogicaSQL.Select("[SURPLUS_PAYMENT_WORK_FLOW_ID], " +
+                "[SURPLUS_PAYMENT_ID], " +
+                "[DOCUMENT_NUMBER], " +
+                "[HAS_CREDIT], " +
+                "[CREDIT_CROSS]," +
+                " [COMMENT], " +
+                "[LAST_USER], " +
+                "[STATE], " +
+                "[DATE_PROCESS], " +
+                "[DATE_CANCELLATION]",
+                "one.SURPLUS_PAYMENT_WORK_FLOW",
+                " 1=1 ");
+
+            /*
+              ins_core_superavit_pagos_trabajados_carga(
+    _id_superavit_pagos_trabajados bigint,
+    _id_superavit_pagos bigint,
+    _documento_numero_superavit_pagos_trabajados character varying,
+    _tiene_credito_superavit_pagos_trabajados boolean,
+    _cruce_credito_superavit_pagos_trabajados boolean,
+    _comentario_superavit_pagos_trabajados character varying,
+    _ultimo_usuario_superavit_pagos_trabajados character varying,
+    _id_superavit_estados integer,
+    _fecha_proceso_superavit_pagos_trabajados timestamp with time zone,
+    _fecha_cancelacion_superavit_pagos_trabajados timestamp with time zone)
+    */
+
+            Int64 _id_superavit_pagos_trabajados;
+            Int64 _id_superavit_pagos;
+            Int64 _documento_numero_superavit_pagos_trabajados;
+            bool _tiene_credito_superavit_pagos_trabajados;
+            bool _cruce_credito_superavit_pagos_trabajados;
+            string _comentario_superavit_pagos_trabajados;
+            string _ultimo_usuario_superavit_pagos_trabajados;
+            int _id_superavit_estados;
+            DateTime _fecha_proceso_superavit_pagos_trabajados;
+            DateTime _fecha_cancelacion_superavit_pagos_trabajados;
+
+            int reg = dtSuperavit.Rows.Count;
+
+            int _leidos = 0;
+            Console.WriteLine("---------------------------------");
+            if (reg > 0)
+            {
+
+                foreach (DataRow renglon in dtSuperavit.Rows)
+                {
+                    _leidos++;
+
+                    _id_superavit_pagos_trabajados                    = Convert.ToInt64(renglon["SURPLUS_PAYMENT_WORK_FLOW_ID"].ToString()); 
+                    _id_superavit_pagos                               = Convert.ToInt64(renglon["SURPLUS_PAYMENT_ID"].ToString());
+                    _documento_numero_superavit_pagos_trabajados      = Convert.ToInt64(renglon["DOCUMENT_NUMBER"].ToString());
+
+                    if (renglon["HAS_CREDIT"].ToString() != "")
+                    {
+                        _tiene_credito_superavit_pagos_trabajados = Convert.ToBoolean(renglon["HAS_CREDIT"].ToString());
+                    }
+                    else
+                    {
+                        _tiene_credito_superavit_pagos_trabajados = false;
+                    }
+
+
+                    if (renglon["HAS_CREDIT"].ToString() != "")
+                    {
+                        _cruce_credito_superavit_pagos_trabajados = Convert.ToBoolean(renglon["CREDIT_CROSS"].ToString());
+                    }
+                    else
+                    {
+                        _cruce_credito_superavit_pagos_trabajados = false;
+                    }
+
+
+
+                    
+
+                    _comentario_superavit_pagos_trabajados           = Convert.ToString(renglon["COMMENT"].ToString());
+                    _ultimo_usuario_superavit_pagos_trabajados       = Convert.ToString(renglon["LAST_USER"].ToString());
+                    _id_superavit_estados                               = Convert.ToInt32(renglon["STATE"].ToString());
+                    _fecha_proceso_superavit_pagos_trabajados      = Convert.ToDateTime(renglon["DATE_PROCESS"].ToString());
+
+                    if (renglon["DATE_CANCELLATION"].ToString() != "")
+                    {
+                        _fecha_cancelacion_superavit_pagos_trabajados = Convert.ToDateTime(renglon["DATE_CANCELLATION"].ToString());
+                    }
+                    else
+                    {
+                        _fecha_cancelacion_superavit_pagos_trabajados = Convert.ToDateTime("01-01-1900");
+                    }
+                    
+
+
+                    //  Console.WriteLine(_fecha_pago_prestaciones);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("TOTAL DE descuentos cabeza -> " + reg + " LEIDOS -> " + _leidos);
+
+                    ins_core_superavit_pagos_trabajados_carga(
+                                        _id_superavit_pagos_trabajados,
+                                        _id_superavit_pagos,
+                                        _documento_numero_superavit_pagos_trabajados,
+                                        _tiene_credito_superavit_pagos_trabajados,
+                                        _cruce_credito_superavit_pagos_trabajados,
+                                        _comentario_superavit_pagos_trabajados,
+                                        _ultimo_usuario_superavit_pagos_trabajados,
+                                        _id_superavit_estados,
+                                        _fecha_proceso_superavit_pagos_trabajados,
+                                        _fecha_cancelacion_superavit_pagos_trabajados);
+
+
+                }
+
+                //cargar_transacciones_detalle(_id_transacciones);
+
+
+
+                Console.WriteLine(reg + "---------------------------------");
+            }
+
+        }
+
+
+
+        public static void ins_core_superavit_pagos_trabajados_carga(Int64 _id_superavit_pagos_trabajados,
+                            Int64 _id_superavit_pagos,
+                            Int64 _documento_numero_superavit_pagos_trabajados,
+                            bool _tiene_credito_superavit_pagos_trabajados,
+                            bool _cruce_credito_superavit_pagos_trabajados,
+                            string _comentario_superavit_pagos_trabajados,
+                            string _ultimo_usuario_superavit_pagos_trabajados,
+                            int _id_superavit_estados,
+                            DateTime _fecha_proceso_superavit_pagos_trabajados,
+                            DateTime _fecha_cancelacion_superavit_pagos_trabajados)
+
+
+        {
+
+            string cadena1 = _id_superavit_pagos_trabajados+"?"+_id_superavit_pagos + "?" +
+                            _documento_numero_superavit_pagos_trabajados + "?" +
+                            _tiene_credito_superavit_pagos_trabajados + "?" +
+                            _cruce_credito_superavit_pagos_trabajados + "?" +
+                            _comentario_superavit_pagos_trabajados + "?" +
+                            _ultimo_usuario_superavit_pagos_trabajados + "?" +
+                            _id_superavit_estados + "?" +
+                            _fecha_proceso_superavit_pagos_trabajados + "?" +
+                            _fecha_cancelacion_superavit_pagos_trabajados;
+
+            string cadena2 = "_id_superavit_pagos_trabajados?" +
+                "_id_superavit_pagos?" +
+                "_documento_numero_superavit_pagos_trabajados?" +
+                "_tiene_credito_superavit_pagos_trabajados?" +
+                "_cruce_credito_superavit_pagos_trabajados?" +
+                "_comentario_superavit_pagos_trabajados?" +
+                "_ultimo_usuario_superavit_pagos_trabajados?" +
+                "_id_superavit_estados?" +
+                "_fecha_proceso_superavit_pagos_trabajados?" +
+                "_fecha_cancelacion_superavit_pagos_trabajados";
+
+            string cadena3 = "NpgsqlDbType.Bigint?" +
+                              "NpgsqlDbType.Bigint?" +
+                              "NpgsqlDbType.Bigint?" +
+                              "NpgsqlDbType.Boolean?" +
+                              "NpgsqlDbType.Boolean?" +
+                              "NpgsqlDbType.Varchar?" +
+                              "NpgsqlDbType.Varchar?" +
+                              "NpgsqlDbType.Int?" +
+                              "NpgsqlDbType.TimestampTz ? " +
+                              "NpgsqlDbType.TimestampTz";
+
+
+            try
+            {
+
+                int resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "ins_core_superavit_pagos_trabajados_carga");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("INSERTADO  SUPERAVIT PAGOS TRABAJADOS ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar  SUPERAVIT PAGOS TRABAJADOS " + Ex.Message);
+                //     string cadena5 = "_error_errores_importacion";
+                //     string cadena6 = "NpgsqlDbType.Varchar";
+                // int resultado = AccesoLogica.Insert(cadena1, cadena5, cadena6, "public.ins_core_errores_importacion");
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                //  Console.Read();
+
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
     }
+
 
 }

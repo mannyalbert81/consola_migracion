@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29728.190
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{D8F0A815-F6E2-4265-866C-BE93491793E2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{E6F32F59-B47B-4F54-AA8F-C9617E95742C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aDocumentRobot", "aDocumentRobot\aDocumentRobot.csproj", "{2368464D-C4E6-47CD-AD88-C982D271E0F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duplicados", "Duplicados\Duplicados.csproj", "{DA01F421-AC38-45F8-A2D9-F6A5D235FF32}"
 EndProject
@@ -31,10 +29,6 @@ Global
 		{E6F32F59-B47B-4F54-AA8F-C9617E95742C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6F32F59-B47B-4F54-AA8F-C9617E95742C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6F32F59-B47B-4F54-AA8F-C9617E95742C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2368464D-C4E6-47CD-AD88-C982D271E0F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2368464D-C4E6-47CD-AD88-C982D271E0F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2368464D-C4E6-47CD-AD88-C982D271E0F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2368464D-C4E6-47CD-AD88-C982D271E0F3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DA01F421-AC38-45F8-A2D9-F6A5D235FF32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DA01F421-AC38-45F8-A2D9-F6A5D235FF32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA01F421-AC38-45F8-A2D9-F6A5D235FF32}.Release|Any CPU.ActiveCfg = Release|Any CPU
