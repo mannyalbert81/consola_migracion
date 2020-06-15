@@ -40,22 +40,19 @@ namespace ExportaImporta
 
             // proceso g41 pata biess
             // generar_g41_biess();
-<<<<<<< HEAD
+
             // generar_g42_biess_nueva();
-=======
-            //          generar_g42_biess_nueva();
->>>>>>> 524930849535fd934071b784eff09e30614ad87e
 
 
             // PROCESO DE CIERRE DE MES CREDITOS
-             Cierre_Mes_Creditos();
+             //Cierre_Mes_Creditos();
 
 
 
             // MIGRACION PARTICIPES
-            /* cargar_participes();
+             cargar_participes();
               cargar_informacion_adicional_participes();
-              */
+              
 
 
             // MIGRACION CREDITOS
@@ -85,11 +82,8 @@ namespace ExportaImporta
 
 
             // MIGRACION APORTES CTA INDIVIDUAL
-<<<<<<< HEAD
               //cargar_contribucion_cuenta_individual();
-=======
-            // cargar_contribucion_cuenta_individual();
->>>>>>> 524930849535fd934071b784eff09e30614ad87e
+
 
 
             // MIGRACION APORTES CTA DESEMBOLSAR
@@ -131,7 +125,7 @@ namespace ExportaImporta
           //  carga_core_superavit_pagos();
            // carga_core_superavit_pagos_cuentas();
            // carga_core_superavit_pagos_credito();
-            carga_core_superavit_pagos_trabajados();
+            //carga_core_superavit_pagos_trabajados();
         }
 
 
@@ -4235,14 +4229,10 @@ namespace ExportaImporta
             int _id_status;
             int _id_estado_transacciones;
             int _id_modo_pago;
-            int _id_creditos_tipo_pago=0;
-            int _id_ccomprobantes_reversa=0;
+            int _id_creditos_tipo_pago;
+            int _id_ccomprobantes_reversa;
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 524930849535fd934071b784eff09e30614ad87e
             int reg = dtTransacciones.Rows.Count;
 
             int _leidos = 0;
@@ -4286,7 +4276,6 @@ namespace ExportaImporta
         }
 
 
-<<<<<<< HEAD
         public static void ins_core_transacciones(Int64 _id_transacciones, Int64 _id_creditos, Int64 _id_participes, DateTime _fecha_transacciones, double  _valor_transacciones, string  _observacion_transacciones, string  _usuario_usuarios, Int64  _id_ccomprobantes_ant, DateTime _fecha_contable_core_transacciones, int _id_status,  int _id_estado_transacciones, int _id_modo_pago, int _id_creditos_tipo_pago, int _id_ccomprobantes_reversa)
         {
 
@@ -4304,24 +4293,6 @@ namespace ExportaImporta
                 _id_modo_pago + "?" +
                 _id_creditos_tipo_pago + "?" +
                 _id_ccomprobantes_reversa;
-=======
-        public static void ins_core_transacciones(Int64 _id_transacciones, Int64 _id_creditos, Int64 _id_participes, DateTime _fecha_transacciones, double _valor_transacciones, string _observacion_transacciones, string _usuario_usuarios, Int64 _id_ccomprobantes_ant, DateTime _fecha_contable_core_transacciones, int _id_status, int _id_estado_transacciones, int _id_modo_pago)
-        {
-
-            string cadena1 = _id_transacciones + "?" +
-                _id_creditos + "?" +
-                _id_participes + "?" +
-                _fecha_transacciones + "?" +
-                _valor_transacciones + "?" +
-                _observacion_transacciones + "?" +
-                _usuario_usuarios + "?" +
-                _id_ccomprobantes_ant + "?" +
-                _fecha_contable_core_transacciones + "?" +
-                _id_status + "?" +
-                _id_estado_transacciones + "?" +
-                _id_modo_pago;
->>>>>>> 524930849535fd934071b784eff09e30614ad87e
-
 
 
 
@@ -4336,14 +4307,11 @@ namespace ExportaImporta
                 "_fecha_contable_core_transacciones?" +
                 "_id_status?" +
                 "_id_estado_transacciones?" +
-<<<<<<< HEAD
+
                 "_id_modo_pago?" +
                 "_id_creditos_tipo_pago?" +
                 "_id_ccomprobantes_reversa";
-=======
-                "_id_modo_pago";
 
->>>>>>> 524930849535fd934071b784eff09e30614ad87e
             string cadena3 = "NpgsqlDbType.Bigint?" +
                             "NpgsqlDbType.Bigint?" +
                             "NpgsqlDbType.Bigint?" +

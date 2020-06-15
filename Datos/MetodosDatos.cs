@@ -47,16 +47,20 @@ namespace Datos
             return comando;
         }
 
+
+
         public static int EjecutarComando(NpgsqlCommand comando)
         {
+
+           
+
             try
             {
 
-               // Console.WriteLine(comando);
-
-
                 comando.Connection.Open();
                 return comando.ExecuteNonQuery();
+                 
+
             }
             catch
             {
@@ -67,6 +71,44 @@ namespace Datos
                 comando.Connection.Dispose();
                 comando.Connection.Close();
             }
+
+
+           
+
+
+
+        }
+
+
+        public static DataTable EjecutarComando1(NpgsqlCommand comando)
+        {
+
+            DataTable resultado = new DataTable();
+            
+            try
+            {
+
+                comando.Connection.Open();
+                comando.CommandTimeout=0;
+                NpgsqlDataAdapter comando1 = new NpgsqlDataAdapter(comando);
+                comando1.Fill(resultado);
+
+            }
+            catch
+            {
+                resultado = null;
+            }
+            finally
+            {
+                comando.Connection.Dispose();
+                comando.Connection.Close();
+            }
+
+
+            return resultado;
+
+
+
         }
     }
 }

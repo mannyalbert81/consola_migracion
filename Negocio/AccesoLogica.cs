@@ -73,10 +73,18 @@ namespace Negocio
             return fun.Insert(datos, columnas, tabla);
         }
 
+
         public static int Insert(string datos, string columnas, string tipoDatos, string funcion)
         {
             Consultas fun = new Consultas();
             return fun.Insert(datos, columnas, tipoDatos, funcion);
+        }
+
+
+        public static DataTable Insert1(string datos, string columnas, string tipoDatos, string funcion)
+        {
+            Consultas fun = new Consultas();
+            return fun.Insert1(datos, columnas, tipoDatos, funcion);
         }
 
         public static int Delete(string where, string tabla)

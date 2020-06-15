@@ -68,6 +68,62 @@ namespace Datos
         }
 
 
+
+        public DataTable Insert1(string datos, string columnas, string tipoDatos, string funcion)
+        {
+
+
+            datos = datos.Replace("''", "null");
+
+            //Console.WriteLine(datos);
+
+
+            NpgsqlCommand comando = MetodosDatos.CrearComandoProc(funcion);
+
+            if (datos.Contains("?"))
+            {
+                string[] vector1 = Vector(datos);
+                string[] vector2 = Vector(columnas);
+                string[] vector3 = Vector(tipoDatos);
+
+                for (int i = 0; i < vector1.Length; i++)
+                {
+                    comando.Parameters.Add(new NpgsqlParameter(vector2[i], vector3[i]));
+
+
+
+                    if (vector1[i].Length == 0)
+                    {
+
+                        comando.Parameters[i].Value = DBNull.Value;
+
+                        //Console.WriteLine(vector1[i] + " -> ");
+
+
+                    }
+                    else
+                    {
+
+                        comando.Parameters[i].Value = vector1[i];
+
+
+                    }
+
+
+                }
+            }
+            else
+            {
+                comando.Parameters.Add(new NpgsqlParameter(columnas, tipoDatos));
+                comando.Parameters[0].Value = datos;
+            }
+
+
+
+
+            return MetodosDatos.EjecutarComando1(comando);
+        }
+
         public int Insert(string datos, string columnas, string tipoDatos, string funcion)
         {
 

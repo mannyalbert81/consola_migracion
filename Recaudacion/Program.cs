@@ -33,8 +33,80 @@ namespace Recaudacion
             _mes = Convert.ToInt32(mes.ToString());
             _dia = Convert.ToInt32(dia.ToString());
 
-            procesa_descuentos_aportes();
+            // procesa_descuentos_aportes();
+            Pruebas();
         }
+
+
+
+
+
+
+        public static void Pruebas()
+        {
+
+            string cadena1 = "Prueba";
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+            Console.WriteLine("LEENDO ->" + cadena1);
+            Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+            string cadena2 = "_nombre";
+            string cadena3 = "NpgsqlDbType.Varchar";
+
+
+            try
+            {
+                DataTable resultado = AccesoLogica.Insert1(cadena1, cadena2, cadena3, "public.ins_var_existe");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                int reg_descuentos = resultado.Rows.Count;
+
+                Int64 _id_contribucion=0;
+
+                if (reg_descuentos > 0)
+                {
+
+                    foreach (DataRow renglon in resultado.Rows)
+                    {
+
+                        _id_contribucion = Convert.ToInt64(renglon["ins_var_existe"].ToString());
+                    }
+                 
+                    Console.WriteLine("------------------------------------------------------------------------------------------------");
+                    Console.WriteLine("INSERTADO CORRECTAMENTE -> " + _id_contribucion);
+                    Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+                }
+                else {
+                    Console.WriteLine("------------------------------------------------------------------------------------------------");
+                    Console.WriteLine(" VACIO -> "  );
+                    Console.WriteLine("------------------------------------------------------------------------------------------------");
+                }
+
+
+
+            }
+            catch (Exception Ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Error al insertar en Descuentos Registrados Detalle Contribucion " + Ex.Message);
+               
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+                Console.WriteLine("ERROR INSERTADO ->" + cadena1);
+                Console.WriteLine("------------------------------------------------------------------------------------------------");
+
+
+
+            }
+
+
+        }
+
+
+
+
+
 
 
 
@@ -248,13 +320,13 @@ namespace Recaudacion
             try
             {
 
-                Int64 resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "public.ins_core_contribucion_system_batch");
+                DataTable resultado = AccesoLogica.Insert1(cadena1, cadena2, cadena3, "public.ins_core_contribucion_system_batch");
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
                 Console.WriteLine("INSERTADO CORRECTAMENTE -> " + cadena1);
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
 
-                _id_contribucion = resultado;
+                _id_contribucion = Convert.ToInt64(resultado.Rows[0]);
 
             }
             catch (Exception Ex)
@@ -267,7 +339,7 @@ namespace Recaudacion
                             _error_descuentos_registrados_cabeza;
                 string cadena5 = "_id_descuentos_registrados_cabeza?_id_descuentos_registrados_detalle_aportes?_error_descuentos_registrados_cabeza";
                 string cadena6 = "NpgsqlDbType.Bigint?NpgsqlDbType.Bigint?NpgsqlDbType.Varchar";
-                Int64 resultado = AccesoLogica.Insert(cadena4, cadena5, cadena6, "public.ins_core_descuentos_registrados_errores_system_batch");
+                DataTable resultado = AccesoLogica.Insert1(cadena4, cadena5, cadena6, "public.ins_core_descuentos_registrados_errores_system_batch");
 
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
                 Console.WriteLine("ERROR INSERTADO ->" + cadena1);
@@ -303,7 +375,7 @@ namespace Recaudacion
             try
             {
 
-                Int64 resultado = AccesoLogica.Insert(cadena1, cadena2, cadena3, "public.ins_core_descuentos_registrados_detalle_contibucion_system_batc");
+                DataTable resultado = AccesoLogica.Insert1(cadena1, cadena2, cadena3, "public.ins_core_descuentos_registrados_detalle_contibucion_system_batc");
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
                 Console.WriteLine("INSERTADO CORRECTAMENTE -> " + cadena1);
@@ -322,7 +394,7 @@ namespace Recaudacion
                             _error_descuentos_registrados_cabeza;
                 string cadena5 = "_id_descuentos_registrados_cabeza?_id_descuentos_registrados_detalle_aportes?_error_descuentos_registrados_cabeza";
                 string cadena6 = "NpgsqlDbType.Bigint?NpgsqlDbType.Bigint?NpgsqlDbType.Varchar";
-                Int64 resultado = AccesoLogica.Insert(cadena4, cadena5, cadena6, "public.ins_core_descuentos_registrados_errores_system_batch");
+                DataTable resultado = AccesoLogica.Insert1(cadena4, cadena5, cadena6, "public.ins_core_descuentos_registrados_errores_system_batch");
 
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
                 Console.WriteLine("ERROR INSERTADO ->" + cadena1);
