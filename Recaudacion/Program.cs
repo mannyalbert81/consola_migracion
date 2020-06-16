@@ -4,10 +4,12 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using Negocio;
+using Datos;
 using System.Globalization;
 using System.Xml.Linq;
 using System.Xml;
 using System.Threading;
+using Npgsql;
 
 namespace Recaudacion
 {
@@ -33,8 +35,8 @@ namespace Recaudacion
             _mes = Convert.ToInt32(mes.ToString());
             _dia = Convert.ToInt32(dia.ToString());
 
-            // procesa_descuentos_aportes();
-            Pruebas();
+             procesa_descuentos_aportes();
+            //Pruebas();
         }
 
 
@@ -184,7 +186,11 @@ namespace Recaudacion
             Int64? _id_contribucion = 0;
             int[] _contribuciones_afectadas;
             int _errores = 0;
-           
+
+
+            NpgsqlConnection connection = null;
+            NpgsqlTransaction transaction = null;
+            NpgsqlCommand command = null;
 
             // CONSULTO DETALLE DESCUENTOS APORTES
             DataTable dtDetalleAportes = AccesoLogica.Select("a.id_participes, a.aporte_personal_descuentos_registrados_detalle_aportes, a.aporte_patronal_descuentos_registrados_detalle_aportes, a.rmu_descuentos_registrados_detalle_aportes, a.liquido_descuentos_registrados_detalle_aportes, a.multas_descuentos_registrados_detalle_aportes, a.antiguedad_descuentos_registrados_detalle_aportes, a.id_descuentos_registrados_detalle_aportes, a.id_descuentos_registrados_cabeza", "core_descuentos_registrados_detalle_aportes a", "a.id_descuentos_registrados_cabeza = "+_id_descuentos_registrados_cabeza+ " ORDER BY a.id_descuentos_registrados_detalle_aportes ASC");
@@ -192,10 +198,21 @@ namespace Recaudacion
 
             if (reg_aporte > 0)
             {
-                _contribuciones_afectadas = new int[reg_aporte];
+                _contribuciones_afectadas = new int[500];
 
                 //INICIO TRANSACCIONALIDAD PARA ROLL BACK SI HAY ERRORES
-                AccesoLogica.BeginTran("BEGIN");
+                //AccesoLogica.BeginTran("BEGIN");
+
+
+                connection = new NpgsqlConnection(MetodosDatos.cadenaConexion);
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                command = new NpgsqlCommand();
+                command.Connection = connection;
+                command.Transaction = transaction;
+
+
+
 
 
                 foreach (DataRow renglon_pagos in dtDetalleAportes.Rows)
@@ -216,6 +233,10 @@ namespace Recaudacion
                     Console.WriteLine("-----------------------------------------------------------------------------------------------------------------");
                     _id_contribucion = Ins_Contribucion(_id_participes, _aporte_personal_descuentos_registrados_detalle_aportes, _aporte_patronal_descuentos_registrados_detalle_aportes, _rmu_descuentos_registrados_detalle_aportes, _liquido_descuentos_registrados_detalle_aportes, _multas_descuentos_registrados_detalle_aportes, _antiguedad_descuentos_registrados_detalle_aportes, _id_descuentos_registrados_detalle_aportes, _year_descuentos_registrados_cabeza, _mes_descuentos_registrados_cabeza, _fecha_descuentos_registrados_cabeza, _fecha_contable_descuentos_registrados_cabeza, _usuario_descuentos_registrados_cabeza, _id_entidad_patronal, _id_descuentos_registrados_cabeza);
 
+                    if (_leidos_aportes==1) {
+                        _id_contribucion = 0;
+                    }
+
 
                     if (_id_contribucion>0) {
 
@@ -223,13 +244,14 @@ namespace Recaudacion
 
                         Console.WriteLine("CORRECTO ID_CONTRIBUCION ->   " + _id_contribucion);
                         Ins_Descuentos_Registrados_Contribucion(_id_descuentos_registrados_detalle_aportes, _id_contribucion, _id_descuentos_registrados_cabeza);
-                    }
-                    else {
+                    
+                    }else {
                         _errores++;
                         Console.WriteLine("ERROR ID_CONTRIBUCION ->   " + _id_contribucion);
-                        
+
                         //FORZO ROLL BACK PORQUE HAY ERRORES
-                        AccesoLogica.EndTran("ROLLBACK");
+                        //AccesoLogica.EndTran("ROLLBACK");
+                        if (transaction != null) transaction.Rollback();
 
                         break;
                        
@@ -240,22 +262,30 @@ namespace Recaudacion
 
                 //CREAR DIARIOS CONTABLES DE APORTES
 
-                if (_errores == 0) { 
+                if (_errores == 0) {
 
-                     if (_contribuciones_afectadas.Length>0) {
+                    int id_contribucion = 0;
 
-                        for (int i = 0; i < _leidos_aportes; i++)
+
+                    if (_contribuciones_afectadas.Length>0) {
+
+                        for (int i = 1; i <= _leidos_aportes; i++)
                         {
 
                             //RECORRO LAS DISTRIBUCIONES AFECTADAS A LAS QUE HAY QUE HACER LOS DIARIOS CONTABLES DE APORTES
-                            int id_contribucion = _contribuciones_afectadas[i];
+                            id_contribucion = 0;
+                            id_contribucion = _contribuciones_afectadas[i];
                             Console.WriteLine("CORRECTO ID_CONTRIBUCION_PROCESADO ->   " + id_contribucion);
 
                             //TERMINO TRANSACCIONALIDAD SIN ERRORES
-                            AccesoLogica.EndTran("COMMIT");
+                            //AccesoLogica.EndTran("COMMIT");
+                            transaction.Commit();
 
 
                         }
+
+
+                        if (connection != null) connection.Close();
                     }
                 }
 
@@ -321,13 +351,25 @@ namespace Recaudacion
             {
 
                 DataTable resultado = AccesoLogica.Insert1(cadena1, cadena2, cadena3, "public.ins_core_contribucion_system_batch");
+                int reg_descuentos = resultado.Rows.Count;
+
+
+                if (reg_descuentos > 0)
+                {
+
+                    foreach (DataRow renglon in resultado.Rows)
+                    {
+
+                        _id_contribucion = Convert.ToInt64(renglon["ins_core_contribucion_system_batch"].ToString());
+                    }
+                }
+
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
                 Console.WriteLine("INSERTADO CORRECTAMENTE -> " + cadena1);
                 Console.WriteLine("------------------------------------------------------------------------------------------------");
 
-                _id_contribucion = Convert.ToInt64(resultado.Rows[0]);
-
+          
             }
             catch (Exception Ex)
             {
