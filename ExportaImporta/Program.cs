@@ -50,8 +50,8 @@ namespace ExportaImporta
 
 
             // MIGRACION PARTICIPES
-             cargar_participes();
-              cargar_informacion_adicional_participes();
+        //     cargar_participes();
+        //      cargar_informacion_adicional_participes();
               
 
 
@@ -110,14 +110,14 @@ namespace ExportaImporta
             ////DESCUENTOS
             ///
 
-            /*
-            cargar_core_descuentos_formatos_carga();
-            cargar_core_descuentos_registrados_cabeza_carga();
-            cargar_core_descuentos_registrados_detalle_aportes();
-            cargar_core_descuentos_registrados_detalle_contibucion();
-            cargar_core_descuentos_registrados_detalle_creditos();
-            cargar_core_descuentos_registrados_detalle_creditos_trans();
-            */
+            
+           cargar_core_descuentos_formatos_carga();
+           cargar_core_descuentos_registrados_cabeza_carga();
+           cargar_core_descuentos_registrados_detalle_aportes();
+           cargar_core_descuentos_registrados_detalle_contibucion();
+           cargar_core_descuentos_registrados_detalle_creditos();
+           cargar_core_descuentos_registrados_detalle_creditos_trans();
+            
 
 
             ///SUPERAVIT
@@ -6374,12 +6374,30 @@ namespace ExportaImporta
                     _leidos++;
 
                     _id_descuentos_registrados_detalle_creditos_trans         = Convert.ToInt64(renglon["ID"].ToString());
-                    _id_descuentos_registrados_detalle_creditos               = Convert.ToInt64(renglon["ID"].ToString());
-                    _id_transacciones                                         = Convert.ToInt64(renglon["ID"].ToString());
-                    _valor_cxp_descuentos_registrados_detalle_creditos_trans = Convert.ToInt64(renglon["ID"].ToString());
-                    _credit_pay_descuentos_registrados_detalle_creditos_trans   = Convert.ToInt32(renglon["ID"].ToString());
-                    _cxp_voucher_descuentos_registrados_detalle_creditos_trans =  Convert.ToString(renglon["ID"].ToString());
-                    _observacion_descuentos_registrados_detalle_creditos_trans  = Convert.ToString(renglon["ID"].ToString());
+                    _id_descuentos_registrados_detalle_creditos               = Convert.ToInt64(renglon["DESCUENTOS_REGISTRADOS_CREDITO_ID"].ToString());
+
+                    if (renglon["CREDIT_TRANSACTION_ID"].ToString() != "")
+                    {
+                        _id_transacciones = Convert.ToInt64(renglon["CREDIT_TRANSACTION_ID"].ToString());
+                    }
+                    else
+                    {
+                        _id_transacciones = 0;
+                    }
+                    
+                    
+                    if (renglon["VALOR_CUENTA_POR_PAGAR"].ToString() != "")
+                    {
+                        _valor_cxp_descuentos_registrados_detalle_creditos_trans = Convert.ToDouble(renglon["VALOR_CUENTA_POR_PAGAR"].ToString());
+                    }
+                    else
+                    {
+                        _valor_cxp_descuentos_registrados_detalle_creditos_trans = 0;
+                    }
+                    
+                    _credit_pay_descuentos_registrados_detalle_creditos_trans   = Convert.ToInt32(renglon["CREDIT_PAY_RESULT"].ToString());
+                    _cxp_voucher_descuentos_registrados_detalle_creditos_trans =  Convert.ToString(renglon["CXP_VCHRNMBR"].ToString());
+                    _observacion_descuentos_registrados_detalle_creditos_trans  = Convert.ToString(renglon["OBSERVATION"].ToString());
 
                     
 

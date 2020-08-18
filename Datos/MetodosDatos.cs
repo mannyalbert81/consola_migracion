@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Npgsql;
+using System.Globalization;
 
 namespace Datos
 {
@@ -12,9 +13,11 @@ namespace Datos
     {
         //public static string cadenaConexion = @"Server=18.218.148.189;Port=5432;User Id=postgres;Password=Capremci2018;Database=web_capremci;Preload Reader = true;";
        //  public static string cadenaConexion = @"Server=192.168.1.231;Port=5432;User Id=postgres;Password=Programadores2018;Database=rp_capremci;Preload Reader = true;";
-        public static string cadenaConexion = @"Server=186.4.157.125;Port=5432;User Id=postgres;Password=Programadores2018;Database=rp_capremci4;Preload Reader = true;";
-        
+        public static string cadenaConexion = @"Server=192.168.1.231;Port=5432;User Id=postgres;Password=Programadores2018;Database=rp_capremci;Preload Reader = true;";
+
         //186.65.24.196
+
+        
 
         public static DataTable EjecutarConsula(string comando)
         {
